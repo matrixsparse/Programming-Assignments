@@ -54,7 +54,7 @@ git branch
 git checkout [remote branch]
 ```
 
-### 将远程仓库代码同步到本地
+### 将远程仓库代码同步到本地/取回远程主机某个分支的更新
 
 ```bash
 git pull origin master
