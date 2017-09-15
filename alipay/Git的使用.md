@@ -16,10 +16,6 @@ ssh-keygen -t rsa -C "youremail@example.com"
 
 ### 在Github上设置ssh秘钥
 
-```bash
-git clone git@github.com:michaelliao/gitskills.git
-```
-
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjkeas0x3xj20nt0c0ab3.jpg)
 
 ### 克隆项目
