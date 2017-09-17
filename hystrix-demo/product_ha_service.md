@@ -1,15 +1,11 @@
 
-## 新建maven项目
+## IDEA新建Maven
 
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjmxn5ir4aj21gy0tytay.jpg)
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjn0xy9s6oj21gy0wk76n.jpg)
 
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjmxn7q7bdj21gy0tyn5x.jpg)
-
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjmxn8lbpbj21u61aa7bf.jpg)
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjn0xy9dydj21gy0wkace.jpg)
 
 ## 项目结构
-
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjmyuo200vj20ig0o0q58.jpg)
 
 ## Auto-import
 
@@ -31,9 +27,8 @@ Auto-import自动导入依赖
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.matrix.hystrix</groupId>
-    <artifactId>hystrix-example</artifactId>
+    <artifactId>hystrix-product-ha</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -109,6 +104,7 @@ Auto-import自动导入依赖
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
 ```
 
@@ -152,7 +148,7 @@ public interface UserMapper {
 ### src/main/resources/Application.properties 
 
 ```bash
-server.port=8081
+server.port=8082
 spring.datasource.url=jdbc:mysql://115.28.240.96:3306/hystrix_demo
 spring.datasource.username=hystrix_demo
 spring.datasource.password=hystrix_demo
