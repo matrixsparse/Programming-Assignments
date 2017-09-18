@@ -7,6 +7,8 @@
 
 ## 项目结构
 
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjnq7g4q4fj209j0cdglu.jpg)
+
 ## Auto-import
 
 ```bash
