@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ProductController {
 
+    /**
+     * 缓存服务接收到这条消息之后，就会去通过http调用商品服务的一个接口，获取到商品变更后的最新数据
+     *
+     * @param productId
+     * @return
+     */
     @RequestMapping("/getProductInfo")
     @ResponseBody
     public String getProductInfo(Long productId) {

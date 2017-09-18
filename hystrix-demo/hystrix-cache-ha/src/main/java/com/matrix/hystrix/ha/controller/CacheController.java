@@ -17,6 +17,8 @@ public class CacheController {
         // 拿到一个商品id
         // 调用商品服务的接口，获取商品id对应的商品的最新数据
         // 用HttpClient去调用商品服务的http接口
+
+        // 往http接口发送一条消息，就认为是通知缓存服务，有一个商品的数据变更了
         String url = "http://127.0.0.1:8082/getProductInfo?productId=" + productId;
         String response = HttpClientUtils.sendGetRequest(url);
         System.out.println(response);
