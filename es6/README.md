@@ -53,6 +53,21 @@ mkdir es6/tasks/util
 touch es6/tasks/util/args.js
 ```
 
+```bash
+cd es6
+npm init
+touch .babelrc
+touch gulpfile.babel.js
+touch tasks/scripts.js
+```
+
+>使用npm命令安装依赖包
+
+```bash
+cd es6
+npm install gulp gulp-if gulp-concat webpack webpack-stream vinyl-named gulp-livere load gulp-plumber gulp-rename gulp-uglify gulp-util yargs --save-dev
+```
+
 ## 编译工具(babel、webpack)
 
 ## 代码实现
