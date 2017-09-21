@@ -59,6 +59,7 @@ npm init
 touch .babelrc
 touch gulpfile.babel.js
 touch tasks/scripts.js
+touch tasks/pages.js
 ```
 
 >使用npm命令安装依赖包
