@@ -21,6 +21,6 @@ ajax
 
 ## Vue.js学习资源
 
-* vuejs中文官网[All text](http://cn.vuejs.org/)
-* vuejs源码[All text](https://github.com/vuejs/vue)
-* vuejs官方工具[All text](https://github.com/vuejs)
+* vuejs中文官网[vuejs中文官网](http://cn.vuejs.org/)
+* vuejs源码[vuejs源码](https://github.com/vuejs/vue)
+* vuejs官方工具[vuejs官方工具](https://github.com/vuejs)
