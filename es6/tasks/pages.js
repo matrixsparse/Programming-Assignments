@@ -5,6 +5,7 @@ import args from './util/args';
 
 gulp.task('pages',()=>{
   return gulp.src('app/**/*.ejs')
+    .pipe(gulp.dest('server'))
     // 热更新
     .pipe(gulp.dest('server.watch.livereload()'))
 })
