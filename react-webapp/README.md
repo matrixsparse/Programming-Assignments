@@ -68,3 +68,27 @@ vi package.json
   "license": "ISC"
 }
 ```
+
+## 安装插件
+
+>安装webpack相关插件
+
+```bash
+npm install webpack webpack-dev-server --save-dev
+```
+
+>安装react相关插件
+
+```bash
+npm install react react-dom --save
+```
+
+```bash
+安装完成后，查看package.json，发现多了devDependencies和dependencies两项，根目录也多了一个node_modules文件夹
+```
+
+## --save和--save-dev的区别
+
+```bash
+npm i 时 --save
+```
