@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
           }
-          #hello p{
+          #data p,#data input[type="text"]{
             font-size: 16px;
             font-family: "微软雅黑";
           }
@@ -17,8 +17,9 @@
     </head>
     <body>
         <!--View-->
-        <div id="hello">
+        <div id="data">
             <p>{{ message }}</p>
+            <input type="text" v-model="message"/>
         </div>
     </body>
     <script src="/dist/build.js"></script>

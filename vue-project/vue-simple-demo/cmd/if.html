@@ -9,7 +9,12 @@
             margin: 0;
             padding: 0;
           }
-          #hello p{
+          #if_data{
+            width: 400px;
+            height: 500px;
+            margin:100px auto;
+          }
+          #if_data p{
             font-size: 16px;
             font-family: "微软雅黑";
           }
@@ -17,9 +22,13 @@
     </head>
     <body>
         <!--View-->
-        <div id="hello">
-            <p>{{ message }}</p>
+        <div id="if_data">
+            <h1>Hello,Vue.js!</h1>
+            <h1 v-if="yes">Yes!</h1>
+            <h1 v-if="no">No!</h1>
+            <h1 v-if="age >= 25 ">Age：{{ age }}!</h1>
+            <h1 v-if="name.indexOf('jack') >= 0">Name：{{ name }}</h1>
         </div>
     </body>
-    <script src="/dist/build.js"></script>
+    <script src="../dist/build.js"></script>
 </html>

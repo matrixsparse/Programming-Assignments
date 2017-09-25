@@ -108,3 +108,54 @@ npm run build
 ### 运行结果
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjv4ljk72yj215g07cgn8.jpg)
+
+## 双向绑定示例
+
+```bash
+MVVM模式本身是实现了双向绑定的，在Vue.js中可以使用v-model指令在表单元素上创建双向数据绑定
+```
+
+>data.html
+
+```bash
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="src/assets/logo.png" />
+        <title>vue-simple-demo</title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="data">
+            <p>{{ message }}</p>
+            <input type="text" v-model="message"/>
+        </div>
+    </body>
+    <script src="/dist/build.js"></script>
+</html>
+```
+
+>src/main.js
+
+```bash
+import Vue from 'vue'
+
+// Model
+var exampleData = {
+    message: 'Hello World!'
+}
+
+// 创建一个 Vue 实例或 "ViewModel"
+// 它连接 View 与 Model
+new Vue({
+    el: '#data',
+    data: exampleData
+})
+```
+
+```bash
+将message绑定到文本框，当更改文本框的值时，<p>{{ message }}</p> 中的内容也会被更新。
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjvzr9r3goj20n70323yf.jpg)
