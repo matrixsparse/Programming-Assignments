@@ -84,6 +84,18 @@ var vm = new Vue({
 注意：yes, no, age, name这4个变量都来源于Vue实例选项对象的data属性
 ```
 
+### 运行示例
+
+```bash
+npm run dev
+```
+
+### 发布
+
+```bash
+npm run build
+```
+
 ### 运行结果
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjw07ofjsjj20ut08swej.jpg)

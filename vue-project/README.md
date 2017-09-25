@@ -19,6 +19,14 @@ ajax
 数据流管理
 ```
 
+## Vue基本概念
+
+* 全局api
+* 实例选项
+* 实例属性/方法
+* 指令
+* 内置组件
+
 ## Vue.js学习资源
 
 * [vuejs中文官网](http://cn.vuejs.org/)
@@ -95,14 +103,14 @@ drwxr-xr-x  9 matrix  staff   306  9 24 23:11 vue-simple-demo
 
 ```bash
 ├─.babelrc		// babel配置文件
-├─.gitignore	
+├─.gitignore
 ├─index.html		// 主页
 ├─package.json		// 项目配置文件
 ├─README.md  
 ├─webpack.config.js	// webpack配置文件
 ├─dist			// 发布目录
 │   ├─.gitkeep       
-├─src			// 开发目录	
+├─src			// 开发目录
 │   ├─App.vue		// App.vue组件
 │   ├─main.js		// 预编译入口
 ```
