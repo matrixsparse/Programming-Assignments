@@ -93,4 +93,18 @@ data: exampleData表示我们的Model是exampleData对象
 Vue.js有多种数据绑定的语法，最基础的形式是文本插值，使用一对大括号语法，在运行时{{ message }}会被数据对象的message属性替换，所以页面上会输出"Hello World!"
 ```
 
+### 运行示例
+
+```bash
+npm run dev
+```
+
+### 发布
+
+```bash
+npm run build
+```
+
+### 运行结果
+
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjv4ljk72yj215g07cgn8.jpg)

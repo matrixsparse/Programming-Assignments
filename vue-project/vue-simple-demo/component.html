@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="src/assets/logo.png" />
+        <title>vue-simple-demo</title>
+    </head>
+    <body>
+      <div id="component-test1">
+        <!-- 3.#component-test是Vue实例挂载的元素，应该在挂载元素范围内使用组件 -->
+        <matrix-component></matrix-component>
+      </div>
+
+      <div id="component-test2">
+        <!-- 3.#component-test是Vue实例挂载的元素，应该在挂载元素范围内使用组件 -->
+        <matrix-component></matrix-component>
+      </div>
+
+      <!--该组件不会被渲染-->
+      <my-component></my-component>
+    </body>
+    <script src="/dist/build.js"></script>
+</html>
