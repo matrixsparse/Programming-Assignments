@@ -33,6 +33,25 @@ var vm = new Vue({
     }
 })
 
+var show_data = new Vue({
+    el: '#show_data',
+    data: {
+      yes:true,
+      no:false,
+      age:28,
+      name:'matrix'
+    }
+})
+
+var else_data = new Vue({
+  el:'#else_data',
+  data:{
+    age:28,
+    name:'jack ma',
+    sex:'Male'
+  }
+})
+
 // 1.创建一个组件构造器
 var myComponent = Vue.extend({
   template: '<div style="font-family:微软雅黑;">This is matrix component</div>'
