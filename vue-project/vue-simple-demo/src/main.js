@@ -83,6 +83,23 @@ var bind_data = new Vue({
   }
 })
 
+var on_data = new Vue({
+  el: '#on_data',
+  data:{
+    message: 'Hello , Vue.js！'
+  },
+  // 在`methods`对象中定义方法
+  methods:{
+    greet:function(){
+      // 方法内`this`指向vm
+      alert(this.message)
+    },
+    say:function(msg){
+      alert(msg)
+    }
+  }
+})
+
 // 1.创建一个组件构造器
 var myComponent = Vue.extend({
   template: '<div style="font-family:微软雅黑;">This is matrix component</div>'

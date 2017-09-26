@@ -471,3 +471,118 @@ npm run build
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjwz0lu4s9j20yb06wt8o.jpg)
+
+## v-on指令
+
+```bash
+v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的，例如监听<a>元素的点击事件
+```
+
+```bash
+<a v-on:click="doSomething">
+```
+
+```bash
+有两种形式调用方法：
+
+绑定一个方法（让事件指向方法的引用），或者使用内联语句
+Greet按钮将它的单击事件直接绑定到greet()方法，而Hi按钮则是调用say()方法
+```
+
+>cmd/on.html
+
+```bash
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../src/assets/logo.png" />
+        <title>vue-simple-demo</title>
+        <style type="text/css">
+          *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          #on_data{
+            width: 50%;
+            margin:100px auto;
+          }
+          #on_data p,#on_data p input[type='text'],#on_data p button{
+            font-size: 16px;
+            font-family: "微软雅黑";
+          }
+        </style>
+    </head>
+    <body>
+        <!--View-->
+        <div id="on_data">
+          <p><input type="text" v-model="message"><p>
+          <p>
+              <!-- click事件直接绑定一个方法 -->
+              <button v-on:click="greet">Greet</button>
+          </p>
+          <p>
+              <!-- click事件使用内联语句 -->
+              <button v-on:click="say('Hi')">Hi</button>
+          </p>
+        </div>
+    </body>
+    <script src="../dist/build.js"></script>
+</html>
+```
+
+>src/main.js
+
+```bash
+import Vue from 'vue'
+
+var on_data = new Vue({
+  el: '#on_data',
+  data:{
+    message: 'Hello , Vue.js！'
+  },
+  // 在`methods`对象中定义方法
+  methods:{
+    greet:function(){
+      // 方法内`this`指向vm
+      alert(this.message)
+    },
+    say:function(msg){
+      alert(msg)
+    }
+  }
+})
+```
+
+### 运行示例&发布
+
+```bash
+npm run dev
+npm run build
+```
+
+### 运行结果
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjx5luhzcmj20ri06d3yh.jpg)
+
+## v-bind和v-on的缩写
+
+```bash
+Vue.js为最常用的两个指令v-bind和v-on提供了缩写方式
+
+v-bind指令可以缩写为一个冒号
+v-on指令可以缩写为@符号
+```
+
+```bash
+<!--完整语法-->
+<a href="javascripit:void(0)" v-bind:class="activeNumber === n ? 'active' : ''">{{ n }}</a>
+<!--缩写语法-->
+<a href="javascripit:void(0)" :class="activeNumber=== n ? 'active' : ''">{{ n }}</a>
+
+<!--完整语法-->
+<button v-on:click="greet">Greet</button>
+<!--缩写语法-->
+<button @click="greet">Greet</button>
+```

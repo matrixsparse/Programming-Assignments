@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../src/assets/logo.png" />
+        <title>vue-simple-demo</title>
+        <style type="text/css">
+          *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          #on_data{
+            width: 50%;
+            margin:100px auto;
+          }
+          #on_data p,#on_data p input[type='text'],#on_data p button{
+            font-size: 16px;
+            font-family: "微软雅黑";
+          }
+        </style>
+    </head>
+    <body>
+        <!--View-->
+        <div id="on_data">
+          <p><input type="text" v-model="message"><p>
+          <p>
+              <!-- click事件直接绑定一个方法 -->
+              <button v-on:click="greet">Greet</button>
+          </p>
+          <p>
+              <!-- click事件使用内联语句 -->
+              <button v-on:click="say('Hi')">Hi</button>
+          </p>
+        </div>
+    </body>
+    <script src="../dist/build.js"></script>
+</html>
