@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../src/assets/logo.png" />
+        <title>vue-simple-demo</title>
+        <style type="text/css">
+          *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          #bind_data{
+            width: 50%;
+            margin:100px auto;
+          }
+          #bind_data ul li{
+            font-size: 16px;
+            font-family: "微软雅黑";
+          }
+          .pagination .active {
+            color: #fff;
+            background-color: #009a61;
+            border-left: none;
+            border-right: none;
+          }
+          .pagination > li {
+            display: inline;
+          }
+          .pagination > li > a {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            line-height: 1.5;
+            text-decoration: none;
+            color: #009a61;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-left: -1px;
+            list-style: none;
+          }
+        </style>
+    </head>
+    <body>
+        <!--View-->
+        <div id="bind_data">
+          <ul class="pagination">
+                <li v-for="n in pageCount">
+                    <a href="javascripit:void(0)" v-bind:class="activeNumber === n ? 'active' : ''">{{ n }}</a>
+                </li>
+          </ul>
+        </div>
+    </body>
+    <script src="../dist/build.js"></script>
+</html>

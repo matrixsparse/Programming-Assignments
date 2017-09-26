@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../src/assets/logo.png" />
+        <title>vue-simple-demo</title>
+        <style type="text/css">
+          *{
+            margin: 0;
+            padding: 0;
+          }
+          #for_data{
+            width: 400px;
+            height: 500px;
+            margin:100px auto;
+          }
+          #for_data tr th {
+            background: #42b983;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #fff;
+            cursor: pointer;
+          }
+          td, th {
+              border: 1px solid #bcbcbc;
+              padding: 5px 10px;
+          }
+          table, td, th {
+              border-collapse: collapse;
+              border-spacing: 0;
+          }
+          #for_data tr th,#for_data tr td{
+            font-size: 16px;
+            font-family: "微软雅黑";
+          }
+        </style>
+    </head>
+    <body>
+        <!--View-->
+        <div id="for_data">
+          <table>
+            <thread>
+              <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Sex</th>
+              </tr>
+            </thread>
+            <tbody>
+              <tr v-for="person in people">
+                  <td>{{ person.name }}</td>
+                  <td>{{ person.age }}</td>
+                  <td>{{ person.sex }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </body>
+    <script src="../dist/build.js"></script>
+</html>

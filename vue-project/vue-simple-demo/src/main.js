@@ -52,6 +52,37 @@ var else_data = new Vue({
   }
 })
 
+var for_data = new Vue({
+  el:'#for_data',
+  data:{
+    people:[{
+      name:'Jack',
+      age:30,
+      sex:'Male'
+    },{
+      name:'Bill',
+      age:26,
+      sex:'Male'
+    },{
+      name:'Tracy',
+      age:22,
+      sex:'Female'
+    },{
+      name:'Chris',
+      age:36,
+      sex:'Male'
+    }]
+  }
+})
+
+var bind_data = new Vue({
+  el: '#bind_data',
+  data:{
+    activeNumber:1,
+    pageCount: 10
+  }
+})
+
 // 1.创建一个组件构造器
 var myComponent = Vue.extend({
   template: '<div style="font-family:微软雅黑;">This is matrix component</div>'
