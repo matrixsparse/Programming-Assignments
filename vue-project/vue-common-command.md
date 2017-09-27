@@ -753,6 +753,8 @@ v-on指令可以缩写为@符号
 >src/main.js
 
 ```bash
+import Vue from 'vue'
+
 var t_data= new Vue({
   el: '#t_data',
   data: {
@@ -792,6 +794,13 @@ var t_data= new Vue({
     }
   }
 })
+```
+
+### 运行示例&发布
+
+```bash
+npm run dev
+npm run build
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjxzznfcxyj211a0hlq3c.jpg)

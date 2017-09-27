@@ -170,3 +170,25 @@ var local_component = new Vue({
       'local-component' : localComponent
     }
 })
+
+// 父组件、子组件
+var Child = Vue.extend({
+  template: '<p>This is child component！</p>'
+})
+
+var Parent = Vue.extend({
+  // 在Parent组件内使用<child-component>标签
+  template:'<div><p>This is a Parent component</p><child-component></child-component></div>',
+  components: {
+    // 局部注册Child组件，该组件只能在Parent里使用
+    'child-component': Child
+  }
+})
+
+// 全局注册Parent组件
+Vue.component('parent-component',Parent)
+
+// 注册Vue实例
+new Vue({
+  el:'#parent_data'
+})

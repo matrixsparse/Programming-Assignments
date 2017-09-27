@@ -147,6 +147,13 @@ var component2 = new Vue({
 })
 ```
 
+### 运行示例&发布
+
+```bash
+npm run dev
+npm run build
+```
+
 ### 运行结果
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjvmbwy1umj20o402w3yg.jpg)
@@ -201,6 +208,87 @@ var local_component = new Vue({
 })
 ```
 
+### 运行示例&发布
+
+```bash
+npm run dev
+npm run build
+```
+
 ### 运行结果
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjvo31275pj20qc039747.jpg)
+
+## 父组件、子组件
+
+>cmd/parent.html
+
+```bash
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../src/assets/logo.png" />
+        <title>父组件、子组件</title>
+        <style type="text/css">
+          *{
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+          }
+          #parent_data{
+            width: 50%;
+            margin:100px auto;
+          }
+        </style>
+    </head>
+    <body>
+        <!--View-->
+        <div id="parent_data">
+            <parent-component></parent-component>
+        </div>
+    </body>
+    <script src="../dist/build.js"></script>
+</html>
+```
+
+>注意：vue2.0要求每个template只能有`一个根元素`
+
+>src/main.js
+
+```bash
+import Vue from 'vue'
+
+// 父组件、子组件
+var Child = Vue.extend({
+  template: '<p>This is child component！</p>'
+})
+
+var Parent = Vue.extend({
+  // 在Parent组件内使用<child-component>标签
+  template:'<div><p>This is a Parent component</p><child-component></child-component></div>',
+  components: {
+    // 局部注册Child组件，该组件只能在Parent里使用
+    'child-component': Child
+  }
+})
+
+// 全局注册Parent组件
+Vue.component('parent-component',Parent)
+
+// 注册Vue实例
+new Vue({
+  el:'#parent_data'
+})
+```
+
+### 运行示例&发布
+
+```bash
+npm run dev
+npm run build
+```
+
+### 运行结果
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjy59std4aj20sb05rjrd.jpg)
