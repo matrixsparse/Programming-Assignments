@@ -100,6 +100,46 @@ var on_data = new Vue({
   }
 })
 
+var t_data= new Vue({
+  el: '#t_data',
+  data: {
+    newPerson:{
+      name: '',
+      age: 0,
+      sex: 'Male'
+    },
+    people:[{
+      name: 'Jack',
+      age: 30,
+      sex: 'Male'
+    },{
+      name: 'Bill',
+      age: 26,
+      sex: 'Male'
+    },{
+      name: 'Tracy',
+      age: 22,
+      sex: 'Female'
+    },{
+      name: 'Chris',
+      age: 36,
+      sex: 'Male'
+    }]
+  },
+  methods:{
+    createPerson: function(){
+      this.people.push(this.newPerson);
+      // 添加完newPerson对象后，重置newPerson对象
+      this.newPerson = {name:'',age:0,sex:'Male'}
+    },
+    deletePerson:function(index){
+      console.log(index)
+      // 删除一个数组元素
+      this.people.splice(index,1);
+    }
+  }
+})
+
 // 1.创建一个组件构造器
 var myComponent = Vue.extend({
   template: '<div style="font-family:微软雅黑;">This is matrix component</div>'

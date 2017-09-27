@@ -586,3 +586,212 @@ v-on指令可以缩写为@符号
 <!--缩写语法-->
 <button @click="greet">Greet</button>
 ```
+
+## Vue-demo小案例
+
+>cmd/demo.html
+
+```bash
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../src/assets/logo.png" />
+        <title>Vue-demo小案例</title>
+        <style type="text/css">
+          *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "微软雅黑";
+            box-sizing: border-box;
+          }
+          .form-group {
+            margin: 10px;
+          }
+          .form-group > label {
+            display: inline-block;
+            width: 10rem;
+            text-align: right;
+          }
+          .form-group > input, .form-group > select {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+          }
+          table {
+              width: 100%;
+          }
+          input[type=text] {
+            border: 1px solid #ccc;
+            padding: .5rem .3rem;
+          }
+          thead {
+            display: table-header-group;
+            vertical-align: middle;
+            border-color: inherit;
+          }
+          tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+          }
+          select {
+            -webkit-appearance: menulist;
+            box-sizing: border-box;
+            align-items: center;
+            white-space: pre;
+            -webkit-rtl-ordering: logical;
+            color: black;
+            background-color: white;
+            cursor: default;
+            border-width: 1px;
+            border-style: solid;
+            border-color: initial;
+            border-image: initial;
+          }
+          #t_data {
+            margin: 100px auto;
+            max-width: 640px;
+          }
+          table, td, th {
+            border-collapse: collapse;
+            border-spacing: 0;
+          }
+          button {
+            outline: none;
+            padding: 5px 8px;
+            color: #fff;
+            border: 1px solid #BCBCBC;
+            border-radius: 3px;
+            background-color: #009A61;
+            cursor: pointer;
+          }
+          button:hover {
+              opacity: 0.8;
+          }
+          tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+          }
+          .form-group > input, .form-group > select {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+          }
+          input[type=text] {
+            border: 1px solid #ccc;
+            padding: .5rem .3rem;
+          }
+          th {
+            background: #42b983;
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+            cursor: pointer;
+          }
+          td, th {
+            border: 1px solid #bcbcbc;
+            padding: 5px 10px;
+          }
+        </style>
+    </head>
+    <body>
+        <!--View-->
+        <div id="t_data">
+           <fieldset>
+              <legend>
+                 Create New Person
+              </legend>
+              <div class="form-group">
+                  <label>Name：</label>
+                  <input type="text" v-model="newPerson.name"/>
+              </div>
+              <div class="form-group">
+                  <label>Age：</label>
+                  <input type="text" v-model="newPerson.age"/>
+              </div>
+              <div class="form-group">
+                  <label>Sex：</label>
+                  <select v-model="newPerson.sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label></label>
+                  <button @click="createPerson">Create</button>
+              </div>
+           </fieldset>
+           <table>
+             <thead>
+                 <tr>
+                      <th>index</th>
+                      <th>Name</th>
+                      <th>Age</th>
+                      <th>Sex</th>
+                      <th>Delete</th>
+                 </tr>
+             </thead>
+              <tbody>
+                  <tr v-for="(person, index) in people">
+                      <td>{{ index }}</td>
+                      <td>{{ person.name }}</td>
+                      <td>{{ person.age }}</td>
+                      <td>{{ person.sex }}</td>
+                      <td :class="'text-center'"><button @click="deletePerson($index)">Delete</button></td>
+                  </tr>
+              </tbody>
+           </table>
+        </div>
+    </body>
+    <script src="../dist/build.js"></script>
+</html>
+```
+
+>src/main.js
+
+```bash
+var t_data= new Vue({
+  el: '#t_data',
+  data: {
+    newPerson:{
+      name: '',
+      age: 0,
+      sex: 'Male'
+    },
+    people:[{
+      name: 'Jack',
+      age: 30,
+      sex: 'Male'
+    },{
+      name: 'Bill',
+      age: 26,
+      sex: 'Male'
+    },{
+      name: 'Tracy',
+      age: 22,
+      sex: 'Female'
+    },{
+      name: 'Chris',
+      age: 36,
+      sex: 'Male'
+    }]
+  },
+  methods:{
+    createPerson: function(){
+      this.people.push(this.newPerson);
+      // 添加完newPerson对象后，重置newPerson对象
+      this.newPerson = {name:'',age:0,sex:'Male'}
+    },
+    deletePerson:function(index){
+      console.log(index)
+      // 删除一个数组元素
+      this.people.splice(index,1);
+    }
+  }
+})
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjxzznfcxyj211a0hlq3c.jpg)
