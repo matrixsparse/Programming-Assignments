@@ -192,3 +192,14 @@ Vue.component('parent-component',Parent)
 new Vue({
   el:'#parent_data'
 })
+
+// 使用script语法，分离在Js中的HTML
+// 全局注册组件
+Vue.component('content-component',{
+  template: '#contentComponent'
+})
+
+// 注册Vue实例
+new Vue({
+  el: '#script_data'
+})
