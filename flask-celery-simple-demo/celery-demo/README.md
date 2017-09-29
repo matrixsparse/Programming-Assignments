@@ -297,3 +297,231 @@ print(answer.get())
 ```bash
 celery -A app worker --loglevel=info
 ```
+
+## 使用任务调度
+
+```bash
+任务调度的一种常见需求是每隔一段时间执行一遍任务，我们在配置文件中补充一些调度配置(config.py)
+```
+
+>config.py
+
+```bash
+# -*- coding: utf-8 -*-
+
+from datetime import timedelta
+
+# 在任务调度中使用 msgpack 序列化，在任务结果中使用 json 序列化
+
+BROKER_URL = 'redis://127.0.0.1:6379/1'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+# CELERY_TASK_SERIALIZER = 'msgpack'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24
+CELERY_ACCEPT_CONTENT = ['json', 'msgpack']
+
+CELERY_TIMEZONE = 'Asia/Shanghai'
+CELERYBEAT_SCHEDULE = {
+    'send-every-30-seconds': {
+        'task': 'server.sendmail',
+        # 'schedule': crontab(hour=16, minute=30),
+        'schedule': timedelta(seconds=30),
+        'args': (dict(to='sparsematrix@163.com'),)
+    }
+}
+```
+
+```bash
+注意，任务的参数需为 元组 (tuple) 格式
+
+启动 Celery ，因使用了调度配置，所以需加上 -B 参数
+```
+
+```bash
+celery -A app worker -B -l info
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk07r2sqx9j218t0loq5n.jpg)
+
+## 在任务制定的文件中，我们增加一个指定时间执行的任务。(tasks.py)
+
+>client.py
+
+```bash
+# -*- coding: utf-8 -*-
+
+import time
+from celery.schedules import crontab
+from celery.task import periodic_task
+
+
+@periodic_task(run_every=crontab(hour='16', minute='58'))
+def schedule_sendmail():
+    print('sending mail task')
+    time.sleep(2)
+    print('mail send.')
+    return 'Send Successful！'
+```
+
+```bash
+celery -A app worker -B -l info
+```
+
+## 使用多条队列
+
+```bash
+任务虽然是异步执行的，但是在任务执行的过程中，因为只有一条队列，所以任务执行是同步的
+
+在 Celery 中，默认只有一条 celery 的队列，用于消息队列
+
+在队列里任务一个一个的完成，这样的效率很低，我们可以创建多个队列，让多条队列同步进行
+
+默认队列是 default
+```
+
+>config.py
+
+```bash
+# -*- coding: utf-8 -*-
+
+from datetime import timedelta
+from kombu import Queue
+
+# 在任务调度中使用 msgpack 序列化，在任务结果中使用 json 序列化
+
+BROKER_URL = 'redis://127.0.0.1:6379/1'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+# CELERY_TASK_SERIALIZER = 'msgpack'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24
+CELERY_ACCEPT_CONTENT = ['json', 'msgpack']
+
+CELERY_TIMEZONE = 'Asia/Shanghai'
+CELERYBEAT_SCHEDULE = {
+    'send-every-30-seconds': {
+        'task': 'server.sendmail',
+        # 'schedule': crontab(hour=16, minute=30),
+        'schedule': timedelta(seconds=30),
+        'args': (dict(to='sparsematrix@163.com'),)
+    }
+}
+
+CELERY_QUEUES = (
+    Queue('default', routing_key='task.#'),
+    Queue('web_tasks', routing_key='web.#'),
+)
+```
+
+>app.py
+
+```bash
+# -*- coding: utf-8 -*-
+
+# 主函数分离
+
+from celery import Celery
+
+app = Celery('app', include=['server'])
+app.config_from_object('config')
+```
+
+>server.py
+
+```bash
+# -*- coding:utf-8 -*-
+
+import time
+from app import app
+from celery.utils.log import get_task_logger
+
+# 记录日志和重试
+logger = get_task_logger(__name__)
+
+
+@app.task
+def sendmail(mail):
+    print('sending mail to %s ...' % mail['to'])
+    time.sleep(2)
+    print('mail send.')
+    return 'Send Successful!'
+
+
+# 装饰器app.task实际上是将一个正常的函数修饰成了一个 celery task 对象
+@app.task()  # 普通函数装饰为 celery task
+def add(x, y, queue='default'):
+    logger.info('Executing server args: {}'
+                'args: {}'.format(x, y))
+    return x + y
+```
+
+>client.py
+
+```bash
+# -*- coding: utf-8 -*-
+
+import time
+from server import add
+from celery.schedules import crontab
+from celery.task import periodic_task
+
+
+@periodic_task(run_every=crontab(hour='16', minute='58'))
+def schedule_sendmail():
+    print('sending mail task')
+    time.sleep(2)
+    print('mail send.')
+    return 'Send Successful！'
+
+
+if __name__ == "__main__":
+    result = add.apply_async((1, 2), routing_key='task.add')
+    result = add.apply_async(args=(1, 2), queue='default')
+```
+
+>仅开启单个路由
+
+```bash
+celery -A server worker -Q default -l info
+```
+
+>运行结果
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk09i9j8clj213p0h30u2.jpg)
+
+## 工作流
+
+```bash
+调用任务函数 add.delay(1,2) 的效果与 add.apply_async(args=(1,2)) 相同
+
+使用 link 将第一个任务的结果作为第二个任务的参数
+add.apply_async(args=(1,2), link=add.s(4))
+```
+
+### 过期时间
+
+```bash
+expires 单位为 秒，超过过期时间还未开始执行的任务会被回收
+add.apply_async((1,2), expires=10)
+```
+
+### 并行调度
+
+```bash
+group , 一次调度多个任务，将任务结果以列表形式返回。
+
+In [16]: from celery import group
+In [17]: res = group(add.s(i, i) for i in xrange(10))()
+In [18]: res.get()
+Out[18]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+### 串行调度
+
+```bash
+chain , 一次调度多个任务，将前一个任务的结果作为参数传入下一个任务
+
+In [19]: from celery import chain
+In [20]: res = chain(add.s(2, 2), add.s(4), add.s(8))()
+In [21]: res.get(timeout=1)
+Out[21]: 16
+```
