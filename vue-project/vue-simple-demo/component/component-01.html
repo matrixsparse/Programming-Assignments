@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>component props</title>
+    <link rel="shortcut icon" href="../src/assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-family: '微软雅黑';
+    }
+    #app {
+        margin: 100px auto;
+        max-width: 480px;
+    }
+    table, td, th {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td, th {
+        border: 1px solid #bcbcbc;
+        padding: 10px 35px;
+    }
+    th {
+      background: #42b983;
+      font-weight: 400;
+      color: #fff;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- 将父组件数据通过已定义好的props属性传递给子组件 -->
+  <div id="app">
+      <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+  </div>
+  <template id="myComponent">
+      <!-- <Table border :columns="columns1" :data="data1"></Table> -->
+      <table>
+          <tr>
+              <th colspan="2">
+                子组件数据
+              </th>
+          </tr>
+          <tr>
+              <td>my name</td>
+              <td>{{ myName }}</td>
+          </tr>
+          <tr>
+              <td>my age</td>
+              <td>{{ myAge }}</td>
+          </tr>
+      </table>
+  </template>
+
+  <script>
+      // 组件实例的作用域是孤立的，这意味着不能并且不应该在子组件的模板内直接引用父组件的数据，可以使用props把数据传给子组件
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          name: 'matrix',
+          age: 23
+        },
+        components: {
+          'my-component': {
+            template: '#myComponent',
+            props: ['myName','myAge']
+          }
+        }
+      })
+  </script>
+</body>
+</html>

@@ -509,4 +509,195 @@ Vue.component('my-component', {
 可以使用 props 把数据传给子组件
 ```
 
+>父组件是如何将数据传给子组件的？
+
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjy9f4lzbnj20i30e1q3d.jpg)
+
+```bash
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>component props</title>
+    <link rel="shortcut icon" href="../src/assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+  <!-- 将父组件数据通过已定义好的props属性传递给子组件 -->
+  <div id="app">
+      <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+  </div>
+  <template id="myComponent">
+      <!-- <Table border :columns="columns1" :data="data1"></Table> -->
+      <table>
+          <tr>
+              <th colspan="2">
+                子组件数据
+              </th>
+          </tr>
+          <tr>
+              <td>my name</td>
+              <td>{{ myName }}</td>
+          </tr>
+          <tr>
+              <td>my age</td>
+              <td>{{ myAge }}</td>
+          </tr>
+      </table>
+  </template>
+
+  <script>
+      // 组件实例的作用域是孤立的，这意味着不能并且不应该在子组件的模板内直接引用父组件的数据，可以使用props把数据传给子组件
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          name: 'matrix',
+          age: 23
+        },
+        components: {
+          'my-component': {
+            template: '#myComponent',
+            props: ['myName','myAge']
+          }
+        }
+      })
+  </script>
+</body>
+</html>
+```
+
+### 运行示例
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk1qgd1dblj20qq097aa2.jpg)
+
+## prop的绑定类型
+
+### 单向绑定
+
+既然父组件将数据传递给了子组件，那么如果子组件修改了数据，对父组件是否会有所影响呢？
+我们将子组件模板和页面HTML稍作更改
+
+```bash
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>component props</title>
+    <link rel="shortcut icon" href="../src/assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-family: '微软雅黑';
+    }
+    #app {
+        margin: 100px auto;
+        max-width: 480px;
+    }
+    table, td, th {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td, th {
+        border: 1px solid #bcbcbc;
+        padding: 10px 35px;
+    }
+    th {
+      background: #42b983;
+      font-weight: 400;
+      color: #fff;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+  <div id="app">
+      <table>
+          <tr>
+              <th colspan="3">父组件数据</td>
+          </tr>
+          <tr>
+              <td>name</td>
+              <td>{{ name }}</td>
+              <td><input type="text" v-model="name" /></td>
+          </tr>
+          <tr>
+              <td>age</td>
+              <td>{{ age }}</td>
+              <td><input type="text" v-model="age" /></td>
+          </tr>
+      </table>
+
+      <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+  </div>
+
+  <template id="myComponent">
+      <table>
+          <tr>
+              <th colspan="3">子组件数据</td>
+          </tr>
+          <tr>
+              <td>my name</td>
+              <td>{{ myName }}</td>
+              <td><input type="text" v-model="myName" /></td>
+          </tr>
+          <tr>
+              <td>my age</td>
+              <td>{{ myAge }}</td>
+              <td><input type="text" v-model="myAge" /></td>
+          </tr>
+      </table>
+  </template>
+
+  <script>
+    // 组件实例的作用域是孤立的，这意味着不能并且不应该在子组件的模板内直接引用父组件的数据，可以使用props把数据传给子组件
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        name: 'matrix',
+        age: 23
+      },
+      components: {
+        'my-component': {
+          template: '#myComponent',
+          props: ['myName','myAge']
+        }
+      }
+    })
+  </script>
+</body>
+</html>
+```
+
+```bash
+props默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态
+```
+
+### 双向绑定
+
+```bash
+可以使用.sync显式地指定双向绑定，这使得子组件的数据修改会回传给父组件
+```
+
+```bash
+<my-component v-bind:my-name.sync="name" v-bind:my-age.sync="age"></my-component>
+```
+
+### 单次绑定
+
+```bash
+可以使用.once显式地指定单次绑定，单次绑定在建立之后不会同步之后的变化，这意味着即使父组件修改了数据，也不会传导给子组件
+```
+
+```bash
+<my-component v-bind:my-name.once="name" v-bind:my-age.once="age"></my-component>
+```

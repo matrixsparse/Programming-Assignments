@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>component props</title>
+    <link rel="shortcut icon" href="../src/assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+  <!-- 将父组件数据通过已定义好的props属性传递给子组件 -->
+  <div id="app">
+      <i-table border :columns="columns1" :data="data1"></i-table>
+      <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+  </div>
+  <template id="myComponent">
+      <!-- <Table border :columns="columns1" :data="data1"></Table> -->
+      <table>
+          <tr>
+              <th colspan="2">
+                子组件数据
+              </th>
+          </tr>
+          <tr>
+              <td>my name</td>
+              <td>{{ myName }}</td>
+          </tr>
+          <tr>
+              <td>my age</td>
+              <td>{{ myAge }}</td>
+          </tr>
+      </table>
+  </template>
+
+  <script>
+      // 组件实例的作用域是孤立的，这意味着不能并且不应该在子组件的模板内直接引用父组件的数据，可以使用props把数据传给子组件
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          name: 'matrix',
+          age: 23,
+          columns1: [
+              {
+                  title: '姓名',
+                  key: 'name'
+              },
+              {
+                  title: '年龄',
+                  key: 'age'
+              },
+              {
+                  title: '地址',
+                  key: 'address'
+              }
+          ],
+          data1: [
+              {
+                  name: '王小明',
+                  age: 18,
+                  address: '北京市朝阳区芍药居'
+              },
+              {
+                  name: '张小刚',
+                  age: 25,
+                  address: '北京市海淀区西二旗'
+              },
+              {
+                  name: '李小红',
+                  age: 30,
+                  address: '上海市浦东新区世纪大道'
+              },
+              {
+                  name: '周小伟',
+                  age: 26,
+                  address: '深圳市南山区深南大道'
+              },
+              {
+                  name: '王小明',
+                  age: 18,
+                  address: '北京市朝阳区芍药居'
+              },
+              {
+                  name: '张小刚',
+                  age: 25,
+                  address: '北京市海淀区西二旗'
+              },
+              {
+                  name: '李小红',
+                  age: 30,
+                  address: '上海市浦东新区世纪大道'
+              },
+              {
+                  name: '周小伟',
+                  age: 26,
+                  address: '深圳市南山区深南大道'
+              }
+          ]
+        },
+        components: {
+          'my-component': {
+            template: '#myComponent',
+            props: ['myName','myAge']
+          }
+        }
+      })
+  </script>
+</body>
+</html>

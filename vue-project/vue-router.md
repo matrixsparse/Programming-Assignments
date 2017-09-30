@@ -291,3 +291,30 @@ vue的单页面应用是基于路由和组件的，路由用于设定访问路�
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk1kgi1m40j213o0f03yv.jpg)
+
+## 编程式导航
+
+```bash
+router.push(location)
+
+想要导航到不同的 URL，则使用 router.push 方法。这个方法会向 history 栈添加一个新的记录
+
+所以，当用户点击浏览器后退按钮时，则回到之前的 URL
+当你点击 <router-link> 时，这个方法会在内部调用
+
+所以说，点击 <router-link :to="..."> 等同于调用 router.push(...)
+```
+
+```bash
+// 字符串
+router.push('home')
+
+// 对象
+router.push({ path: 'home' })
+
+// 命名的路由
+router.push({ name: 'user', params: { userId: 123 }})
+
+// 带查询参数，变成 /register?plan=private
+router.push({ path: 'register', query: { plan: 'private' }})
+```

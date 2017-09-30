@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iview layout</title>
+    <link rel="shortcut icon" href="../src/assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div id="app">
+        <matrix-component></matrix-component>
+    </div>
+    <template id="template">
+      <p>{{ value }}</p>
+      <Slider v-model="value" range></Slider>
+    </template>
+  <script>
+      // 1.创建一个组件构造器
+      var myComponent = Vue.extend({
+        template: '#template'
+      })
+
+      // 2.注册组件，并指定组件的标签，组件的HTML标签为<my-component>
+      Vue.component('matrix-component',myComponent)
+
+      // 3.创建一个 Vue 实例或 "ViewModel"
+      // 它连接 View 与 Model
+      var app = new Vue({
+          el: '#app',
+          data: function(){
+            return {
+                value: [20, 50]
+            }
+          }
+      })
+  </script>
+</body>
+</html>
