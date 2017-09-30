@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+font-family: "微软雅黑";
+background-color: #f7f8f9;
+}
+ul {
+  margin-top: 10px;
+}
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.well{
+  max-height: 400px;
+  overflow-y: scroll;
+}

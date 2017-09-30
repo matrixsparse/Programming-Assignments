@@ -122,6 +122,12 @@ cd vue-simple-demo
 npm install
 ```
 
+### 安装vue-router
+
+```bash
+npm install vue-router -save
+```
+
 ### 运行示例
 
 ```bash
