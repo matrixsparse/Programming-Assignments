@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iview example</title>
+    <link rel="shortcut icon" href="../src/assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+    *{
+      margin:0;
+      padding:0;
+    }
+    body{
+      background: #eee;
+    }
+    #app{
+      width:75%;
+      margin:100px auto;
+    }
+    </style>
+</head>
+<body>
+<div id="app">
+  <div>
+      <i-table border ref="selection" :columns="columns4" :data="data1"></i-table>
+      <i-button @click="handleSelectAll(true)">设置全选</i-button>
+      <i-button @click="handleSelectAll(false)">取消全选</i-button>
+  </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            visible: false,
+            columns4: [
+                    {
+                        type: 'selection',
+                        width: 60,
+                        align: 'center',
+                    },
+                    {
+                        title: '姓名',
+                        key: 'name',
+                        sortable: true
+                    },
+                    {
+                        title: '年龄',
+                        key: 'age',
+                        sortable: true
+                    },
+                    {
+                        title: '地址',
+                        key: 'address',
+                        sortable: true
+                    }
+                ],
+                data1: [
+                    {
+                        name: '王小明',
+                        age: 18,
+                        address: '北京市朝阳区芍药居'
+                    },
+                    {
+                        name: '张小刚',
+                        age: 25,
+                        address: '北京市海淀区西二旗'
+                    },
+                    {
+                        name: '李小红',
+                        age: 30,
+                        address: '上海市浦东新区世纪大道'
+                    },
+                    {
+                        name: '周小伟',
+                        age: 26,
+                        address: '深圳市南山区深南大道'
+                    }
+                ]
+        },
+        methods: {
+            handleSelectAll (status) {
+                this.$refs.selection.selectAll(status);
+            }
+        }
+    })
+  </script>
+</body>
+</html>
