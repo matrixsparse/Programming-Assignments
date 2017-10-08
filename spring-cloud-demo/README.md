@@ -270,10 +270,12 @@ public class SayHelloApplication {
 
 ## 访问http://localhost:8761/，查看eureka是否启动成功
 
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk040azchxj22je10w7d1.jpg)
-
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk03ia2uc7j22k41dqdpy.jpg)
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk6gn150fcj22ku1euk37.jpg)
 
 ## 访问http://localhost:8762/sayHello?name=matrix
 
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk042mc7tdj21i2086gnw.jpg)
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk6gmwhus7j21bi06g75j.jpg)
+
+## 访问http://localhost:8763/sayHello?name=matrix
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk6gmwoo6dj216807sgmu.jpg)
