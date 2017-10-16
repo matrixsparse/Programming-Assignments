@@ -16,11 +16,9 @@ app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
-
 @celery.task()
 def add(a, b):
     return a + b
-
 
 @app.route('/', methods=['GET'])
 def longtask():

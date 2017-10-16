@@ -57,7 +57,7 @@ if __name__ == '__main__':
 ## 启动Celery服务
 
 ```bash
-celery worker -A app.celery -l INFO
+celery worker -A app.celery -l INFO  -B
 ```
 
 ## 运行结果
