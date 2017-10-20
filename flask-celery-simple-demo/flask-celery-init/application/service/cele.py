@@ -5,10 +5,9 @@ from celery.schedules import crontab
 
 app = celery.Celery('cele', broker='redis://localhost:6379/0')
 
-
-@app.task
-def send(message):
-    return message
+# @app.task
+# def send(message):
+#     return message
 
 
 app.conf.beat_schedule = {
@@ -19,6 +18,8 @@ app.conf.beat_schedule = {
 
         # 每十五分钟执行一次
         'schedule': crontab(minute='*/1'),
-        'args': ('Hello World',)
+        # 每两小时执行一次
+        # 'schedule': crontab(hour='*/1.8'),
+        'args': ('This is my fuck world！',)
     },
 }

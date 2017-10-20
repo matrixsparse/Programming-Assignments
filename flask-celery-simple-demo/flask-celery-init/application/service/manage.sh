@@ -1,6 +1,4 @@
 #!/bin/sh
-# chkconfig: 123456 90 10
-# Bot server for user authentication
 
 if [ $# -lt 2 ];then
     action="$1"
