@@ -54,7 +54,7 @@ if __name__ == '__main__':
     app.run(host='115.28.240.96', port=12503, debug=True)
 ```
 
-## 启动Celery服务
+### 启动Celery服务
 
 ```bash
 celery worker -A app.celery -l INFO  -B
@@ -65,3 +65,42 @@ celery worker -A app.celery -l INFO  -B
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk0j17b1cuj215i0ltq4k.jpg)
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fk0is5qfsnj20qe052t8n.jpg)
+
+## Celery定时任务
+
+>cele.py
+
+```bash
+# -*- coding: utf-8 -*-
+
+import celery
+from celery.schedules import crontab
+
+app = celery.Celery('cele', broker='redis://localhost:6379/0')
+
+
+@app.task
+def send(message):
+    return message
+
+
+app.conf.beat_schedule = {
+    'send-every-60-seconds': {
+        'task': 'cele.send',
+        # 每两小时执行一次
+        # 'schedule': 3600.0,
+
+        # 每十五分钟执行一次
+        'schedule': crontab(minute='*/1'),
+        'args': ('Hello World',)
+    },
+}
+```
+
+>执行
+
+```bash
+celery -A cele worker -l info -B
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fkorn67s90j20tg0lx75p.jpg)
