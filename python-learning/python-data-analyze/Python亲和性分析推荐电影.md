@@ -72,14 +72,33 @@ all_ratings['Datetime'] = pd.to_datetime(all_ratings['Datetime'], unit='s')
 
 all_ratings['Favorable'] = all_ratings['Rating'] > 3
 
-print('查看前五条记录：\n', all_ratings[:5])
+# print('查看前五条记录：\n', all_ratings[:5])
+
+# 抽取一部分数据做训练集
+ratings = all_ratings[all_ratings['UserID'].isin(range(200))]
+
+# print(ratings)
+
+# 新建数据集，只包括用户喜欢某部电影的数据行
+favorable_ratings = ratings[ratings["Favorable"]]
+
+# 把v.values存储为frozenset，便于快速判断用户是否为某部电影打过分，集合比列表速度快
+favorable_reviews_by_users = dict((k, frozenset(v.values)) for k, v in favorable_ratings.groupby("UserID")["MovieID"])
+
+# 创建一个数据框，以便了解每部电影的影迷数量
+num_favorable_by_movie = ratings[["MovieID", "Favorable"]].groupby("MovieID").sum()
+
+# 查看最受欢迎的五部电影
+print(num_favorable_by_movie.sort("Favorable", ascending=False)[:5])
 ```
 
+>运行结果
+
 ```bash
-UserID  MovieID  Rating            Datetime Favorable
-0     196      242       3 1997-12-04 15:55:49     False
-1     186      302       3 1998-04-04 19:22:22     False
-2      22      377       1 1997-11-07 07:18:36     False
-3     244       51       2 1997-11-27 05:02:03     False
-4     166      346       1 1998-02-02 05:33:16     False
+MovieID   Favorable        
+50           100.0
+100           89.0
+258           83.0
+181           79.0
+174           74.0
 ```
