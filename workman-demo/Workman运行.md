@@ -10,11 +10,11 @@ PHP历史版本下载页面：http://php.net/releases/
 ```
 ### 解压源码压缩包
 ```bash
-tar -zxvf php-5.3.29.tar.gz
+tar -zxvf php-5.3.3.tar.gz
 ```
 ### 进入源码中的ext/pcntl目录
 ```bash
-cd php-5.3.29/ext/pcntl/
+cd php-5.3.3/ext/pcntl/
 ```
 ### 运行phpize命令
 
@@ -79,7 +79,7 @@ php --ini
 >编辑php.ini文件，在文件中添加extension=pcntl.so
 
 ```bash
-extension=pcntl.so
+extension="pcntl.so"
 ```
 
 ```bash
