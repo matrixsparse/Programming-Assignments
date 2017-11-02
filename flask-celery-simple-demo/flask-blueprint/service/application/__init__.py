@@ -2,22 +2,32 @@
 # -*- coding:utf-8 -*-
 # @Copyright (C), 2017, matrix
 
+import os
+import sys
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
 from flask import Flask
 from flask import render_template
+from library.config.development import config
 
+from service.application.controllers import main
 from service.application.controllers.data import data
 from service.application.controllers.spider import spider
+
+# 加载library包
+LIBRARY_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if LIBRARY_DIR not in sys.path:
+    sys.path.append(LIBRARY_DIR)
 
 
 def create_app():
     app = Flask(__name__,
-                template_folder='templates',  # 指定模板路径，可以是相对路径，也可以是绝对路径
-                static_folder='static'  # 指定静态文件前缀，默认静态文件路径同前缀
+                template_folder='../../templates',  # 指定模板路径，可以是相对路径，也可以是绝对路径
+                static_folder='../../static'  # 指定静态文件前缀，默认静态文件路径同前缀
                 )
 
+    # app.register_blueprint(main, url_prefix='/')  # 注册main蓝图，并指定前缀
     app.register_blueprint(spider, url_prefix='/spider')  # 注册spider蓝图，并指定前缀
     app.register_blueprint(data, url_prefix='/data')  # 注册data蓝图，并指定前缀
 
@@ -39,6 +49,7 @@ def create_app():
     filehandler.setFormatter(formatter)
     filehandler.setLevel(logging.DEBUG)
     app.logger.addHandler(filehandler)
+    app.config.from_object(config)
 
     return app
 
@@ -46,12 +57,8 @@ def create_app():
 app = create_app()
 
 
-@app.route('/')
+@app.route('/hello')
 def hello_world():
     # return "<h1>Hello World！</h1>"
     app.logger.debug('index.html')
     return render_template('index.html')
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)  # 运行flask http程序，host指定监听IP，port指定监听端口，调试时需要开启debug模式

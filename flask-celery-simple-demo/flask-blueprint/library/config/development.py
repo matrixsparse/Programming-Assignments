@@ -9,6 +9,9 @@ import os
 class Config:
     DEBUG = False
 
+    # 授权token
+    AUTH_TOKEN = {'64233ea4dbt69ssa535011afe0269a2b', '866526ac824s8a67t9c5be23c40748ya'}
+
     @staticmethod
     def init_app(app):
         pass
