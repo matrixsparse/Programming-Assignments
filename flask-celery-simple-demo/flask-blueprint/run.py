@@ -2,14 +2,14 @@
 # -*- coding:utf-8 -*-
 # @Copyright (C), 2017, matrix
 
-import re
-import time
 import logging
-from flask import Flask
-from data import data
-from spider import spider
-from flask import render_template
 from logging.handlers import TimedRotatingFileHandler
+
+from flask import Flask
+from flask import render_template
+
+from service.application.controllers.data import data
+from service.application.controllers.spider import spider
 
 
 def create_app():
@@ -27,7 +27,8 @@ def create_app():
         when="D",
         interval=1,
         # 保留日志个数,默认的0是不会自动删除掉日志
-        backupCount=0
+        backupCount=0,
+        encoding='utf-8'
     )
 
     datefmt_str = '%Y-%m-%d %H:%M:%S'

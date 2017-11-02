@@ -9,5 +9,4 @@ data = Blueprint('data', __name__,
                  # static_folder='/opt/auras/flask_bootstrap/static/',#指定静态文件路径
                  )
 
-
-from data import views
+from service.application.controllers.data import views

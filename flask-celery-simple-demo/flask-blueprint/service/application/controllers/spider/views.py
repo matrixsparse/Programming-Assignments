@@ -3,7 +3,8 @@
 # @Copyright (C), 2017, matrix
 
 from flask import render_template
-from spider import spider
+
+from service.application.controllers.spider import spider
 
 
 @spider.route('/')  # 指定路由为/，因为run.py中指定了前缀，浏览器访问时，路径为http://IP/asset/

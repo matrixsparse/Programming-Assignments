@@ -4,23 +4,27 @@
 
 ```bash
 tree
-.
-├── spider               # spider功能目录
-│   ├── __init__.py
-│   ├── models.py        # spider数据库结构文件
-│   └── views.py         # spider视图文件
-├── data                # 数据功能目录
-│  ├──__init__.py
-│  ├── models.py          # 数据数据库结构文件
-│  └── views.py           # 数据视图配置文件
-├── library             # 公共配置文件存放目录
-├── requirements.txt      # 需要的安装包
-├── run.py               # 主运行文件
-├── static               # 静态文件目录，css,js, image等
-└── templates             # 静态页面存放目录
-   ├── spider           # asset功能模块页面存放目录
-    │  └── index.html
-    ├── index.html         #首页
-    └── data
+├── library # 公共配置文件存放目录
+│   └── config
+│       └── development.py
+├── logs # 日志文件存放目录
+│   └── service_.2017-11-02.log
+├── README.md # 项目介绍文件
+├── run.py # 主运行文件
+├── service
+│   └── application
+│       └── controllers
+│           ├── data # 数据功能目录
+│           │   ├── __init__.py
+│           │   └── views.py # 数据视图配置文件
+│           ├── main.py # main功能目录
+│           └── spider # spider功能目录
+│               ├── __init__.py
+│               └── views.py # spider视图配置文件
+└── templates # 静态页面存放目录
+    ├── data # data模块页面存放目录
+    │   └── index.html
+    ├── index.html # 首页
+    └── spider # spider模块页面存放目录
         └── index.html
 ```
