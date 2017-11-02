@@ -11,7 +11,7 @@ from flask import Flask
 from flask import render_template
 from library.config.development import config
 
-from service.application.controllers import main
+from service.application.controllers.main import main
 from service.application.controllers.data import data
 from service.application.controllers.spider import spider
 
@@ -27,7 +27,7 @@ def create_app():
                 static_folder='../../static'  # 指定静态文件前缀，默认静态文件路径同前缀
                 )
 
-    # app.register_blueprint(main, url_prefix='/')  # 注册main蓝图，并指定前缀
+    app.register_blueprint(main, url_prefix='/service')  # 注册main蓝图，并指定前缀
     app.register_blueprint(spider, url_prefix='/spider')  # 注册spider蓝图，并指定前缀
     app.register_blueprint(data, url_prefix='/data')  # 注册data蓝图，并指定前缀
 
