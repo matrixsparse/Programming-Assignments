@@ -1,5 +1,3 @@
-# Nginx的中间件架构
-
 
 ## 准备
 
@@ -22,8 +20,7 @@ yum -y install wget httpd-tools vim
 ### 初始化
 
 ```bash
-cd /data/nginx/
-mkdir app download logs work backup
+cd /data/nginx/;mkdir app download logs work backup
 ```
 
 * /data/nginx
@@ -81,7 +78,7 @@ Nginx是一个开源且高性能、可靠的HTTP中间件、代理服务
 
 ### IO多路复用epoll/并发问题
 
-多个描述符I/O操作都能在一个线程内`并发交替`地顺序完成，这就叫I/O多路复用，这里的"复用"指的是复用同一个线程
+多个描述符I/O操作都能在一个线程内并发交替地顺序完成，这就叫I/O多路复用，这里的"复用"指的是复用同一个线程
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fim07ul04wj21wq0giae5.jpg)
 
@@ -104,7 +101,7 @@ IO多路复用的实现方式select、poll、epoll
 
 >CPU亲和
 
-是一种把CPU核心和Nginx工作进程绑定的方式，把每个worker进程固定在一个CPU上执行，减少切换CPU的cache miss，获得更好的性能
+是一种把CPU核心和Nginx工作进程绑定的方式，把每个worker进程固定在一个CPU上执行，减少切换CPU的cache miss，获得更好的性能
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fim0j2qutsj21y40iwtd6.jpg)
 
@@ -269,7 +266,7 @@ curl可以理解为浏览器
 [root@sparsematrix ~]# curl -v http://www.baidu.com
 ```
 
-![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fiqzbdobjdj221g14ex6g.jpg)
+![](http://ww1.sinaimg.cn/large/dc05ba18gy1fiqzbdobjdj221g14ex6g.jpg)
 
 >启动Nginx
 
@@ -279,22 +276,16 @@ curl可以理解为浏览器
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fiqzqmftanj22140ewgou.jpg)
 
->测试配置是否正确
+>关闭nginx
 
 ```bash
-/usr/sbin/nginx -t
+[root@sparsematrix ~]# nginx -s stop
 ```
 
-```bash
-#如果显示如下内容说明配置成功
-nginx: the configuration file /usr/servers/nginx/conf/nginx.conf syntax is ok
-nginx: configuration file /usr/servers/nginx/conf/nginx.conf test is successful
-```
-
->重启nginx
+>平滑启动 nginx
 
 ```bash
-/usr/sbin/nginx -s reload
+nginx -s reload
 ```
 
 ## Nginx默认配置语法
@@ -443,9 +434,6 @@ location /mystatus {
 
 ```bash
 [root@sparsematrix ~]# vi /etc/nginx/conf.d/default.conf
-````
-
-```bash
 location / {
     #root   /usr/share/nginx/html;
     root /data/nginx/test;

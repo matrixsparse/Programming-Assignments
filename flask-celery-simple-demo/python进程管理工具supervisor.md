@@ -486,6 +486,10 @@ supervisor 同时提供了通过浏览器来管理进程的方法，只需要注
 ;password=123                ; should be same as http_password if set
 ```
 
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1flajqtxissj20ot037glm.jpg)
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1flajqtbr0bj20qg06yaak.jpg)
+
 >访问浏览器地址栏：http://192.168.3.244:9001/
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fl1lvrh2stj20ws07mt98.jpg)
