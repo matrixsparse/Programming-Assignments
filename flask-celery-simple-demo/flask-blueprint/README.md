@@ -1,5 +1,18 @@
 # 基于Python Flask开发的自用框架
 
+## 什么是蓝图？
+
+```bash
+一个应用中或跨应用组件和支持通用的模式
+```
+
+## 蓝图的作用？
+
+* 将不同的功能模块化
+* 构建大型应用
+* 优化项目结构
+* 增强可读性，易于维护
+
 ## 项目结构
 
 ```bash
@@ -201,3 +214,10 @@ server {
 ```bash
 nginx -s reload
 ```
+
+## 安装flask-sqlalchemy
+
+```bash
+pip install flask-sqlalchemy flask-script flask-WTF
+```
+

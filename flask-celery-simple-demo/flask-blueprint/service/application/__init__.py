@@ -9,6 +9,8 @@ from logging.handlers import TimedRotatingFileHandler
 
 from flask import Flask
 from flask import render_template
+from flask_script import Manager
+from flask_sqlalchemy import SQLAlchemy
 from library.config.development import config
 
 from service.application.controllers.main import main
@@ -26,6 +28,13 @@ def create_app():
                 template_folder='../../templates',  # 指定模板路径，可以是相对路径，也可以是绝对路径
                 static_folder='../../static'  # 指定静态文件前缀，默认静态文件路径同前缀
                 )
+
+    # 定义模型，创建数据库表
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost:3306/spider?charset=utf8mb4'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+    # 开启调试模式
+    app.debug = True
 
     app.register_blueprint(main, url_prefix='/service')  # 注册main蓝图，并指定前缀
     app.register_blueprint(spider, url_prefix='/spider')  # 注册spider蓝图，并指定前缀
@@ -62,3 +71,22 @@ def hello_world():
     # return "<h1>Hello World！</h1>"
     app.logger.debug('index.html')
     return render_template('index.html')
+
+
+db = SQLAlchemy(app)
+manager = Manager(app)
+
+
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(320), unique=True)
+    password = db.Column(db.String(32), nullable=False)
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+
+if __name__ == '__main__':
+    User()
