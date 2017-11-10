@@ -5,6 +5,7 @@
 import os
 import sys
 import logging
+import pymysql
 from logging.handlers import TimedRotatingFileHandler
 
 from flask import Flask
@@ -30,8 +31,8 @@ def create_app():
                 )
 
     # 定义模型，创建数据库表
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost:3306/spider?charset=utf8mb4'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:123456@127.0.0.1:3306/spider"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
     # 开启调试模式
     app.debug = True
@@ -74,19 +75,8 @@ def hello_world():
 
 
 db = SQLAlchemy(app)
-manager = Manager(app)
-
-
-class User(db.Model):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(320), unique=True)
-    password = db.Column(db.String(32), nullable=False)
-
-    def __repr__(self):
-        return '<User %r>' % self.username
-
-
-if __name__ == '__main__':
-    User()
+# manager = Manager(app)
+#
+# if __name__ == "__main__":
+#     # 将模型导入数据表
+#     db.create_all()

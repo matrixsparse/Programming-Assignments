@@ -218,6 +218,54 @@ nginx -s reload
 ## 安装flask-sqlalchemy
 
 ```bash
-pip install flask-sqlalchemy flask-script flask-WTF
+pip install flask-sqlalchemy flask-script pymysql
 ```
 
+## 定义模型，创建数据库表
+
+>vim service/application/__init__.py
+
+```bash
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:123456@127.0.0.1:3306/spider"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+```
+
+```bash
+db = SQLAlchemy(app)
+```
+
+>vim service/application/models/User.py
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+from flask_script import Manager
+from service.application import db
+from service.application import app
+
+
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(320), unique=True)
+    password = db.Column(db.String(32), nullable=False)
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+
+manager = Manager(app)
+
+if __name__ == "__main__":
+    # 将模型导入数据表
+    db.create_all()
+```
+
+>手动指定User.py文件
+
+```bash
+可以在服务器数据库中发现，数据表成功生成！
+```
