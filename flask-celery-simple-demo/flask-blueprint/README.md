@@ -269,3 +269,104 @@ if __name__ == "__main__":
 ```bash
 可以在服务器数据库中发现，数据表成功生成！
 ```
+
+### sqlalchemy操作命令
+
+>创建表
+
+```bash
+db.create_all()
+```
+
+>删除表
+
+```bash
+db.drop_all()
+```
+
+>插入数据
+
+```bash
+u = User(username='',password='')
+db.session.add(u)
+db.session.commit()
+```
+
+>查询数据
+
+*filter_by查询(精确查询)
+
+```bash
+u = User.query.filter_by(username='').first()
+```
+
+*get(主键):(id一般为主键)
+
+```bash
+User.query.get(1)
+```
+
+* filter查询(模糊查询)
+
+```bash
+User.query.filter(User.username.endswith('t')).all()
+```
+
+*逻辑非查询
+
+```bash
+user = User.query.filter(User.username != '' ).first()
+```
+
+or
+
+```bash
+from sqlalchemy import not_
+user = User.query.filter(not_(User.username == '' )).first()
+```
+
+*逻辑与
+
+```bash
+from sqlalchemy import and_
+user = User.query.filter(and_(User.username =='',User.email.endswith(''))).first()
+```
+
+*逻辑或
+
+```bash
+from sqlalchemy import or_
+user = User.query.filter(or_(User.username !='',User.email.endswith(''))).first()
+```
+
+*first()返回查询到的第一个对象
+
+```bash
+user = User.query.first()
+```
+
+*all()返回查询到的所有对象
+
+```bash
+user = User.query.all()
+```
+
+>删除数据
+
+```bash
+user = User.query.first()
+db.session.delete(user)
+db.session.commit()
+User.query.all()
+```
+
+>更新数据
+
+```bash
+user = User.query.first()
+user.username = ''
+db.sesssion.commit()
+User.query.first()
+```
+
+
