@@ -1,0 +1,36 @@
+{
+    'create_time': 1501659856,
+    'rule_name': '两性',
+    'reply_mode': 'random_one',
+    'keyword_list_info': [
+        {
+            'match_mode': 'contain',
+            'content': '两性',
+            'type': 'text'
+        },
+        {
+            'match_mode': 'contain',
+            'content': '俩性',
+            'type': 'text'
+        }
+    ],
+    'reply_list_info': [
+        {
+            'news_info': {
+                'list': [
+                    {
+                        'source_url': '',
+                        'cover_url': 'http: //mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0BkejLHTBbr6gyNpsJsBoQWNuj5br3FZjzLhDwPA8mY3UzNRBs04ZYYguhbibdaELy0r7SogsYBORwg/640?wx_fmt=jpeg',
+                        'content_url': 'http: //mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085963&idx=1&sn=7a2b76be6fb175b345f0677b3293d9cb&chksm=3d5580700a220966af98b35005df22f177e7ad8db2056d287cc9398a28126ce0ca121417fbed#rd',
+                        'title': '如狼似虎的年龄，为什么没了性趣？',
+                        'show_cover': 0,
+                        'digest': '午饭后，办公室没人，淼哥坐在办公桌前看杨焕亭的《汉武大帝》，强哥一阵风似的冲过来坐下：“淼哥、淼哥，这日子，',
+                        'author': ''
+                    }
+                ]
+            },
+            'content': 'yZErARSnQbJ4XScNWbqlEXYFfbyzf6Y2GnUud5sly28',
+            'type': 'news'
+        }
+    ]
+}

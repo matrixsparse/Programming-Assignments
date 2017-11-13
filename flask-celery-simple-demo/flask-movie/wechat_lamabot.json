@@ -1,0 +1,1878 @@
+{
+  "message_default_autoreply_info": {
+    "content": "亲爱的辣妈，您有任何疑问可<a href='http://ad.lmbang.com/popularize?key=JJzpRU'>【点击这里查看】</a> （此消息由系统自动发送）",
+    "type": "text"
+  },
+  "is_add_friend_reply_open": 1,
+  "is_autoreply_open": 1,
+  "add_friend_autoreply_info": {
+    "content": "亲爱的，终于盼到您来啦辣妈帮是最大的妈妈社交平台，每天免费推送有关育儿、瘦身、美妆、情感、美食、等话题！\n\n我们有~\n\n-------辣妈活动-------\n<a\nhref='http://t.cn/R64L7bR'> 【每周活动】</a>\n\n-------辣妈爱看-------\n<a\nhref='http://ad.lmbang.com/popularize?key=BxRVet'> 【育儿知识】</a>\n\n----辣妈爱聊、爱玩----\n<a\nhref='http://ad.lmbang.com/popularize?key=GpywrR'> 【辣妈爱玩】</a>\n\n\n最具人气的女性社区~\n<a\nhref='http://ad.lmbang.com/popularize?key=ThWljB'> 【下载有礼】</a>",
+    "type": "text"
+  },
+  "keyword_autoreply_info": {
+    "list": [
+      {
+        "create_time": 1501659856,
+        "rule_name": "两性",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "两性",
+            "type": "text"
+          },
+          {
+            "match_mode": "equal",
+            "content": "俩性",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0BkejLHTBbr6gyNpsJsBoQWNuj5br3FZjzLhDwPA8mY3UzNRBs04ZYYguhbibdaELy0r7SogsYBORwg/640?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085963&idx=1&sn=7a2b76be6fb175b345f0677b3293d9cb&chksm=3d5580700a220966af98b35005df22f177e7ad8db2056d287cc9398a28126ce0ca121417fbed#rd",
+                  "title": "如狼似虎的年龄，为什么没了性趣？",
+                  "show_cover": 0,
+                  "digest": "午饭后，办公室没人，淼哥坐在办公桌前看杨焕亭的《汉武大帝》，强哥一阵风似的冲过来坐下：“淼哥、淼哥，这日子，",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlEXYFfbyzf6Y2GnUud5sly28",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1500637012,
+        "rule_name": "橄榄枝",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "橄榄枝",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "欢迎关注辣妈帮，我们会随机抽取10名幸运用户，点击链接填写收件地址http://cn.mikecrm.com/ICir4S6",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1499914708,
+        "rule_name": "五周年",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "五周年",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "5周年",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "感谢关注辣妈帮~谢谢分享，小编会在7月21日公布获奖结果哒~届时请关注当天辣妈帮（lamabang）的推送~",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1499853326,
+        "rule_name": "29",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "29",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://android.myapp.com/myapp/detail.htm?apkName=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0BkGpMCarh5N347af7fpjX2BrbWDSTmFh1bFCXmx4W49XbAh5ic4oOWQBzN52deRZU6z1Zyw8RWR2Dw/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085533&idx=1&sn=2e4c333ec8f5a408523d244ab48ea942&chksm=3d5582a60a220bb0bd6b944e903ba574793516023d5740894c138ec7ed31467de60d3330714c#rd",
+                  "title": "老公每月给你11万，但是不回家，你愿意吗？",
+                  "show_cover": 0,
+                  "digest": "····",
+                  "author": ""
+                },
+                {
+                  "source_url": "http://android.myapp.com/myapp/detail.htm?apkName=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0BkGpMCarh5N347af7fpjX2BUc4RY2YO8eicBfEsrJVUtb9VuETDj2ZEUK5d6o8Chic4ZiaJWOZuzX6BA/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085533&idx=2&sn=93e1708ac67a0bddd7ca1dcfc9a5a755&chksm=3d5582a60a220bb0711e4f7305bb053eeee612621eb0f8678d5cea8ce61e4f2075963f9aff61#rd",
+                  "title": "“你是世界上最好的妈妈”｜泪奔，那一刻我是最内疚的妈妈",
+                  "show_cover": 0,
+                  "digest": "也许你也曾对孩子发完脾气后十分懊悔；\n也许你也曾认为自己不够完美；\n甚至曾对自己的行为深恶痛疾。",
+                  "author": ""
+                },
+                {
+                  "source_url": "http://android.myapp.com/myapp/detail.htm?apkName=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0BkGpMCarh5N347af7fpjX2BBrUadxRsfc4eojGFZ0QOkHBAHzadZyxyAuktjhJHzcs4Rk00EGI17Q/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085533&idx=3&sn=53821bff41216e26fb0e9431a1c7ee8d&chksm=3d5582a60a220bb0986a6e514d2623b2ecd967800610bf0e55fa2bba24c8ae334924f988e760#rd",
+                  "title": "这四种最“可怕”的妈妈，直接影响孩子的成长，看看有没有你？",
+                  "show_cover": 0,
+                  "digest": "现实生活中，很多爸爸忙于事业的拼搏，妈妈参与养育孩子的比重更大些。什么样类型的妈妈养育什么样的孩子，妈妈的性",
+                  "author": ""
+                },
+                {
+                  "source_url": "http://android.myapp.com/myapp/detail.htm?apkName=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0BkGpMCarh5N347af7fpjX2BZic01X5MZl5ia9S92eAVr3R5AeaUiaMU9nl7iaMSHHiazDTnBcN41PaS4lA/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085533&idx=4&sn=c0cfffcdae72ba7a8b4b2ea20c565115&chksm=3d5582a60a220bb09931d3abd36375795e7ba763e62d3619fe71ce6d1c436c8b3d4147f293d8#rd",
+                  "title": "到底能不能给宝宝穿开裆裤，终于有定论了",
+                  "show_cover": 0,
+                  "digest": "天热起来了，最近烦恼真是好多呢！",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlERkytzsx250n18Q_SRzGM0s",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1497584359,
+        "rule_name": "家庭",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "家庭",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://a.app.qq.com/o/simple.jsp?pkgname=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bkv7r9gHIFYQrNNnGmBIpb77eJPSkWWLBQrxJXd5a6lATuXp22wQAkj3Rll13j1EX5toCK2xuqWQg/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085125&idx=1&sn=691b396234e20c1df24d1c13e5ba8611&chksm=3d55fd3e0a227428eeff6fce9e7b575329b3d58e8e26ba8a670bd1400e8625fd7a1281a4b8c0#rd",
+                  "title": "黄磊三胎出生：嫁给一个成熟的男人到底有多重要？",
+                  "show_cover": 0,
+                  "digest": "婚姻就应该是两个成熟独立的个体走到一起，让两个人的生活都变得更快乐，余生太短，请嫁给一个成熟的男人。",
+                  "author": ""
+                },
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bkv7r9gHIFYQrNNnGmBIpb7hJWPFlZe5sBW23sBiaZJBALO759n9Fulv3G6bPqvfC1nBdPz2sgxR2g/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085125&idx=2&sn=4ffb2f8fb6035dbe2fc177da3c6cba34&chksm=3d55fd3e0a2274289f60f34e94ccb41dd13395256521679a022e5104cb302bb5545c4bdd5716#rd",
+                  "title": "男人对女人的爱，全体现在了这件事里",
+                  "show_cover": 0,
+                  "digest": "好的婚姻，不是没有问题的婚姻，而是两个人总能积极联手，耐心的解决不断出现的问题。即使是因为某些原因短时间内无",
+                  "author": ""
+                },
+                {
+                  "source_url": "http://a.app.qq.com/o/simple.jsp?pkgname=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bkv7r9gHIFYQrNNnGmBIpb7Apbzyz8tXAcAG3bBWdD9qz8MgKkRaavK6C7FA0Mia9Amd6z6oLCicNNQ/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085125&idx=3&sn=978ff993793305c9d657c27647bdcbd9&chksm=3d55fd3e0a227428d73ad745148e2714d6c8fd8f4b63be4f7186e40ed68fdcc3afc9ae074a35#rd",
+                  "title": "这几个动作，做了4个以上，说明老公超爱你！",
+                  "show_cover": 0,
+                  "digest": "···",
+                  "author": ""
+                },
+                {
+                  "source_url": "http://a.app.qq.com/o/simple.jsp?pkgname=com.wangzhi.MaMaHelp",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bkv7r9gHIFYQrNNnGmBIpb7QAkII13angBIRqUcdtcTc0YQXicVZOoicu5ZIUoFUtauy7SrrR54Z6Mw/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506085125&idx=4&sn=c9682cedcfc660daa44b32e63ab6a728&chksm=3d55fd3e0a227428fa1c6d3b9a5e325a4aca65eeec74750ed72c07642d68a7b0f61da9c552c9#rd",
+                  "title": "你真的以为孕期抽筋只是补钙那么简单啊？！",
+                  "show_cover": 0,
+                  "digest": "孕期的你，抽筋了吗？据统计，有50%的准妈妈会突然出现小腿抽筋。更为关键的是，多数准妈妈都以为抽筋是由缺钙引",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlEcSOMZIxl45Zn2ficXPKCpA",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1495095463,
+        "rule_name": "小叨",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "小叨",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_png/Mm3UxkIA0Bluz4e6yo5zqZhRlrHc6T8sI1RuNia0eBSx3hzwsUqicLME4hGbFyO8LA6txDnhG0bTRGEDUftdQkqQ/0?wx_fmt=png",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506084924&idx=1&sn=76cfbfe306bf5e5a411c245cfb815389&chksm=3d55fc070a227511413fb3c9f3156acab43c7c76c89540205ebe945c3d81c70ebf5784938e8f#rd",
+                  "title": "五年了，我只想帮你开心做辣妈",
+                  "show_cover": 0,
+                  "digest": "辣妈帮，帮你开心做辣妈·",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlEZ31NwaBaJOYPj5mcfaSzoo",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1494832127,
+        "rule_name": "化妆品",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "化妆品",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "恭喜以下30名用户获得秀雅韩换妆品一套，我们会按照您的预留地址，在7个工作日内奖励品寄出：卢婉约、王明艳、周红霞、汤龙、尤鹏、孙玲、朱凌峰、姜素文、王峰、姜丽萍、林豪谱、孙剑佛、张毅、王敏娜、魏成贯、谢协湃、樊辰博、古驰、夏思徽、陶旭笙、张准辰、张悦、李欣、陈鸣明、姜宇、王娜娜、陈意涵、孙朱、陈恩、卫耿羿。感谢您的参与！",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1492051023,
+        "rule_name": "000周年",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "0周年",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "辣妈帮5周年啦！感谢您的支持与信任，点击【转盘抽奖】即可参与活动！",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1490863307,
+        "rule_name": "愚人节活动",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "愚人节",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "您好！欢迎关注辣妈帮，点击http://cn.mikecrm.com/bxzbQju填写邮寄地址，我们会随机抽取10名幸运用户。",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1488447224,
+        "rule_name": "360活动",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "辣妈帮",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "欢迎关注辣妈帮，快来参与活动吧！",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1483414689,
+        "rule_name": "日历",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "日历",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "台历",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bllbiby1Fg2Jv3hqua9AfZ2uxGynP8ic0r09o32fP7zzDm5PQQ7v4FxQX2UB2cicRuWicQVST8OfOh85w/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506082848&idx=1&sn=f83f9d5067a7d0607e636f5146181b63&chksm=3d55f41b0a227d0d5e7a0825d9ec855ebb9fcbffe6e38081e652106a9cc0de4bec62425898f6#rd",
+                  "title": "【辣妈帮送福利】中奖名单！",
+                  "show_cover": 0,
+                  "digest": "以上25名幸运用户，请在2017年1月4日中午12点前，后台私信小编您的【地址、联系方式、收件人姓名】，小编会将日历寄出哦！逾期取消获奖资格哦！",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlEaOtvsQJff6_dQV4LY5bdvk",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1482119674,
+        "rule_name": "圣诞",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "圣诞",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "圣诞萌主",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "圣诞获奖名单",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "获奖名单",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bllbiby1Fg2Jv3hqua9AfZ2uXOKeWR9UOf7ibm4Bia5Zq1nz66CYQPgFNO1g3uM1h4sqYNspnxWgwGyQ/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506082807&idx=1&sn=f9baa22c10c7e2cfd5bad8a437f2f716&chksm=3d55f7cc0a227edab92c70054b27afbd9c8f14bda10dbe3617b83e02a53afa75faeeaf2d4fdd#rd",
+                  "title": "圣诞萌主大赛获奖名单！",
+                  "show_cover": 0,
+                  "digest": "请所有获奖的妈妈们，后台私信小编“【活动时所填的宝宝姓名】+【联系方式+地址+收件人姓名】”.请于2017年1月3日中午12点前，将信息发送给小编，逾期将取消获奖资格哦！",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlESMTkDnJEx1rSQfmPz_2EX8",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1475291680,
+        "rule_name": "十一",
+        "reply_mode": "reply_all",
+        "keyword_list_info": [
+          {
+            "match_mode": "equal",
+            "content": "10.1",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "十一",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "十一活动",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Mm3UxkIA0Bm7stMxyOZI4gic9ACqKsnicH4icb3Lia9PAKxkIDVKf19WfDCV3rPwrgIzUzV0XxdICouETOSN6LnlRA/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=506081797&idx=1&sn=dd64094764154b3b527ceafd975d45d8&chksm=3d55f03e0a2279280c8d6715aeed3cefc2f2365671777d59f6bab023094accd73110e377f901#rd",
+                  "title": "“十一”中奖名单",
+                  "show_cover": 0,
+                  "digest": "请获奖的小伙伴们，10月16日前将您的编号、地址、姓名及联系电话私信给小编！获得幸运奖的小伙伴们，请直接后台私信小编“您的编号+电影”，小编会将电影兑换码回复给你哦！",
+                  "author": ""
+                }
+              ]
+            },
+            "content": "yZErARSnQbJ4XScNWbqlERveLx2aMuPHuB8n5izvpUQ",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1473153437,
+        "rule_name": "滴露",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "滴露",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "您好！欢迎关注辣妈帮，本次活动随机抽取200名用户，请预留您的姓名、联系方式、地址、邮编，9月14日回复关键字“查询”即可获得中奖名单，我们会按照您的预留地址进行免费配送！",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1472546558,
+        "rule_name": "互推",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "礼包",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "您好！欢迎关注“辣妈帮”，本次活动随机抽取200名用户，请预留您的联系方式、地址、邮编！9月9日回复关键字“名单”即可查询中奖结果，我们会按照您预留的地址进行免费配送！注意查收呦！",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1470640792,
+        "rule_name": "七夕",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "七夕",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "投票",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "投票进度",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "投票结果",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "七夕活动",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=2653564757&idx=5&sn=d50813cbf7a1048836c10ed3ed4e26c5#rd'>【点击查看获奖名单】</a>\n",
+            "type": "text"
+          },
+          {
+            "content": "<a href='http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=2653564635&idx=2&sn=23d6ad4dcd375a456cd438fe94b0d42f#rd'>【点击查看投票结果】</a>\n\n请8.17号前将获奖地址发送到辣妈帮后台，过期作废！",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1466589127,
+        "rule_name": "授权",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "授权",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "转载",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "如何转载",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "您好，如需转载请在文章开头标注来源-公众号：辣妈帮ID：lamabang尾部标注：辣妈帮，妈妈交流平台，提供育儿、婚姻、时尚等女性最关心的话题。",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1464169703,
+        "rule_name": "下载",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "下载",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "下载APP",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "下载辣妈帮",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怎么下载辣妈帮",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怎么进入辣妈帮",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "加入辣妈帮",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "辣妈帮",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "u_qpLei4ch6Dy4yK9xGHv7W2-tuxCC8Gc6NYZXke0kdxQTOKv2SrTLdMXkqnoz8E",
+            "type": "img"
+          }
+        ]
+      },
+      {
+        "create_time": 1459994909,
+        "rule_name": "保险",
+        "reply_mode": "reply_all",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "保险",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "我要安心保险",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "安心保险",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "安心险",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://www.heiniubao.com/activity/vaccines'> 【点击领取安心保险 】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1453974004,
+        "rule_name": "小雨伞",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "小雨伞",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://www.xiaoyusan.com/codeal/act?id=924&sid=1&aid=140'> 【领取小雨伞奖励 】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1451906173,
+        "rule_name": "最萌“圣诞宝宝”获奖名单",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "最萌圣诞宝宝",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "圣诞宝宝",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "圣诞宝宝获奖名单",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0Blpy4wTIPKsz4ogK8KfcxIHicFs1ib48QmBX88SGchBKG9uMkVTdfe3DxKjfrAZ3EsqpusJfHicRia54w/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=402916315&idx=1&sn=2927390f5e8b98852fb77346398e5997&scene=20#rd",
+                  "title": "最萌“圣诞宝宝”获奖名单公布",
+                  "show_cover": 0,
+                  "digest": "亲爱的，最萌圣诞宝宝投票活动结束啦，特别感谢大家的参与，每一位宝宝都是最可爱的，最萌萌哒的。有帅气逼人的小王",
+                  "author": "妈妈交流中心"
+                }
+              ]
+            },
+            "content": "JHPK_M4Mvb18DVeTC3cBuuu6u1Q64ISmgzOJlPWAZwQ",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1451304881,
+        "rule_name": "红包",
+        "reply_mode": "reply_all",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "红包",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "hHPlUe2bma7Hjp-cEk5KodfK_-wV2k7evO3sGfjxSgwiD0F9WP3tRJDuozeI70qS",
+            "type": "img"
+          },
+          {
+            "content": "亲爱的，长按二维码关注辣妈帮进口特卖微信回复【红包】可领取哦~",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1451201254,
+        "rule_name": "参加",
+        "reply_mode": "reply_all",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "报名",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "参加",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "讲座",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "报名方式：\n\n1、长按图片上二维码添加辣妈帮小助手。\n\n2、为确保最有需要的妈妈前来听课，请转发本期<a href='http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=402766005&idx=2&sn=992e6a8580299ee6316cb3a4f9edef30#rd'> 【点击进入微课堂】</a>，并带上“报名参加”等评论，发截图给小助手，即可报名成功，谢谢！ \n\n3、完成前两步。小助手会统一将大家拉入讲课群哦，请耐心等待。",
+            "type": "text"
+          },
+          {
+            "content": "ZA9OEmFCp02Jl7j3NirFEmpBMQKGlMtQXWn2SU3NyJWvqcJQBFM_39J6UBILajpu",
+            "type": "img"
+          }
+        ]
+      },
+      {
+        "create_time": 1448158144,
+        "rule_name": "宝宝职业",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "宝宝职业",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "宝宝未来职业",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "宝宝测试",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "测试宝宝未来职业",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://ad.lamabang.com/popularize?key=aXU88x'>【点击测试宝宝职业】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1446173806,
+        "rule_name": "投稿",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "投稿",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "您好，投稿可以发邮件到：qiaoxiaoli@lmbang.com投稿必须为原创内容。",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1445652825,
+        "rule_name": "萌宝大赛中奖名单",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "萌宝大赛中奖名单",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "中奖名单",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "DHKqyENAy1fdB317diOIftDaG59MBWNXDgqqlAEzTQU",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1444795636,
+        "rule_name": "好爸爸拥抱游戏",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "好爸爸",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "拥抱",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "拥抱游戏",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "好爸爸拥抱游戏",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://ad.lmbang.com/html/daddy/index.html'> 【点击好爸爸拥抱游戏】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1443608721,
+        "rule_name": "荷花亲子",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "荷花亲子客服电话",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "您好，荷花亲子客服电话：400-9921399",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1442300058,
+        "rule_name": "自拍杆",
+        "reply_mode": "reply_all",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "自拍杆",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "兑换自拍杆",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怎么兑换",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "兑换码",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "亲，如果您已购买超级QQ会员就可以看的到兑换码，在当前活动页面里面输入兑换码——填写收货地址——然后下载辣妈帮，在【发现】页底部点击【福利小助手】——输入手机号查询是否兑换成功和物流信息。",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1442111892,
+        "rule_name": "流量",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "流量",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "流量活动",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "送流量",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "福利",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://ad.lamabang.com/popularize?key=hc6edh'> 【点击领取流量】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1437447319,
+        "rule_name": "怀孕",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "怀孕",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孕妇能不能平躺着睡觉",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "流血",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孕期玩手机",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孕期",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孕妇",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://ad.lamabang.com/popularize?key=txjPRK",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BnjROKqHdfPfibM0lEHjUAKVWIFukfJIll9NwB37AVEV2CL0qnz6W5Kd5mblzVuxibO95jBgExUoJvw/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=211768256&idx=1&sn=1e58d81c435c027c5876372afedd5980#rd",
+                  "title": "关于怀孕应注意的问题",
+                  "show_cover": 0,
+                  "digest": "孕妇能不能平躺着睡觉、孕期老流血怎么办、怀孕能吃巧克力吗",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "h3Rp8WEWM8ULaP3cS6Rm5Z2WGOcVqtiGt4Mz2MQJbRw",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1437446756,
+        "rule_name": "宝宝问题",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "孕期可以玩手机吗",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "小孩奶瓶用多久",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "喝果汁",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "打预防针",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孩子哭",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "过敏",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://ad.lamabang.com/popularize?key=txjPRK",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BnjROKqHdfPfibM0lEHjUAKV8k5omchfNicyfE4FNNR8MPBOoUMfLDVdLX8jnpRQb2AcwqTL84WeY2g/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=211768026&idx=1&sn=abaa358158ce93a9036baabe3de50512#rd",
+                  "title": "关于宝宝上火、拉稀等一些问题",
+                  "show_cover": 0,
+                  "digest": "孕期可以玩手机吗、小孩奶瓶可以用多久、九个月宝宝身上起红点怎么回事、夏季吃什么可以给孩子去火等问题解答",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "h3Rp8WEWM8ULaP3cS6Rm5ZoZyEh-p5fbxy5XxQMFlCI",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1437360485,
+        "rule_name": "食谱",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "食谱",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怀孕食谱",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "十月怀孕食谱",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://ad.lamabang.com/popularize?key=txjPRK",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BlIdibwbxyicKVav3nQbqJvQdzKnKRXkJwicoxiaiaRVGS63jdP4Efodvt74aSyG8u7uEQFsQRUXCXMkcg/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=211738227&idx=1&sn=887ded186863d6db6cf39cc002d03272#rd",
+                  "title": "十月怀孕食谱",
+                  "show_cover": 0,
+                  "digest": "这里有十月怀胎食谱，准妈妈们可以参考哦~",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "aU5PtgVmCpHFS-xt47lGquRS5WUcM9Mb2x63ea5b-54",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1436501276,
+        "rule_name": "女王计划",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "女王计划",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "辣妈大赛",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怎么参加女王计划",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://ad.lmbang.com/html/projectQ2015/index.html'> 【女王计划报名啦】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1435803930,
+        "rule_name": "辣妈瘦身计划",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "辣妈瘦身计划",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "辣妈瘦身",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "报名",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://ad.lmbang.com/html/beauty/index.html'> 【辣妈瘦身计划报名啦】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1435569153,
+        "rule_name": "孩子吐奶",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "孩子吐奶",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "宝宝身高",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "便秘",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "母乳喂养",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孩子感冒",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BlWefxhMnYlaQaWH1iam4sXibbiaPaSePwJX6u880fWt3OR1u15t0KHCYG4JKTLGZppaYsch3y08MeQQ/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=211125282&idx=1&sn=97cffeb3ced21cb6f0d2452b5c045856#rd",
+                  "title": "【每周一答】你家宝贝睡觉时被突然惊住了，是怎么回事？",
+                  "show_cover": 0,
+                  "digest": "孩子吐奶、身高参照、母乳喂养、孕期掉头发、孩子感冒等问题",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "ukDwCDE4hYhxWQOC_dcxLg8xEoX0tqnI3NquSrnkZF4",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1435568776,
+        "rule_name": "宝宝发烧",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "发烧",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "断奶",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "孩子打人",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "爱出汗",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BlWefxhMnYlaQaWH1iam4sXibqJagefZofo8Ay0wxIKCJ5ibibbPRlSu9Vwc4RvsEdCE92QsibgS20avGg/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=211124941&idx=1&sn=1efffb7e7db1521595846fa6b175f39c#rd",
+                  "title": "宝宝发烧、喜欢打人、断奶、做事拖拉等等一些列问题~",
+                  "show_cover": 0,
+                  "digest": "下面是关于宝宝发烧、打人、断奶、爱出汗等一些列问题专家解答。",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "ukDwCDE4hYhxWQOC_dcxLtIzunYKKdPRnD-rLEs5O1k",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1434850727,
+        "rule_name": "父亲节活动",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "父亲节活动",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "手表",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://ad.lamabang.com/popularize?key=txjPRK",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0Bl8szMZdYXJuTSr1iabW9TibcHxxl0RxkDrqWHYXicO6y4icG4RbYFIMYybQr9fC0T4fLaQuewM547W1w/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=210787038&idx=1&sn=003e522c505a609bdcbd75e0ed9d145b#rd",
+                  "title": "999元镶钻手表，小编给大家准备的今年端午节和父亲节见面礼",
+                  "show_cover": 0,
+                  "digest": "终于又放假了，大家有木有很开心、开心，反正小编已经是这样了~亲们是不是已经列好了端午节的出游计划~当中国传统",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "Hu658gBfjyuS2RIw0RxhFA09h7I6KK9Z5v9qbO1wto0",
+            "type": "news"
+          },
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://ad.lamabang.com/popularize?key=txjPRK",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0Bl8szMZdYXJuTSr1iabW9TibcHxxl0RxkDrqWHYXicO6y4icG4RbYFIMYybQr9fC0T4fLaQuewM547W1w/0?wx_fmt=jpeg",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=210787038&idx=1&sn=003e522c505a609bdcbd75e0ed9d145b#rd",
+                  "title": "999元镶钻手表，小编给大家准备的今年端午节和父亲节见面礼",
+                  "show_cover": 0,
+                  "digest": "终于又放假了，大家有木有很开心、开心，反正小编已经是这样了~亲们是不是已经列好了端午节的出游计划~当中国传统",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "Hu658gBfjyuS2RIw0RxhFA09h7I6KK9Z5v9qbO1wto0",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1434840661,
+        "rule_name": "父亲节",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "父亲节",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://ad.lmbang.com/html/fatersday/index.html?uid=1434812436&from=timeline&isappinstalled=0'>【5秒泪崩，天下的爸爸都是骗子】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1431165106,
+        "rule_name": "妈妈，我爱你",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "妈妈我爱你",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "<a href='http://gsactivity.diditaxi.com.cn/gulfstream/activity/v2/giftpackage/index?channel=aefca7819e7028b5-5207'>【点击领取滴滴专车100元优惠券】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1430101514,
+        "rule_name": "大白",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "大白",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "声明：您好，现有其他公众号【辣妈邦】我们是【辣妈帮】盗用我们的名称在搞送大白衬衫活动，此活动不是我们平台发起，请大加不要误解是我们的活动。感谢大家关注辣妈帮。",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1428763250,
+        "rule_name": "辣妈帮",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "辣妈帮",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "http://www.lamall.com/",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1427250768,
+        "rule_name": "微信群",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "群、群聊、微信群",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "亲，辣妈帮七嘴八舌微信群聊的可嗨了，就差你啦。赶快加入吧。添加小编微信：13322990662拉你入群~（不要打电话过来哦~）",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1426075769,
+        "rule_name": "客服",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "客服",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "在线客服",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "亲爱的辣妈，请问有什么可以帮到您,您可以直接在微信上留言，也可以拨打我们的客服热线：400-678-3388与我们联系",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1423560830,
+        "rule_name": "绘本",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "A",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "B",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "C",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "D",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "E",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "回",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "绘",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://www.lamabang.com/todayhot/detail/id-3872.html#rd",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BmYsVicKQQpla4MoKmCbdV7BZc7he7nSYjbkLff7aYUW3EhXvFS6WicicJ3R3guKuIpMuIf6Fuysy6dQ/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=204635861&idx=1&sn=dd937de990a6f7d0024af20f9dd01b2d#rd",
+                  "title": "【小乖妈绘本馆】《我的牙掉了》，巨丑巨搞笑",
+                  "show_cover": 0,
+                  "digest": "小乖妈，辣妈帮编辑，家有5岁男娃一枚，每周五都会在这里给辣妈们推荐她家书柜里的优秀绘本。她会告诉你，她推",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "VEXwap6hoSA4LzhoAa3NsdKEFwMVxkT-KsYsdCCsbAc",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1419529520,
+        "rule_name": "14只老鼠",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "14只老鼠",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://www.lamabang.com/todayhot/detail/id-3918.html#rd",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BmYsVicKQQpla4MoKmCbdV7BVGN3IS3Ospd1fRmB3SNmn07w4q4qcytiaicUqiaHlDibPn2xGJvHVAphfg/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=204635852&idx=1&sn=afe5e8969ba3d18ace7b7a4a0f4193a0#rd",
+                  "title": "【小乖绘本馆】《14只老鼠》的精致乡村生活",
+                  "show_cover": 0,
+                  "digest": "       小乖妈，辣妈帮编辑，家有5岁男娃一枚，每周五她都会在这里给辣妈们推荐小乖最喜欢的绘本。她会告诉",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "VEXwap6hoSA4LzhoAa3NsacsySWdHBGOjyROprtIiSE",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1419529469,
+        "rule_name": "汉堡男孩",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "汉堡男孩",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://www.lamabang.com/todayhot/detail/id-3972.html#rd",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BmYsVicKQQpla4MoKmCbdV7BgyRDtGwDbNiaN0D9eDBlDf9MJyVY7CYZqeE7XFa0ZmgcBUViaWrZDWPg/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=204635797&idx=1&sn=d31f98c3aad14035033f315cb34a3c19#rd",
+                  "title": "【小乖绘本馆】《汉堡男孩》生命在于体验",
+                  "show_cover": 0,
+                  "digest": "    小乖妈，辣妈帮编辑，家有5岁男娃一枚，每周五都会在这里给辣妈们推荐她家书柜里的优秀绘本。她会告诉你，",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "VEXwap6hoSA4LzhoAa3Nsfilpq3yBkucziGpg65ympw",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1419529417,
+        "rule_name": "请不要生气",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "请不要生气",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://www.lamabang.com/todayhot/detail/id-3978.html#rd",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BmYsVicKQQpla4MoKmCbdV7BrEAkJcjdfu205lBE1UUrkuibT5PXJOr0PskevwLmZSTcd5dKkg8KB8Q/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=204635782&idx=1&sn=c41f20be8bbe39d05b79d9d8b1bd4b38#rd",
+                  "title": "【小乖绘本馆】妈妈《请不要生气》",
+                  "show_cover": 0,
+                  "digest": "小乖妈，辣妈帮编辑，家有5岁男娃一枚，每周五都会在这里给辣妈们推荐她家书柜里的优秀绘本。她会告诉你，书里",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "VEXwap6hoSA4LzhoAa3NsXHF_Zd0YH9DjJSg4tUQ0xE",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1417276473,
+        "rule_name": "儿童房",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "上篇",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "0-7岁篇的攻略",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "0-7",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "上偏",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BnNSzQrLtuD1pWrxD4z0OuUdvHKjx0YJpZMv12yyvXRYp0B12suSUfrrTcqnxfGQTFGQjl72s9W2w/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=203205869&idx=1&sn=b6564112f085bbd64d22a6ac5040da5d#rd",
+                  "title": "儿童房装修需分阶段，宝爸宝妈知道吗（0-7岁篇）？",
+                  "show_cover": 0,
+                  "digest": "0-4岁儿童房 空间安全要注重0-4岁的孩子，从婴儿阶段到开始学走路，开始独立完成一些事情，在孩子逐步独立的",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "YFoDqLTQC2Qx82KWFAwIkMNOCJ4Ai2Zns_ER7c941L0",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1415010366,
+        "rule_name": "3",
+        "reply_mode": "reply_all",
+        "keyword_list_info": [
+          {
+            "match_mode": "equal",
+            "content": "778899",
+            "type": "text"
+          },
+          {
+            "match_mode": "equal",
+            "content": "665544",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://www.lamabang.com/parenting/detail/id-2793.html",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BkkpmHa4icSia9Ftxicbft1zceU21OpfaffxowwGoPaxx6h8XYNrQjGWuqQwJV4iaevWBiby5Fs7z29VOg/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=202454055&idx=1&sn=678498655dbaa93adbd225158a933f6a#rd",
+                  "title": "带着宝宝去旅游，全程你该准备啥",
+                  "show_cover": 0,
+                  "digest": "想要来次远行，但是又不能丢下宝宝不管，那就带着宝宝一起去旅游吧。不过宝宝走得太远可不是开玩笑的，很多东西",
+                  "author": "第一妈妈交流平台"
+                },
+                {
+                  "source_url": "http://www.lamabang.com/parenting/detail/id-2765.html",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BkkpmHa4icSia9Ftxicbft1zce7NWgeFdOTPpiaYDscYAzOpu5rPlxibPYMcS3x2XLY8pFN3q6cc0MZthw/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=202454055&idx=2&sn=c105b6ce272a59c83ac13866bdc391ba#rd",
+                  "title": "爸爸陪伴的宝宝更聪明，10个细节提升孩子智力",
+                  "show_cover": 0,
+                  "digest": "引导语：不要认为养育和教育孩子只是妈妈一个人的事，爸爸也要担负起其中的重任，用自己的行动去影响宝宝，帮助",
+                  "author": "第一妈妈交流平台"
+                },
+                {
+                  "source_url": "http://www.lamabang.com/parenting/detail/id-2775.html",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BkkpmHa4icSia9Ftxicbft1zceOBJ7ib9vw2u9L27n36BKbt6VNR1IPSeyr8r4wFHcRjonwZNawDylANQ/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=202454055&idx=3&sn=e7c14f74fefc2b8179e300696dbb09c2#rd",
+                  "title": "别再让浴液伤害宝宝皮肤！",
+                  "show_cover": 0,
+                  "digest": "【小编说】在宝宝出生前，多数妈妈就已经细心地为宝宝选好了一款婴儿浴液，你花心思挑选那些天然成分的，不含香精防",
+                  "author": "第一妈妈交流平台"
+                },
+                {
+                  "source_url": "http://www.lamabang.com/topic/id-9521341.html",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BkkpmHa4icSia9Ftxicbft1zce09gDsMofeISfiaicj4DErfvNNyadj8neImbdsKRR0rb41NLH6ZgvcMww/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=202454055&idx=4&sn=7828a0932dc77bdb0b33bc673d9eaa9a#rd",
+                  "title": "双十一辣妈狂欢DAY提前攻略",
+                  "show_cover": 0,
+                  "digest": "双十一即将到来，辣妈官方商城也给辣妈们谋福利啦。10月25日-11月20日疯狂让利，各种促销活动玩转不停",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "8b2yZ67qMoT13KJpFRFXCt6IHG92KdKLFFS0cMNWoY4",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1410489342,
+        "rule_name": "不能要怀孕",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "不能要",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "八种情况",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "宝宝不能要",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "什么情况下怀的",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "news_info": {
+              "list": [
+                {
+                  "source_url": "http://www.lmbang.com/ask",
+                  "cover_url": "http://mmbiz.qpic.cn/mmbiz/Mm3UxkIA0BlKF2nYVD1UkZcLgfya8nqglCKWHxwteV7NQWicibia74hEiaxfUk6VBOrcGsRd2nwicJ1QvDPn0XvoCYw/0",
+                  "content_url": "http://mp.weixin.qq.com/s?__biz=MjM5NDE5OTM4MA==&mid=201900788&idx=1&sn=a402bcda50780a6c439a14000b1be127#rd",
+                  "title": "秋天这八种情况受孕要不得",
+                  "show_cover": 0,
+                  "digest": "为什么说秋天是最适合受孕的季节？首先，人类虽无动物那样明显的动情期，但据有关资料表明，在温度适宜，气候舒",
+                  "author": "第一妈妈交流平台"
+                }
+              ]
+            },
+            "content": "RmUENo5pqc43iTQ01-XpXVsbF1vycRxDey-Gl_2tygs",
+            "type": "news"
+          }
+        ]
+      },
+      {
+        "create_time": 1409710891,
+        "rule_name": "育儿指南原入口取消引导",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "育儿指南",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "亲爱的辣妈，为了给辣妈们提供更多实时更新的精彩内容!",
+            "type": "text"
+          },
+          {
+            "content": "之前的“育儿指南”入口被迁移到“辣妈帮育儿”服务号中。\n“辣妈帮育儿”服务号是辣妈帮官方运营的针对育儿方面的权威知识发布分享平台，您只需要搜索“\n辣妈帮育儿”微信号，并关注，在“辣妈爱看”栏目下，就可以找到您需要的“育儿指南大全”。该帐号还有更多精彩育儿资讯，还等什么，就差你啦^^",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1408499941,
+        "rule_name": "拉黑",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "拉黑",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "黑名单",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "禁言",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "解禁",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "解号",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "管理员",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "为了七嘴八舌内的和谐健康，辣妈帮社区禁止发布一切有关政治、色情、广告、兼职、开店等信息，首次发现后将被禁言24小时，再次发现将永久禁言。（此消息由系统自动发送）",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1408067434,
+        "rule_name": "在线问答",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "在线",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "问答",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "医生",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "老师",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "专家",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "本期辣妈学院 特邀【蓬蕊】专家做有关【儿科】方面的在线问答，时间为 8月28日中午12点30 - 13点30（周四）。亲爱的辣妈，如果想参加<a href='http://www.lmbang.com/topic/id-8276448.html#rd'>【点击这里】</a>即可哦~~",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1407981834,
+        "rule_name": "瘦身",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "瘦身",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "减肥",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "收腰",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "瘦腰",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "关于“瘦身”的问题，可以 <a href='http://wx.api.lmbang.com/index.php?c=lmbangIndex&a=search&k=%E7%98%A6%E8%BA%AB'>【点击这里查看】</a>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "create_time": 1406790588,
+        "rule_name": "生男生女",
+        "reply_mode": "random_one",
+        "keyword_list_info": [
+          {
+            "match_mode": "contain",
+            "content": "生男",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "生女",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怀男",
+            "type": "text"
+          },
+          {
+            "match_mode": "contain",
+            "content": "怀女",
+            "type": "text"
+          }
+        ],
+        "reply_list_info": [
+          {
+            "content": "这里可以大概预测自己所生孩子的性别（但这些方法仅供参考哦）<a href='http://ad.lmbang.com/popularize?key=KKfP5C'>【点击这里预测】</a>",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+

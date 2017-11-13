@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+# 初始化文件
+
+from flask import Blueprint
+
+admin = Blueprint("admin",__name__)
+
+import app.admin.views
