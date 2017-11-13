@@ -1,5 +1,18 @@
 # 基于Python Flask开发的自用框架
 
+## 什么是蓝图？
+
+```bash
+一个应用中或跨应用组件和支持通用的模式
+```
+
+## 蓝图的作用？
+
+* 将不同的功能模块化
+* 构建大型应用
+* 优化项目结构
+* 增强可读性，易于维护
+
 ## 项目结构
 
 ```bash
@@ -201,3 +214,159 @@ server {
 ```bash
 nginx -s reload
 ```
+
+## 安装flask-sqlalchemy
+
+```bash
+pip install flask-sqlalchemy flask-script pymysql
+```
+
+## 定义模型，创建数据库表
+
+>vim service/application/__init__.py
+
+```bash
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:123456@127.0.0.1:3306/spider"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+```
+
+```bash
+db = SQLAlchemy(app)
+```
+
+>vim service/application/models/User.py
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+from flask_script import Manager
+from service.application import db
+from service.application import app
+
+
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(320), unique=True)
+    password = db.Column(db.String(32), nullable=False)
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+
+manager = Manager(app)
+
+if __name__ == "__main__":
+    # 将模型导入数据表
+    db.create_all()
+```
+
+>手动指定User.py文件
+
+```bash
+可以在服务器数据库中发现，数据表成功生成！
+```
+
+### sqlalchemy操作命令
+
+>创建表
+
+```bash
+db.create_all()
+```
+
+>删除表
+
+```bash
+db.drop_all()
+```
+
+>插入数据
+
+```bash
+u = User(username='',password='')
+db.session.add(u)
+db.session.commit()
+```
+
+>查询数据
+
+*filter_by查询(精确查询)
+
+```bash
+u = User.query.filter_by(username='').first()
+```
+
+*get(主键):(id一般为主键)
+
+```bash
+User.query.get(1)
+```
+
+* filter查询(模糊查询)
+
+```bash
+User.query.filter(User.username.endswith('t')).all()
+```
+
+*逻辑非查询
+
+```bash
+user = User.query.filter(User.username != '' ).first()
+```
+
+or
+
+```bash
+from sqlalchemy import not_
+user = User.query.filter(not_(User.username == '' )).first()
+```
+
+*逻辑与
+
+```bash
+from sqlalchemy import and_
+user = User.query.filter(and_(User.username =='',User.email.endswith(''))).first()
+```
+
+*逻辑或
+
+```bash
+from sqlalchemy import or_
+user = User.query.filter(or_(User.username !='',User.email.endswith(''))).first()
+```
+
+*first()返回查询到的第一个对象
+
+```bash
+user = User.query.first()
+```
+
+*all()返回查询到的所有对象
+
+```bash
+user = User.query.all()
+```
+
+>删除数据
+
+```bash
+user = User.query.first()
+db.session.delete(user)
+db.session.commit()
+User.query.all()
+```
+
+>更新数据
+
+```bash
+user = User.query.first()
+user.username = ''
+db.sesssion.commit()
+User.query.first()
+```
+
+
