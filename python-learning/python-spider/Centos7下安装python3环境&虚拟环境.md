@@ -14,6 +14,20 @@ systemctl stop firewalld.service
 systemctl disable firewalld.service
 ```
 
+### 开启端口
+
+```bash
+/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+/sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+/sbin/iptables -I INPUT -p tcp --dport 8088 -j ACCEPT
+```
+
+### 查看正在占用的端口
+
+```bash
+netstat -ntlp
+```
+
 ## 编译安装Python3.6
 
 ### 准备编译环境
