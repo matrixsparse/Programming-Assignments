@@ -1,5 +1,19 @@
 # Centos7下安装python3环境&虚拟环境
 
+## 设置防火墙
+
+### 关闭防火墙
+
+```bash
+systemctl stop firewalld.service
+```
+
+### 禁止防火墙开机启动
+
+```bash
+systemctl disable firewalld.service
+```
+
 ## 编译安装Python3.6
 
 ### 准备编译环境
@@ -205,7 +219,7 @@ pip install -r requirement.txt
 ```bash
 export WORKON_HOME=$HOME/.virtualenvs
 export PATH=$PATH:~/python3
-source /usr/bin/virtualenvwrapper.sh > $HOME/.virtualenvs/error.log
+source /usr/bin/virtualenvwrapper.sh > $HOME/.virtualenvs/error.log >/dev/null 2>&1
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 ```
 
@@ -227,6 +241,8 @@ virtualenvwrapper.user_scripts creating /root/.virtualenvs/initialize
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1flgz4hxniyj21pu0fe7is.jpg)
 
+>不使用系统的包
+
 ```bash
 [matrix@sparsematrix ~]$ mkvirtualenv --no-site-packages pyenv2.7
 ```
@@ -238,3 +254,11 @@ workon
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1flgz48f82aj21i60423zr.jpg)
+
+>在matrix用户下，根据requirement.txt生成相同的环境
+
+遇到安装mysqlclient会出现异常，在文件中删除mysqlclienta安装版本即可
+
+```bash
+(pyenv3.6) [matrix@sparsematrix ~]$ pip install -r requirement.txt
+```
