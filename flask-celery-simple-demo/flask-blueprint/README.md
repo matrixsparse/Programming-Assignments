@@ -294,13 +294,13 @@ db.session.commit()
 
 >查询数据
 
-*filter_by查询(精确查询)
+* filter_by查询(精确查询)
 
 ```bash
 u = User.query.filter_by(username='').first()
 ```
 
-*get(主键):(id一般为主键)
+* get(主键):(id一般为主键)
 
 ```bash
 User.query.get(1)
@@ -312,7 +312,7 @@ User.query.get(1)
 User.query.filter(User.username.endswith('t')).all()
 ```
 
-*逻辑非查询
+* 逻辑非查询
 
 ```bash
 user = User.query.filter(User.username != '' ).first()
@@ -325,27 +325,27 @@ from sqlalchemy import not_
 user = User.query.filter(not_(User.username == '' )).first()
 ```
 
-*逻辑与
+* 逻辑与
 
 ```bash
 from sqlalchemy import and_
 user = User.query.filter(and_(User.username =='',User.email.endswith(''))).first()
 ```
 
-*逻辑或
+* 逻辑或
 
 ```bash
 from sqlalchemy import or_
 user = User.query.filter(or_(User.username !='',User.email.endswith(''))).first()
 ```
 
-*first()返回查询到的第一个对象
+* first()返回查询到的第一个对象
 
 ```bash
 user = User.query.first()
 ```
 
-*all()返回查询到的所有对象
+* all()返回查询到的所有对象
 
 ```bash
 user = User.query.all()
