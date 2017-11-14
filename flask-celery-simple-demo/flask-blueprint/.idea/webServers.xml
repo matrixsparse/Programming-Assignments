@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="502516e5-4b1d-4655-9909-294e80d5157e" name="115.28.240.96" url="http://47.52.232.210">
+      <webServer id="502516e5-4b1d-4655-9909-294e80d5157e" name="47.52.232.210" url="http://47.52.232.210">
         <fileTransfer host="47.52.232.210" port="22" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
