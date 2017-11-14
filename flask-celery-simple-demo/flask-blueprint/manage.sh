@@ -1,17 +1,5 @@
 #!/bin/sh
-# chkconfig: 123456 90 10
-# Bot server for user authentication
-
-if [ $# -lt 2 ];then
-    action="$1"
-    name="service"
-elif [ $# -lt 3 ];then
-    action="$1"
-    name="$2"
-else
-    echo "Usage:${0} start|stop|restart|reload"
-    exit 0;
-fi
+# @Copyright (C), 2017, matrix
 
 PROJECT_DIR=`cd $(dirname "$0");pwd`
 
@@ -88,60 +76,20 @@ daemon_stop_celery() {
     fi
 }
 
-case "${action}" in
+case "$1" in
     start)
-        if [ X"${name}" == X"all" ]
-        then
-            daemon_start_server
-            sleep 1
-            daemon_start_celery
-        elif [ X"${name}" == X"celery" ]
-        then
-            daemon_start_celery
-        else
-            daemon_start_server
-        fi
+        daemon_start_server
+        sleep 1
     ;;
     stop)
-        if [ X"${name}" == X"all" ]
-        then
-            daemon_stop_server
-            sleep 1
-            daemon_stop_celery
-        elif [ X"${name}" == X"celery" ]
-        then
-            daemon_stop_celery
-        else
-            daemon_stop_server
-        fi
+        daemon_stop_server
     ;;
     restart)
-        if [ X"${name}" == X"all" ]
-        then
-            daemon_stop_server
-            sleep 1
-            daemon_start_server
-            sleep 1
-            daemon_stop_celery
-            sleep 1
-            daemon_start_celery
-        elif [ X"${name}" == X"celery" ]
-        then
-            daemon_stop_celery
-            sleep 1
-            daemon_start_celery
-        else
-            daemon_stop_server
-            sleep 1
-            daemon_start_server
-        fi
+        daemon_stop_server
+        sleep 1
+        daemon_start_server
     ;;
     reload)
-        if [ X"${name}" != X"service" ]
-        then
-            echo "not support to reload ${name}!!!"
-            exit 1;
-        fi
         daemon_reload_server
     ;;
     *)

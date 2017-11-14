@@ -194,6 +194,10 @@ server {
     listen       8088;
     server_name  localhost;
 
+    access_log /data/nginx/logs/service_access.log main;
+    error_log /data/nginx/logs/service_error.log;
+
+
     location /mystatus {
         stub_status;
     }
