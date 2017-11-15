@@ -89,7 +89,7 @@ systemctl enable iptables.service #设置防火墙开机启动
 iptables -L -vn
 ```
 
-## 修改/etc/sudoers配置文件
+## 修改/etc/sudoers配置文件【配置sudo】
 
 ```bash
 visudo

@@ -526,7 +526,6 @@ Linux在启动的时候会执行/etc/rc.local里面的脚本，所以在这里�
 vim /etc/rc.local
 ```
 
-
 ```bash
 /home/matrix/.virtualenvs/pyenv2.7/bin/supervisord -c /etc/supervisord.d/supervisord.conf
 ```
@@ -535,6 +534,78 @@ vim /etc/rc.local
 
 ```bash
 sudo systemctl enable rc-local.service
+```
+
+## Centos7安装MySql
+
+### 下载mysql的repo源
+
+```bash
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+```
+
+### 安装mysql-community-release-el7-5.noarch.rpm包
+
+```bash
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+```
+
+>安装这个包后，会获得两个mysql的yum repo源
+
+```bash
+/etc/yum.repos.d/mysql-community.repo
+/etc/yum.repos.d/mysql-community-source.repo。
+```
+
+### 安装mysql
+
+```bash
+yum install mysql-server -y
+```
+
+### 重置密码
+
+```bash
+mysql -u root
+```
+
+>报错
+
+```bash
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock'
+```
+
+>报错原因
+
+```bash
+/var/lib/mysql访问权限的问题，把/var/lib/mysql的拥有者改为当前用户即可
+```
+
+>解决
+
+```bash
+chown -R root:root /var/lib/mysql
+```
+
+>重启服务
+
+```bash
+service mysqld restart
+```
+
+>重置密码
+
+```bash
+mysql -u root
+mysql > use mysql;
+mysql > update user set password=password('123456') where user='root';
+mysql > quit;
+```
+
+>重启服务
+
+```bash
+service mysqld restart
 ```
 
 ## 安装flask-sqlalchemy
