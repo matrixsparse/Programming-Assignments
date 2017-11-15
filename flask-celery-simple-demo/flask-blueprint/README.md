@@ -136,7 +136,7 @@ nginx -s reload
 ```
 
 ```bash
-[root@sparsematrix ~]# pip install uwsgi
+[root@sparsematrix ~]# pip3 install uwsgi
 ```
 
 >在项目根目录下创建一个配置文件config.ini(uwsgi支持多种配置文件格式，xml，ini，json等)
