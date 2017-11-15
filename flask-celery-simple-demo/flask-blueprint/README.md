@@ -768,5 +768,17 @@ User.query.first()
 >安装依赖
 
 ```bash
-pip install pymongo BeautifulSoup4
+pip install pymongo BeautifulSoup4 lxml
+```
+
+如果出现如下错误
+
+```bash
+bs4.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+```
+
+可以尝试
+
+```bash
+pip install lxml --upgrade
 ```
