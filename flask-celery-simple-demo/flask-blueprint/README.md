@@ -762,3 +762,11 @@ user.username = ''
 db.sesssion.commit()
 User.query.first()
 ```
+
+## 爬虫
+
+>安装依赖
+
+```bash
+pip install pymongo BeautifulSoup4
+```
