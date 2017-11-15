@@ -132,7 +132,7 @@ server {
     server_name  localhost;
 
     access_log /data/nginx/logs/service_access.log main;
-    error_log /data/nginx/logs/service_error.log; 
+    error_log /data/nginx/logs/service_error.log;
 
     location /mystatus {
 	stub_status;
@@ -203,7 +203,7 @@ wsgi-file = manage.py
 ; 程序内启用的application变量名
 callable = app
 ; 处理器个数
-processes = 4
+processes = 2
 ; 线程个数
 threads = 2
 ; 获取uwsgi统计信息的服务地址
@@ -762,5 +762,3 @@ user.username = ''
 db.sesssion.commit()
 User.query.first()
 ```
-
-
