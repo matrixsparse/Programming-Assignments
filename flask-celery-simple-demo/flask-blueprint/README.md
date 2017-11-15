@@ -117,6 +117,46 @@ enabled=1
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fiqzqmftanj22140ewgou.jpg)
 
+>修改nginx默认配置文件
+
+* 阿里云服务器要在安全组中设置安全组规则
+* 使用非80端口时，检查防火墙是否关闭
+
+```bash
+vim /etc/nginx/conf.d/default.conf
+```
+
+```bash
+server {
+    listen       8088;
+    server_name  localhost;
+
+    access_log /data/nginx/logs/service_access.log main;
+    error_log /data/nginx/logs/service_error.log; 
+
+    location /mystatus {
+	stub_status;
+    }
+
+    location / {
+        #设置主机头和客户端真实地址，以便服务器获取客户端真实IP
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_buffering off;
+	include uwsgi_params;
+	uwsgi_pass unix:///data/python_server/code/flask-blueprint/run/runapp.sock;
+	#root   /usr/share/nginx/html;
+        #index  index.html index.htm;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
 >关闭nginx
 
 ```bash

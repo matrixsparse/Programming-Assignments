@@ -8,6 +8,10 @@
 systemctl stop firewalld.service
 ```
 
+```bash
+service firewalld stop
+```
+
 ### 禁止防火墙开机启动
 
 ```bash
@@ -20,12 +24,20 @@ systemctl disable firewalld.service
 firewall-cmd --state
 ```
 
+### 查看防火墙规则
+
+```bash
+firewall-cmd --list-all 
+```
+
 ### 开启端口
 
 ```bash
-/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
-/sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
-/sbin/iptables -I INPUT -p tcp --dport 8088 -j ACCEPT
+firewall-cmd --zone=public --permanent --add-port=8088/tcp
+firewall-cmd --zone=public --permanent --add-port=8080/tcp
+firewall-cmd --zone=public --permanent --add-port=80/tcp
+firewall-cmd --zone=public --permanent --add-port=27017/tcp
+firewall-cmd --zone=public --permanent --add-port=22/tcp
 ```
 
 ### 查看正在占用的端口
@@ -34,7 +46,50 @@ firewall-cmd --state
 netstat -ntlp
 ```
 
-### 修改/etc/sudoers配置文件
+## CentOS切换为iptables防火墙
+
+>切换到iptables首先应该关掉默认的firewalld，然后安装iptables服务
+
+### 关闭firewall
+
+```bash
+service firewalld stop
+systemctl disable firewalld.service #禁止firewall开机启动
+```
+
+### 安装iptables防火墙
+
+```bash
+yum install iptables-services -y #安装
+```
+
+### 编辑iptables防火墙配置
+
+```bash
+vi /etc/sysconfig/iptables #编辑防火墙配置文件
+```
+
+```bash
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 27017 -j ACCEPT
+```
+
+```bash
+service iptables start #开启
+systemctl enable iptables.service #设置防火墙开机启动
+```
+
+### 查看iptables是否处于放行状态
+
+```bash
+iptables -L -vn
+```
+
+## 修改/etc/sudoers配置文件
 
 ```bash
 visudo

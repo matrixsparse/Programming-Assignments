@@ -74,6 +74,13 @@ def hello_world():
     return render_template('index.html')
 
 
+@app.route('/')
+def index():
+    return "<h1>Hello World！</h1>"
+    # app.logger.debug('index.html')
+    # return render_template('index.html')
+
+
 db = SQLAlchemy(app)
 # manager = Manager(app)
 #
