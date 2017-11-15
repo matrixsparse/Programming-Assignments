@@ -14,6 +14,12 @@ systemctl stop firewalld.service
 systemctl disable firewalld.service
 ```
 
+### 查看默认防火墙状态
+
+```bash
+firewall-cmd --state
+```
+
 ### 开启端口
 
 ```bash
@@ -26,6 +32,17 @@ systemctl disable firewalld.service
 
 ```bash
 netstat -ntlp
+```
+
+### 修改/etc/sudoers配置文件
+
+```bash
+visudo
+```
+
+```bash
+root    ALL=(ALL)       ALL
+matrix  ALL=(ALL)       ALL
 ```
 
 ## 编译安装Python3.6

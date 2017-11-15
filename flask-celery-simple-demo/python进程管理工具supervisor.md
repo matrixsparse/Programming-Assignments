@@ -57,7 +57,7 @@ echo_supervisord_conf > /etc/supervisord.conf
 >如果出现没有权限的问题，可以使用这条命令
 
 ```bash
-sudo su - root -c "echo_supervisord_conf > /etc/supervisord.conf"
+sudo su - root -c "echo_supervisord_conf > /etc/supervisord.d/supervisord.conf"
 ```
 
 > supervisor安装完成后会生成三个执行程序：
@@ -74,7 +74,7 @@ sudo su - root -c "echo_supervisord_conf > /etc/supervisord.conf"
 打开配置文件
 
 ```bash
-vim /etc/supervisord.conf
+vim /etc/supervisord.d/supervisord.conf
 ```
 
 ```bash
