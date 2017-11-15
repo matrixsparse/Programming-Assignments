@@ -182,7 +182,7 @@ nginx -s reload
 >在项目根目录下创建一个配置文件config.ini(uwsgi支持多种配置文件格式，xml，ini，json等)
 
 ```bash
-[root@sparsematrix flask-blueprint]# vi config.ini
+[root@sparsematrix ~]# vi /data/python_server/code/flask-blueprint/config.ini
 ```
 
 ```bash
@@ -194,9 +194,9 @@ nginx -s reload
 ; socket = 0.0.0.0:8000
 ; socket file's location
 ; socket 指定的是与 nginx 进行通信的端口文件
-socket = /data/python_server/code/flask-blueprint/run/runapp.sock
+socket = ./run/runapp.sock
 ; 项目目录
-chdir = /data/python_server/code/flask-blueprint
+chdir = .
 ; flask程序的启动文件，通常在本地是通过运行python manage.py runserver 来启动项目的
 wsgi-file = manage.py
 ; 程序内启用的application变量名
@@ -206,13 +206,13 @@ processes = 4
 ; 线程个数
 threads = 2
 ; 获取uwsgi统计信息的服务地址
-stats = 127.0.0.1:9191
+; stats = 127.0.0.1:9191
 #permissions for the socket file
 chmod-socket = 666
 #the variable that holds a flask application inside the module imported at line #6
 callable = app
 #location of log files
-logto = /data/python_server/code/flask-blueprint/run/runapp.log
+logto = ./run/runapp.log
 ```
 
 >启动uwsgi
