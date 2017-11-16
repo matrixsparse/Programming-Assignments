@@ -3,7 +3,6 @@
 # @Copyright (C), 2017, matrix
 
 import traceback
-from service.application.__init__ import app
 from flask import request, jsonify, g
 
 from service.application.controllers.main import main
@@ -29,4 +28,5 @@ def index():
 
 
 if __name__ == "__main__":
-    print(app.config['AUTH_TOKEN'])
+    pass
+    # print(app.config['AUTH_TOKEN'])

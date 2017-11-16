@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Copyright (C), 2017, matrix
 
+import traceback
 from flask import request
 from flask import render_template
 from library.config.error import Err
@@ -9,7 +10,7 @@ from service.application.service.spider import Spider
 from service.application.controllers.spider import spider
 
 
-@spider.route('/')
+@spider.route('/', methods=['GET', 'POST'])
 def index():
     print('__name__', __name__)
     return render_template('spider/index.html')
@@ -32,8 +33,16 @@ def get_chatper_list():
 def get_content_data():
     args = dict(request.args.items())
     print(args)
-    if args.get('title', '') == '' and args.get('chapter', '') == '':
-        return {'code': Err.Invalid_params, 'msg': Err.Msg.Invalid_params}
+    title = args.get('title')
+    chapter = args.get('chapter')
+    try:
+        if not args.has_key('title') and isinstance(title, str):
+            return {'code': Err.Invalid_params, 'data': Err.Msg.Invalid_params}
+        elif not args.has_key('chapter') is None and isinstance(chapter, str):
+            return {'code': Err.Invalid_params, 'data': Err.Msg.Invalid_params}
+    except:
+        print(traceback.format_exc())
+        return {'code': Err.Invalid_params, 'data': Err.Msg.Invalid_params}
     s = Spider()
-    result = s.get_content_data(args.get('title', ''), args.get('chapter', ''))
+    result = s.get_content_data(title, chapter)
     return "{'code': 0, 'data': '%s'}" % (result)
