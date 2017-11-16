@@ -2,18 +2,38 @@
 # -*- coding:utf-8 -*-
 # @Copyright (C), 2017, matrix
 
+from flask import request
 from flask import render_template
-
+from library.config.error import Err
+from service.application.service.spider import Spider
 from service.application.controllers.spider import spider
 
 
-@spider.route('/')  # 指定路由为/，因为run.py中指定了前缀，浏览器访问时，路径为http://IP/asset/
+@spider.route('/')
 def index():
     print('__name__', __name__)
-    return render_template('spider/index.html')  # 返回index.html模板，路径默认在templates下
+    return render_template('spider/index.html')
 
 
-@spider.route('/handle')  # 指定路由为/，因为run.py中指定了前缀，浏览器访问时，路径为http://IP/asset/handle
+@spider.route('/handle', methods=['GET', 'POST'])
 def handle():
     print('编写逻辑')
     return "{'code': 0, 'msg': 'success'}"
+
+
+@spider.route('/get_chatper_list', methods=['GET', 'POST'])
+def get_chatper_list():
+    s = Spider()
+    result = s.get_chapter_data()
+    return "{'code': 0, 'data': '%s'}" % (result)
+
+
+@spider.route('/get_content_list', methods=['GET', 'POST'])
+def get_content_data():
+    args = dict(request.args.items())
+    print(args)
+    if args.get('title', '') == '' and args.get('chapter', '') == '':
+        return {'code': Err.Invalid_params, 'msg': Err.Msg.Invalid_params}
+    s = Spider()
+    result = s.get_content_data(args.get('title', ''), args.get('chapter', ''))
+    return "{'code': 0, 'data': '%s'}" % (result)

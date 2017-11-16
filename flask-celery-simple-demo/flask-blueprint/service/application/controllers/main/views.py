@@ -3,7 +3,7 @@
 # @Copyright (C), 2017, matrix
 
 import traceback
-# from service.application.__init__ import app
+from service.application.__init__ import app
 from flask import request, jsonify, g
 
 from service.application.controllers.main import main

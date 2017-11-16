@@ -12,6 +12,16 @@ class Config:
     # 授权token
     AUTH_TOKEN = {'64233ea4dbt69ssa535011afe0269a2b', '866526ac824s8a67t9c5be23c40748ya'}
 
+    # 发送邮件
+    MAIL_CONFIG = {
+        'server': 'smtp.exmail.qq.com',
+        'port': 25,
+        'send_from': 'wanghaodi@lmbang.com',
+        'user': 'wanghaodi@lmbang.com',
+        'password': '88AA66aa',
+        'send_to': 'parsematrix@163.com'
+    }
+
     @staticmethod
     def init_app(app):
         pass
@@ -23,8 +33,8 @@ class DevelopmentConfig(Config):
     # redis配置
     REDIS_CONFIG = {
         'default': {
-            'host': '',
-            'port': 7403,
+            'host': 'localhost',
+            'port': 6379,
             'db': 0
         }
     }
@@ -54,15 +64,15 @@ class DevelopmentConfig(Config):
     }
 
 
-class TestingConfig(Config):
-    # 249环境
+class BetaConfig(Config):
+    # beta
     DEBUG = True
 
     # redis配置
     REDIS_CONFIG = {
         'default': {
-            'host': '',
-            'port': 7403,
+            'host': 'localhost',
+            'port': 6379,
             'db': 0
         }
     }
@@ -93,13 +103,14 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
+    # production
     DEBUG = True
 
     # redis配置
     REDIS_CONFIG = {
         'default': {
-            'host': '',
-            'port': 7403,
+            'host': 'localhost',
+            'port': 6379,
             'db': 0
         }
     }
@@ -131,8 +142,7 @@ class ProductionConfig(Config):
 
 config = {
     'development': DevelopmentConfig,
-    'testing': TestingConfig,
     'production': ProductionConfig,
     'default': DevelopmentConfig,
-    'beta': TestingConfig
-}.get(os.getenv('FLASK_CONFIG') or 'default', DevelopmentConfig)
+    'beta': BetaConfig
+}.get(os.getenv('FLASK_CONFIG') or 'default', BetaConfig)

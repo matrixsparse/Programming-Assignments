@@ -763,6 +763,61 @@ db.sesssion.commit()
 User.query.first()
 ```
 
+## 在Linux上单击部署Redis
+
+### 解压redis压缩文件
+
+```bash
+[root@sparsematrix ~]# wget http://download.redis.io/releases/redis-3.2.5.tar.gz
+[root@sparsematrix ~]# mkdir -p /usr/local/
+[root@sparsematrix ~]# tar -zxvf redis-3.2.5.tar.gz -C /usr/local/
+```
+
+### 重命名
+
+```bash
+[root@sparsematrix ~]# cd /usr/local/
+[root@sparsematrix local]# mv redis-3.2.5 redis
+```
+
+### 进入redis目录
+
+```bash
+cd /usr/local/redis/
+```
+
+### 生成
+
+```bash
+[root@sparsematrix redis]# make
+```
+![All text](http://i1.piimg.com/581590/54cc599cecc213b9.png)
+
+### 测试
+
+```bash
+[root@sparsematrix redis]# make test
+#这段运行时间会较长
+```
+
+### 将redis的命令安装到/usr/bin/目录
+
+```bash
+[root@sparsematrix redis]# make install
+```
+
+![All text](http://i1.piimg.com/581590/f3bbec96d2ee8dd9.png)
+
+### 运行Redis
+
+#### 启动Redis服务器
+
+```bash
+[root@sparsematrix ~]# redis-server
+```
+
+![All text](http://i1.piimg.com/581590/3677acfcf6b8df60.png)
+
 ## 爬虫
 
 >安装依赖

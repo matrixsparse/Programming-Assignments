@@ -48,10 +48,11 @@ class Spider(object):
             data = {
                 "url": url,
                 "title": title,
-                "chapter": chapter
+                "chapter": chapter.strip()
             }
             print(data)
             info_list.append(data)
+        soup.decompose()
         self.get_content_from(info_list)
 
     def get_content_from(self, info_list):
@@ -60,7 +61,6 @@ class Spider(object):
         :param url: 
         :return: 
         """
-
         novel_list = []
 
         for info in info_list:
@@ -78,27 +78,39 @@ class Spider(object):
                 # self.novel.insert_one(info)
                 novel_list.append(info)
 
+        soup.decompose()
         self.novel.insert_many(novel_list)
 
-    def handle(self):
+    def get_chapter_data(self):
         """
-        逻辑处理
+        获取章节列表页数据
         :return: 
         """
-        for i in url_list:
-            self.get_chapter_links_from(i)
+        chatper_list = []
+        for i in self.novel.find({'title': '我是至尊'}):
+            title = i.get('title', '')
+            if title:
+                chatper_list.append(i.get('chapter', ''))
+        result = {
+            'title': title,
+            'chatper': chatper_list
+        }
+        return result
 
-    def get_data(self):
+    def get_content_data(self, title, chapter):
         """
-        获取数据
+        获取内容页数据
         :return: 
         """
-        print('chapter_count:', self.novel.count())
-        # novel_list = self.novel.find()
-        # for i in novel_list:
-        #     print(i)
+        novel_info = self.novel.find_one({'title': title, 'chapter': chapter})
+        result = {
+            'title': novel_info.get('title'),
+            'chapter': novel_info.get('chapter'),
+            'content': novel_info.get('content')
+        }
+        return result
 
 
 if __name__ == "__main__":
     s = Spider()
-    s.get_data()
+    s.get_content_data('我是至尊', ' 第一章 兄弟情义莫论酒,男儿行世必拔刀!')
