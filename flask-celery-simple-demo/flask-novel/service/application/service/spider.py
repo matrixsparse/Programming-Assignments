@@ -119,5 +119,4 @@ class Spider(object):
 
 if __name__ == "__main__":
     s = Spider()
-    print(s.novel.count())
-    # s.get_chapter_links_from('http://www.qu.la/book/3952/')
+    print(s.get_chapter_data())
