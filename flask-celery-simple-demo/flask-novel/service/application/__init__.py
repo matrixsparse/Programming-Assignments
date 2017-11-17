@@ -5,12 +5,10 @@
 import os
 import sys
 import logging
-import pymysql
 from logging.handlers import TimedRotatingFileHandler
 
 from flask import Flask
 from flask import render_template
-from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 from library.config.development import config
 
@@ -37,7 +35,7 @@ def create_app():
     # 开启调试模式
     app.debug = True
 
-    app.register_blueprint(main, url_prefix='/service')  # 注册main蓝图，并指定前缀
+    app.register_blueprint(main)  # 注册main蓝图，并指定前缀
     app.register_blueprint(spider, url_prefix='/spider')  # 注册spider蓝图，并指定前缀
     app.register_blueprint(data, url_prefix='/data')  # 注册data蓝图，并指定前缀
 
@@ -69,21 +67,8 @@ app = create_app()
 
 @app.route('/hello')
 def hello_world():
-    # return "<h1>Hello World！</h1>"
     app.logger.debug('index.html')
     return render_template('index.html')
 
 
-# @app.route('/')
-# def index():
-#     return "<h1>Hello World！</h1>"
-#     # app.logger.debug('index.html')
-#     # return render_template('index.html')
-
-
 db = SQLAlchemy(app)
-# manager = Manager(app)
-#
-# if __name__ == "__main__":
-#     # 将模型导入数据表
-#     db.create_all()
