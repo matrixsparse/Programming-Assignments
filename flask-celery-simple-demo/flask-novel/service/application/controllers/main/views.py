@@ -33,7 +33,7 @@ def service(module_name, func_name):
     try:
         if module_name.startswith('_') or func_name.startswith('_'):
             return jsonify({'code': Err.Forbidden, 'msg': Err.Msg.Forbidden})
-        
+
         func = getattr(globals().get(module_name, object), func_name, None)
 
         if not callable(func):
@@ -65,7 +65,7 @@ def service(module_name, func_name):
 @main.route('/service/<func_name>', methods=['GET', 'POST'])
 def simple_service(func_name):
     try:
-        module_name = 'novel'
+        module_name = 'fiction'
         func = getattr(globals().get(module_name, object), func_name, None)
         if not callable(func):
             return jsonify({'code': Err.Not_found, 'msg': Err.Msg.Not_found})

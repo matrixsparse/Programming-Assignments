@@ -8,9 +8,9 @@ from library.config.error import Err
 from service.application.utils.spider import Spider
 
 
-def get_chapter_data(**kwargs):
+def get_chapter_list(**kwargs):
     s = Spider()
-    result = s.get_chapter_data()
+    result = s.get_chapter_list()
     data = '{}'.format(result)
     return {'code': 0, 'data': data}
 
