@@ -35,7 +35,7 @@ def create_app():
     # 开启调试模式
     app.debug = True
 
-    app.register_blueprint(main)  # 注册main蓝图，并指定前缀
+    app.register_blueprint(main, url_prefix='/service')  # 注册main蓝图，并指定前缀
     app.register_blueprint(spider, url_prefix='/spider')  # 注册spider蓝图，并指定前缀
     app.register_blueprint(data, url_prefix='/data')  # 注册data蓝图，并指定前缀
 

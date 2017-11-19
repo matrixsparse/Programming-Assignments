@@ -28,7 +28,7 @@ def index():
     return 'success'
 
 
-@main.route('/service/<module_name>/<func_name>', methods=['GET', 'POST'])
+@main.route('/<module_name>/<func_name>', methods=['GET', 'POST'])
 def service(module_name, func_name):
     try:
         if module_name.startswith('_') or func_name.startswith('_'):
@@ -62,7 +62,7 @@ def service(module_name, func_name):
         return jsonify({'code': Err.Internal_server_error, 'msg': Err.Msg.Internal_server_error})
 
 
-@main.route('/service/<func_name>', methods=['GET', 'POST'])
+@main.route('/<func_name>', methods=['GET', 'POST'])
 def simple_service(func_name):
     try:
         module_name = 'fiction'
