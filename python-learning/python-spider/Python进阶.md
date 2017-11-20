@@ -97,3 +97,27 @@ if __name__ == "__main__":
 ```bash
 [1, 7, 9, 17]
 ```
+
+* python中自定义排序函数
+
+```bash
+sorted()是高阶函数，可以接收一个比较函数来实现自定义排序，传入两个待比较的元素x，y，
+如果x应该排在y前面，返回-1
+如果x应该排在y后面，返回1
+如果x和y相等，返回0
+```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+if __name__ == "__main__":
+    print(sorted([35, 6, 12, 34, 55, 21, 9], reverse=False))
+```
+
+>运行结果
+
+```bash
+[6, 9, 12, 21, 34, 35, 55]
+```
