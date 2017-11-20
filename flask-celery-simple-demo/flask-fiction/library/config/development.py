@@ -18,7 +18,7 @@ class Config:
         'port': 25,
         'send_from': 'wanghaodi@lmbang.com',
         'user': 'wanghaodi@lmbang.com',
-        'password': '1234567',
+        'password': '88AA66aa',
         'send_to': 'sparsematrix@163.com'
     }
 

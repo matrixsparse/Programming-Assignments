@@ -837,3 +837,10 @@ bs4.FeatureNotFound: Couldn't find a tree builder with the features you requeste
 ```bash
 pip install lxml --upgrade
 ```
+
+>flask-fiction/service/application/utils
+
+* all_theme_link【网站所有主题链接提取的页面】
+* ip_pool_request【更换代理和useagent进行请求/西刺代理】
+* MongoQueue【封装数据库操作】
+* fiction_crawl【爬虫主程序】

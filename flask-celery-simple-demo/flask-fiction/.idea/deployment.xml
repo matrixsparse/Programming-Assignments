@@ -5,7 +5,7 @@
       <paths name="47.52.232.210">
         <serverdata>
           <mappings>
-            <mapping deploy="/data/python_server/code/flask-novel" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/data/python_server/code/flask-fiction" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

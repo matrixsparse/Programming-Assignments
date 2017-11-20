@@ -23,6 +23,7 @@ def email_me(subject, content, send_to=None, attch_file=None, images=None):
     opts = Config.MAIL_CONFIG
     if send_to and (isinstance(send_to, list) or isinstance(send_to, tuple)):
         opts['send_to'] = ','.join(send_to)
+        print("opts['send_to']：", opts['send_to'])
     m = Mail(opts=opts)
     content = content.replace('\n', '<br>')
     try:
