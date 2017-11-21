@@ -5,7 +5,7 @@
       <paths name="115.28.240.96">
         <serverdata>
           <mappings>
-            <mapping deploy="/test/wanghaodi/celery-demo" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/data/python_server/code/celery-demo" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -4,5 +4,5 @@
 
 from celery import Celery
 
-app = Celery('app', include=['server'])
-app.config_from_object('config')
+celery = Celery('app', include=['server'])
+celery.config_from_object('config')
