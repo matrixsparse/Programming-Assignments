@@ -2,25 +2,19 @@
 # -*- coding:utf-8 -*-
 # @Copyright (C), 2017, matrix
 
-import traceback
-from flask import request
+import json
 from flask import render_template
-from library.config.error import Err
-from service.application.utils.spider import Spider
 from service.application.controllers.spider import spider
 
 
 @spider.route('/', methods=['GET', 'POST'])
 def index():
-    print('__name__', __name__)
     return render_template('spider/index.html')
 
 
 @spider.route('/handle', methods=['GET', 'POST'])
 def handle():
-    print('编写逻辑')
-    return "{'code': 0, 'msg': 'success'}"
-
+    return json.dumps({'code': 0, 'data': 'success'})
 
 # @spider.route('/get_chapter_data', methods=['GET', 'POST'])
 # def get_chapter_data():

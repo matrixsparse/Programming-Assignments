@@ -6,6 +6,7 @@ import traceback
 from flask import jsonify
 from library.config.error import Err
 from service.application.utils.spider import Spider
+from service.application.utils.all_theme_link import get_novel_category_info
 
 
 def get_chapter_list(**kwargs):
@@ -28,3 +29,5 @@ def get_content_data(title=None, chapter=None, **kwargs):
     result = s.get_content_data(title, chapter)
     data = '{}'.format(result)
     return {'code': 0, 'data': data}
+
+

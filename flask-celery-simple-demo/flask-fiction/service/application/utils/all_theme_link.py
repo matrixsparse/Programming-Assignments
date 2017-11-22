@@ -108,10 +108,23 @@ def get_content_info_from(url, title, chapter_name):
         content_queue.push_content(title, chapter_name, content)
 
 
+def get_novel_category_info():
+    """
+    获取不同类别下的小说
+    :return: 
+    """
+    novel_list = []
+    for novel in spider_queue.find():
+        novel_list.append(novel)
+
+    return {'code': 0, 'result': novel_list}
+
+
 if __name__ == "__main__":
     # get_subject_link_from()
     # get_page_link_from()
     # get_chapter_info_from()
-    for i in chapter_queue.find():
-        print(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
-        get_content_info_from(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
+    # for i in chapter_queue.find():
+    #     print(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
+    #     get_content_info_from(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
+    print(get_novel_category_info())
