@@ -186,6 +186,40 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            columns_data: [
+                {
+                    title: '序号',
+                    key: 'number',
+                    sortable: true
+                },
+                {
+                    title: '小说类别',
+                    key: 'category'
+                },
+                {
+                    title: '小说书名',
+                    key: 'book_name'
+                },
+                {
+                    title: '作者',
+                    key: 'author'
+                },
+                {
+                    title: '阅读',
+                    key: 'url'
+                }
+            ],
+            show_data: []
+        },
+        methods: {
+            reload: function () {
+            }
+        }
+    })
+
     // 页面加载即调用
     $(document).ready(function () {
         indexpage(1)
@@ -196,14 +230,14 @@
         console.clear()
 
         var novel_list = []
-        var request_url = window.document.location.href + 'handle?skip_num=' + (parseInt(page) - 1) * 20
+
+        var request_url = window.document.location.href + 'handle?skip_num=' + (parseInt(page) - 1) * 12
 
         console.log((parseInt(page) - 1) * 20)
 
         $.get(request_url
             , function (data) {
                 var json_data = $.parseJSON(data)
-//                console.log(json_data['result'])
                 for (i = 0; i < json_data['result'].length; i++) {
                     show_data = {
                         "number": parseInt(i) + 1,
@@ -212,48 +246,14 @@
                         "author": json_data['result'][i].author,
                         "url": json_data['result'][i]._id
                     }
-                    console.log(show_data)
                     novel_list.push(show_data)
+                }
+                for (i = 0; i < novel_list.length; i++) {
+                    Vue.set(vue.show_data, i, novel_list[i])
+                    console.log(novel_list[i])
                 }
             }
         )
-
-        var vue = new Vue({
-            el: '#app',
-            data: {
-                columns_data: [
-                    {
-                        title: '序号',
-                        key: 'number',
-                        sortable: true
-                    },
-                    {
-                        title: '小说类别',
-                        key: 'category'
-                    },
-                    {
-                        title: '小说书名',
-                        key: 'book_name'
-                    },
-                    {
-                        title: '作者',
-                        key: 'author'
-                    },
-                    {
-                        title: '阅读',
-                        key: 'url'
-                    }
-                ],
-                show_data: novel_list
-            },
-            methods: {
-                reload: function () {
-                    console.log('进来！')
-                    this.$set(this.show_data, novel_list);
-                }
-            }
-        })
-        vue.reload()
     }
 
 
