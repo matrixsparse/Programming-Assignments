@@ -21,3 +21,14 @@ p {
     max-height: 400px;
     overflow-y: scroll;
 }
+
+a {
+    color: #fff;
+}
+
+/*.table td, .table th {*/
+    /*padding: .75rem;*/
+    /*vertical-align: top;*/
+    /*border-top: 1px solid #e9ecef;*/
+    /*font-size: 14px;*/
+/*}*/

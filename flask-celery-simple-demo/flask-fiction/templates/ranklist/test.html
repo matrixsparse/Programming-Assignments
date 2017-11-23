@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
     <!-- import iView -->
     <script src="//unpkg.com/iview/dist/iview.min.js"></script>
-    <!-- import user define css -->
-    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">-->
     <style type="text/css">
         * {
             margin: 0;
@@ -107,12 +105,6 @@
             margin-bottom: 0px;
             border-radius: .25rem .25rem 0 0;
         }
-
-        #app button {
-            font-size: 12px;
-            cursor: pointer;
-        }
-
     </style>
 </head>
 <body>
@@ -138,31 +130,7 @@
                 </nav>
             </div>
             <div id="app">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">序号</th>
-                        <th scope="col">小说类别</th>
-                        <th scope="col">小说书名</th>
-                        <th scope="col">作者</th>
-                        <th scope="col">操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="s in show_data">
-                        <td v-text="s.number"></td>
-                        <td v-text="s.category"></td>
-                        <td v-text="s.book_name"></td>
-                        <td v-text="s.author"></td>
-                        <td>
-                            <button type="button" class="btn btn-outline-dark btn-sm">
-                                <spsn v-text="s.url" style="display: none;"></spsn>
-                                查看详情
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <i-table :columns="columns_data" :data="show_data"></i-table>
             </div>
             <div id="page">
                 <nav aria-label="Page navigation example">
@@ -191,12 +159,15 @@
         indexpage(1)
     });
 
+
     function indexpage(page) {
 
         console.clear()
 
+        var cur_page = 1
+
         var novel_list = []
-        var request_url = window.document.location.href + 'handle?skip_num=' + (parseInt(page) - 1) * 20
+        var request_url = 'http://47.52.232.210:8088/ranklist/handle?skip_num=' + (parseInt(page) - 1) * 20
 
         console.log((parseInt(page) - 1) * 20)
 
@@ -209,8 +180,7 @@
                         "number": parseInt(i) + 1,
                         "category": json_data['result'][i].book_style,
                         "book_name": json_data['result'][i].title,
-                        "author": json_data['result'][i].author,
-                        "url": json_data['result'][i]._id
+                        "author": json_data['result'][i].author
                     }
                     console.log(show_data)
                     novel_list.push(show_data)
@@ -218,7 +188,7 @@
             }
         )
 
-        var vue = new Vue({
+        new Vue({
             el: '#app',
             data: {
                 columns_data: [
@@ -238,22 +208,11 @@
                     {
                         title: '作者',
                         key: 'author'
-                    },
-                    {
-                        title: '阅读',
-                        key: 'url'
                     }
                 ],
                 show_data: novel_list
-            },
-            methods: {
-                reload: function () {
-                    console.log('进来！')
-                    this.$set(this.show_data, novel_list);
-                }
             }
         })
-        vue.reload()
     }
 
 

@@ -3,19 +3,29 @@
 # @Copyright (C), 2017, matrix
 
 import json
-from flask import render_template
+from flask import render_template, request
 
 from service.application.controllers.ranklist import ranklist
 from service.application.utils.all_theme_link import get_novel_category_info
 
 
-@ranklist.route('/', methods=['GET', 'POST'])  # 指定路由为/，因为run.py中指定了前缀，浏览器访问时，路径为http://IP/asset/
+@ranklist.route('/', methods=['GET', 'POST'])
 def index():
-    # result = get_novel_category_info().get('result', '')
-    return render_template('ranklist/ranklist.html')  # 返回index.html模板，路径默认在templates下
+    args = dict(request.args.items())
+    print(args)
+    return render_template('ranklist/ranklist.html')
 
 
-@ranklist.route('/handle', methods=['GET', 'POST'])  # 指定路由为/，因为run.py中指定了前缀，浏览器访问时，路径为http://IP/asset/handle
-def handle():
-    result = get_novel_category_info().get('result', '')
+@ranklist.route('/test', methods=['GET', 'POST'])
+def test():
+    args = dict(request.args.items())
+    print(args)
+    return render_template('ranklist/test.html')
+
+
+@ranklist.route('/handle', methods=['GET', 'POST'])
+def handle(skip_num=0, limit_num=20):
+    args = dict(request.args.items())
+    skip_num = int(args.get('skip_num', 0))
+    result = get_novel_category_info(skip_num, limit_num).get('result', '')
     return json.dumps({'code': 0, 'result': result})
