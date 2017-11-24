@@ -24,7 +24,7 @@ def test():
 
 
 @ranklist.route('/handle', methods=['GET', 'POST'])
-def handle(skip_num=0, limit_num=12):
+def handle(skip_num=0, limit_num=10):
     args = dict(request.args.items())
     skip_num = int(args.get('skip_num', 0))
     result = get_novel_category_info(skip_num, limit_num).get('result', '')

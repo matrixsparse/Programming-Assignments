@@ -46,7 +46,7 @@
             float: left;
             position: relative;
             top: 15px;
-            left: 20px;
+            left: 80px;
             color: #fff;
             font-size: 14px;
         }
@@ -127,6 +127,22 @@
     </div>
     <div class="layout-header">
         <div class="layout-logo">Logo</div>
+    </div>
+    <div class="layout-nav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
     </div>
     <div class="layout-content">
         <div class="layout-content-main">
@@ -231,9 +247,9 @@
 
         var novel_list = []
 
-        var request_url = window.document.location.href + 'handle?skip_num=' + (parseInt(page) - 1) * 12
+        var request_url = window.document.location.href + 'handle?skip_num=' + (parseInt(page) - 1) * 10
 
-        console.log((parseInt(page) - 1) * 20)
+        console.log((parseInt(page) - 1) * 10)
 
         $.get(request_url
             , function (data) {
@@ -250,7 +266,7 @@
                 }
                 for (i = 0; i < novel_list.length; i++) {
                     Vue.set(vue.show_data, i, novel_list[i])
-                    console.log(novel_list[i])
+                    // console.log(novel_list[i])
                 }
             }
         )
