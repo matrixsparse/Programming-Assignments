@@ -62,7 +62,7 @@
         }
 
         .layout-header .layout-header-wrapper {
-            width: 90%;
+            width: 80%;
             padding: 40px 0px;
             margin: 0px auto;
         }
@@ -72,14 +72,14 @@
             height: 60px;
             line-height: 60px;
             text-align: center;
-            background: #5b6270;
+            background: #474747;
             border-radius: 3px;
             color: #fff;
             font-size: 14px;
         }
 
         .layout-content {
-            width: 90%;
+            width: 80%;
             mix-height: 600px;
             margin: 15px;
             overflow: hidden;
@@ -90,11 +90,11 @@
 
         .layout-nav {
             overflow: hidden;
-            background: #464c5b;
+            background: #f8f9fa;
         }
 
         .layout-nav .nav {
-            width: 90%;
+            width: 80%;
             margin: 0 auto;
             font-size: 12px;
         }
@@ -168,39 +168,39 @@
                     <!-- 使用 router-link 组件来导航. -->
                     <!-- 通过传入 `to` 属性指定链接. -->
                     <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="home" active-class="active">首页
+                    <router-link class="nav-link btn btn-light" to="home" active-class="active">首页
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="fantasy" active-class="active">玄幻小说
+                    <router-link class="nav-link btn btn-light" to="fantasy" active-class="active">玄幻小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="coatard" active-class="active">修真小说
+                    <router-link class="nav-link btn btn-light" to="coatard" active-class="active">修真小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="urban" active-class="active">都市小说
+                    <router-link class="nav-link btn btn-light" to="urban" active-class="active">都市小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="his" active-class="active">历史小说
+                    <router-link class="nav-link btn btn-light" to="his" active-class="active">历史小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="science" active-class="active">科幻小说
+                    <router-link class="nav-link btn btn-light" to="science" active-class="active">科幻小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="onlinegame" active-class="active">网游小说
+                    <router-link class="nav-link btn btn-light" to="onlinegame" active-class="active">网游小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="schoolgirl" active-class="active">女生小说
+                    <router-link class="nav-link btn btn-light" to="schoolgirl" active-class="active">女生小说
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link btn btn-secondary btn-sm" to="ranking" active-class="active">排行榜
+                    <router-link class="nav-link btn btn-light" to="ranking" active-class="active">排行榜
                     </router-link>
                 </li>
             </ul>
@@ -263,19 +263,13 @@
             <div id="page">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link"
-                                                 href='javascript:fetchData(this,1,this.style);'>首页</a></li>
-                        <li class="page-item"><a class="page-link"
-                                                 href='javascript:fetchData(this,1,this.style);'>上一页</a></li>
-                        <li class="page-item active"><a class="page-link"
-                                                        href="javascript:fetchData(this,1,this.style);">1</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:fetchData(this,2,this.style);">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="javascript:fetchData(this,3,this.style);">3</a>
-                        </li>
-                        <li class="page-item"><a class="page-link"
-                                                 href="javascript:fetchData(this,1,this.style);">下一页</a></li>
-                        <li class="page-item"><a class="page-link" href="#">尾页</a></li>
+                        <li class="page-item"><a class="page-link"  @click="fetchData(this, 1, this.style)">首页</a></li>
+                        <li class="page-item"><a class="page-link">上一页</a></li>
+                        <li class="page-item active"><a class="page-link" @click="fetchData(this, 1, this.style)">1</a></li>
+                        <li class="page-item"><a class="page-link" @click="fetchData(this, 2, this.style)">2</a></li>
+                        <li class="page-item"><a class="page-link" @click="fetchData(this, 3, this.style)">3</a></li>
+                        <li class="page-item"><a class="page-link" @click="fetchData(this, 1, this.style)">下一页</a></li>
+                        <li class="page-item"><a class="page-link">尾页</a></li>
                     </ul>
                 </nav>
             </div>
@@ -507,7 +501,7 @@
                         <td v-text="s.book_name"></td>
                         <td v-text="s.author"></td>
                         <td>
-                            <a class="btn btn-outline-dark btn-sm" v-bind:href="s.url">查看详情</a>
+                            <a class="btn btn-outline-dark btn-sm" :href="s.url">查看详情</a>
                         </td>
                     </tr>
                     </tbody>
@@ -552,12 +546,16 @@
             }
         },
         created: function () {
-            // 组件创建完后获取数据，
-            // 此时 data 已经被 observed 了
+            // 实例创建完成之后调用
             this.fetchData(this, 1, this.style)
-        }, watch: {
+        },
+        mounted: function () {
+            // 挂载到实例上后调用
+            // console.log(this.$el)
+        }
+        , watch: {
             // 如果路由有变化，会再次执行该方法
-            '$route': 'fetchData'
+//            '$route': 'fetchData(this, 1, this.style)'
         }, methods: {
             fetchData: function (comp, page, book_style) {
                 console.clear()
@@ -584,6 +582,9 @@
                     }
                 )
             }
+        },
+        beforeDestory: function () {
+            // 在Vue实例销毁前，进行操作
         }
     })
 
@@ -698,6 +699,17 @@
         router: router
     }).$mount('#layout-wrapper')
 
+
+    function paging(vue_component, page) {
+        if (vue_component === 'fantasy') {
+            console.log('进来了！')
+            console.log(fantasy)
+            console.log(fantasy.style)
+            fantasy.fetchData(fantasy, page, fantasy.style)
+        }
+    }
+
+    console.log(fantasy)
 
     //    function indexpage(comp, page, book_style) {
     //        console.clear()
