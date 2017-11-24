@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>QuickRead</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="keywords" content="快读小说，免费小说，经典小说，免费小说下载"/>
+    <meta name="description" itemprop="description" content="快读小说-快读供广大网民自由上传喜爱小说，帮助让更多人了解到优秀小说的优质内容平台！"/>
     <!-- import icon -->
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/logo.png') }}">
     <!-- import bootstrap.v4 -->
@@ -10,20 +15,24 @@
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
     <!-- import Vue.js -->
-    <script src="//vuejs.org/js/vue.min.js"></script>
+    <!--<script src="https://vuejs.org/js/vue.min.js"></script>-->
+    <script src="https://unpkg.com/vue@2.5.8/dist/vue.js"></script>
+    <!-- import vue-router.js -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- import stylesheet -->
-    <link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
+    <link rel="stylesheet" href="https://unpkg.com/iview/dist/styles/iview.css">
     <!-- import iView -->
-    <script src="//unpkg.com/iview/dist/iview.min.js"></script>
+    <script src="https://unpkg.com/iview/dist/iview.min.js"></script>
     <!-- import user define css -->
     <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">-->
+    <title>QuickRead</title>
     <style type="text/css">
         * {
             margin: 0;
             padding: 0;
         }
 
-        #app {
+        .l_app {
             width: 75%;
             margin: 0px auto;
         }
@@ -36,25 +45,37 @@
             overflow: hidden;
         }
 
-        .layout-logo {
-            width: 120px;
-            height: 45px;
-            line-height: 45px;
-            text-align: center;
-            background: #5b6270;
-            border-radius: 3px;
-            float: left;
-            position: relative;
-            top: 18px;
-            left: 80px;
-            color: #fff;
-            font-size: 14px;
+        .layout-ceiling {
+            background: #474747;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        #layout-wrapper {
+
         }
 
         .layout-header {
-            height: 80px;
+            height: 140px;
             background: #fff;
             box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+        }
+
+        .layout-header .layout-header-wrapper {
+            width: 90%;
+            padding: 40px 0px;
+            margin: 0px auto;
+        }
+
+        .layout-header .layout-header-wrapper .layout-logo {
+            width: 140px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #5b6270;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 14px;
         }
 
         .layout-content {
@@ -64,24 +85,24 @@
             overflow: hidden;
             background: #fff;
             border-radius: 4px;
-            margin: 10px auto;
+            margin: 30px auto;
         }
 
-        .layout-nav{
-          overflow: hidden;
-          background: #464c5b;
+        .layout-nav {
+            overflow: hidden;
+            background: #464c5b;
         }
 
-        .layout-nav .nav{
-          width: 90%;
-          margin:0 auto;
-          font-size: 12px;
+        .layout-nav .nav {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 12px;
         }
 
-        .layout-nav .nav .btn{
-          border-radius: 0px;
-          border:0px;
-          outline: none;
+        .layout-nav .nav .btn {
+            border-radius: 0px;
+            border: 0px;
+            outline: none;
         }
 
         .layout-content-main {
@@ -94,19 +115,13 @@
             color: #9ea7b4;
         }
 
-        .layout-ceiling {
-            background: #464c5b;
-            padding: 10px 0;
-            overflow: hidden;
-        }
-
         .layout-ceiling-main {
             float: right;
             margin-right: 8px;
         }
 
         .layout-ceiling-main a {
-            color: #9ba7b5;
+            color: #808080;
         }
 
         #page {
@@ -114,7 +129,7 @@
             margin: 10px auto;
         }
 
-        #nav {
+        .t_nav {
             width: 75%;
             /*上右下左*/
             margin: 20px auto 0px auto;
@@ -136,45 +151,46 @@
 <div class="layout">
     <div class="layout-ceiling">
         <div class="layout-ceiling-main">
-            <a href="#">Sign up</a> |
-            <a href="#">Help Center</a> |
-            <a href="#">Security</a> |
-            <a href="#">Service</a>
+            <a href="#">注册</a> |
+            <a href="#">登录</a> |
+            <a href="#">个人中心</a>
         </div>
     </div>
     <div class="layout-header">
-        <div class="layout-logo">Logo</div>
+        <div class="layout-header-wrapper">
+            <div class="layout-logo">Logo</div>
+        </div>
     </div>
     <div class="layout-nav">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">首页</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary active" href="#">玄幻小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">修真小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">都市小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">历史小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">科幻小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">网游小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">女生小说</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-secondary" href="#">排行榜</a>
-        </li>
-      </ul>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm active" href="#">玄幻小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">修真小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">都市小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">历史小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">科幻小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">网游小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">女生小说</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary btn-sm" href="#">排行榜</a>
+            </li>
+        </ul>
     </div>
     <div class="layout-content">
         <div class="layout-content-main">

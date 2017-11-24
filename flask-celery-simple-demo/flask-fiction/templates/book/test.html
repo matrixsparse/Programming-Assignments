@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="keywords" content="快读小说，免费小说，经典小说，免费小说下载"/>
+    <meta name="description" itemprop="description" content="快读小说-快读供广大网民自由上传喜爱小说，帮助让更多人了解到优秀小说的优质内容平台！"/>
+    <!-- import icon -->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/logo.png') }}">
+    <!-- import bootstrap.v4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <!-- import Vue.js -->
+    <!--<script src="https://vuejs.org/js/vue.min.js"></script>-->
+    <script src="https://unpkg.com/vue@2.5.8/dist/vue.js"></script>
+    <!-- import vue-router.js -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/iview/dist/styles/iview.css">
+    <!-- import iView -->
+    <script src="https://unpkg.com/iview/dist/iview.min.js"></script>
+    <!-- import user define css -->
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">-->
+    <title>QuickRead</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .l_app {
+            width: 75%;
+            margin: 0px auto;
+        }
+
+        .layout {
+            border: 1px solid #d7dde4;
+            background: #f5f7f9;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .layout-ceiling {
+            background: #474747;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        #layout-wrapper {
+
+        }
+
+        .layout-header {
+            height: 140px;
+            background: #fff;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+        }
+
+        .layout-header .layout-header-wrapper {
+            width: 90%;
+            padding: 40px 0px;
+            margin: 0px auto;
+        }
+
+        .layout-header .layout-header-wrapper .layout-logo {
+            width: 140px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #5b6270;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .layout-content {
+            width: 90%;
+            mix-height: 600px;
+            margin: 15px;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 4px;
+            margin: 30px auto;
+        }
+
+        .layout-nav {
+            overflow: hidden;
+            background: #464c5b;
+        }
+
+        .layout-nav .nav {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 12px;
+        }
+
+        .layout-nav .nav .btn {
+            border-radius: 0px;
+            border: 0px;
+            outline: none;
+        }
+
+        .layout-content-main {
+            padding: 10px;
+        }
+
+        .layout-footer {
+            text-align: center;
+            padding: 10px 0 20px;
+            color: #9ea7b4;
+        }
+
+        .layout-ceiling-main {
+            float: right;
+            margin-right: 8px;
+        }
+
+        .layout-ceiling-main a {
+            color: #808080;
+        }
+
+        #page {
+            width: 75%;
+            margin: 10px auto;
+        }
+
+        .t_nav {
+            width: 75%;
+            /*上右下左*/
+            margin: 20px auto 0px auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 0px;
+            border-radius: .25rem .25rem 0 0;
+        }
+
+        #app button {
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="layout">
+    <div id="layout-wrapper">
+        <div class="layout-ceiling">
+            <div class="layout-ceiling-main">
+                <a href="#">注册</a> |
+                <a href="#">登录</a> |
+                <a href="#">个人中心</a>
+            </div>
+        </div>
+        <div class="layout-header">
+            <div class="layout-header-wrapper">
+                <div class="layout-logo">Logo</div>
+            </div>
+        </div>
+        <div class="layout-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <!-- 使用 router-link 组件来导航. -->
+                    <!-- 通过传入 `to` 属性指定链接. -->
+                    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="home" active-class="active">首页
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="fantasy" active-class="active">玄幻小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="coatard" active-class="active">修真小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="urban" active-class="active">都市小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="his" active-class="active">历史小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="science" active-class="active">科幻小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="onlinegame" active-class="active">网游小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="schoolgirl" active-class="active">女生小说
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link btn btn-secondary btn-sm" to="ranking" active-class="active">排行榜
+                    </router-link>
+                </li>
+            </ul>
+        </div>
+        <div class="layout-content">
+            <div class="layout-content-main">
+                <!--用于渲染匹配的组件-->
+                <router-view></router-view>
+            </div>
+        </div>
+        <div class="layout-footer">
+            2017 &copy; QuickRead
+        </div>
+    </div>
+</div>
+<template id="home">
+    <transition name="slide-right">
+        <div>
+            <h1>Home</h1>
+            <p v-text="msg"></p>
+        </div>
+    </transition>
+</template>
+<template id="fantasy">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>fantasy</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm" :href="s.url">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="page">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link"
+                                                 href='javascript:fetchData(this,1,this.style);'>首页</a></li>
+                        <li class="page-item"><a class="page-link"
+                                                 href='javascript:fetchData(this,1,this.style);'>上一页</a></li>
+                        <li class="page-item active"><a class="page-link"
+                                                        href="javascript:fetchData(this,1,this.style);">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:fetchData(this,2,this.style);">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:fetchData(this,3,this.style);">3</a>
+                        </li>
+                        <li class="page-item"><a class="page-link"
+                                                 href="javascript:fetchData(this,1,this.style);">下一页</a></li>
+                        <li class="page-item"><a class="page-link" href="#">尾页</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="coatard">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>coatard</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="urban">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>urban</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="his">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>his</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm" href="">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="science">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>science</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="onlinegame">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>onlinegame</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="schoolgirl">
+    <transition name="slide-right">
+        <div>
+            <div class="t_nav">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page" v-text="msg"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="l_app">
+                <!--<h1>schoolgirl</h1>-->
+                <!--<p v-text="msg"></p>-->
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">序号</th>
+                        <th scope="col">小说类别</th>
+                        <th scope="col">小说书名</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="s in show_data">
+                        <td v-text="s.number"></td>
+                        <td v-text="s.category"></td>
+                        <td v-text="s.book_name"></td>
+                        <td v-text="s.author"></td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm" v-bind:href="s.url">查看详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </transition>
+</template>
+<template id="ranking">
+    <transition name="slide-right">
+        <div>
+            <h1>ranking</h1>
+            <p>This is the tutorial about vue-router.</p>
+        </div>
+    </transition>
+</template>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    // 1.定义(路由)组件
+    var home = Vue.extend({
+        template: '#home',
+        data: function () {
+            return {
+                loading: false,
+                msg: '首页',
+                style: '首页',
+                show_data: []
+            }
+        }
+    })
+
+    var fantasy = Vue.extend({
+        template: '#fantasy',
+        data: function () {
+            return {
+                loading: false,
+                msg: '玄幻小说',
+                style: '玄幻奇幻',
+                show_data: []
+            }
+        },
+        created: function () {
+            // 组件创建完后获取数据，
+            // 此时 data 已经被 observed 了
+            this.fetchData(this, 1, this.style)
+        }, watch: {
+            // 如果路由有变化，会再次执行该方法
+            '$route': 'fetchData'
+        }, methods: {
+            fetchData: function (comp, page, book_style) {
+                console.clear()
+                var novel_list = []
+                var request_url = 'http://47.52.232.210:8088/book/handle?skip_num=' + (parseInt(page) - 1) * 10 + '&book_style=' + book_style
+                $.get(request_url
+                    , function (data) {
+                        var json_data = $.parseJSON(data)
+                        for (i = 0; i < json_data['result'].length; i++) {
+                            show_data = {
+                                "number": parseInt(i) + 1,
+                                "category": json_data['result'][i].book_style,
+                                "book_name": json_data['result'][i].title,
+                                "author": json_data['result'][i].author,
+                                "url": json_data['result'][i]._id
+                            }
+                            novel_list.push(show_data)
+                        }
+                        for (i = 0; i < novel_list.length; i++) {
+                            console.log(novel_list[i])
+                            Vue.set(comp.show_data, i, novel_list[i])
+                            console.log(comp.show_data)
+                        }
+                    }
+                )
+            }
+        }
+    })
+
+    var coatard = Vue.extend({
+        template: '#coatard',
+        data: function () {
+            return {
+                msg: '修真小说',
+                style: '武侠仙侠',
+                show_data: []
+            }
+        }
+    })
+
+    var urban = Vue.extend({
+        template: '#urban',
+        data: function () {
+            return {
+                msg: '都市小说',
+                style: '都市言情',
+                show_data: []
+            }
+        }
+    })
+
+    var his = Vue.extend({
+        template: '#his',
+        data: function () {
+            return {
+                msg: '历史小说',
+                style: '历史军事',
+                show_data: []
+            }
+        }
+    })
+
+    var science = Vue.extend({
+        template: '#science',
+        data: function () {
+            return {
+                msg: '科幻小说',
+                style: '科幻灵异',
+                show_data: []
+            }
+        }
+    })
+
+    var onlinegame = Vue.extend({
+        template: '#onlinegame',
+        data: function () {
+            return {
+                msg: '网游小说',
+                style: '网游竞技',
+                show_data: []
+            }
+        }
+    })
+
+    var schoolgirl = Vue.extend({
+        template: '#schoolgirl',
+        data: function () {
+            return {
+                msg: '女生小说',
+                style: '女生频道',
+                show_data: []
+            }
+        }
+    })
+
+    var ranking = Vue.extend({
+        template: '#ranking',
+        data: function () {
+            return {
+                msg: '排行榜',
+                style: '排行榜',
+                show_data: []
+            }
+        }
+    })
+
+    // 2.定义路由，每个路由映射一个组件，通过Vue.extend()创建组件构造器
+    const routes = [
+        {path: '/home', meta: {title: '首页'}, component: home},
+        {path: '/fantasy', meta: {title: '玄幻奇幻'}, component: fantasy},
+        {path: '/coatard', meta: {title: '武侠仙侠'}, component: coatard},
+        {path: '/urban', meta: {title: '都市言情'}, component: urban},
+        {path: '/his', meta: {title: '历史军事'}, component: his},
+        {path: '/science', meta: {title: '科幻灵异'}, component: science},
+        {path: '/onlinegame', meta: {title: '网游竞技'}, component: onlinegame},
+        {path: '/schoolgirl', meta: {title: '女生频道'}, component: schoolgirl},
+        {path: '/ranking', meta: {title: '排行榜'}, component: ranking}
+    ]
+
+    // 3. 创建 router 实例，然后传 `routes` 配置
+    // 你还可以传别的配置参数, 不过先这么简单着吧。
+    const router = new VueRouter({
+        routes: routes // （缩写）相当于 routes: routes
+    })
+
+    //    router.beforeEach((to, from, next) => {
+    //        window.document.title = to.meta.title || 'demo'
+    //        if (!to.query.url && from.query.url) {
+    //            to.query.url = from.query.url
+    //        }
+    //        next()
+    //    })
+
+    // 4. 创建和挂载根实例
+    // 记得要通过 router 配置参数注入路由，
+    // 从而让整个应用都有路由功能
+    const app = new Vue({
+        router: router
+    }).$mount('#layout-wrapper')
+
+
+    //    function indexpage(comp, page, book_style) {
+    //        console.clear()
+    //        var novel_list = []
+    //        var request_url = 'http://47.52.232.210:8088/book/handle?skip_num=' + (parseInt(page) - 1) * 10 + '&book_style=' + book_style
+    //        $.get(request_url
+    //            , function (data) {
+    //                var json_data = $.parseJSON(data)
+    //                for (i = 0; i < json_data['result'].length; i++) {
+    //                    show_data = {
+    //                        "number": parseInt(i) + 1,
+    //                        "category": json_data['result'][i].book_style,
+    //                        "book_name": json_data['result'][i].title,
+    //                        "author": json_data['result'][i].author,
+    //                        "url": json_data['result'][i]._id
+    //                    }
+    //                    novel_list.push(show_data)
+    //                }
+    //                for (i = 0; i < novel_list.length; i++) {
+    //                    console.log(novel_list[i])
+    //                    Vue.set(comp.show_data, i, novel_list[i])
+    //                    console.log(comp.show_data)
+    //                }
+    //            }
+    //        )
+    //    }
+</script>
+</html>

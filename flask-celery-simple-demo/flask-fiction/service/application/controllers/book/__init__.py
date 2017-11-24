@@ -4,9 +4,9 @@
 
 from flask import Blueprint
 
-ranklist = Blueprint('ranklist', __name__,
+book = Blueprint('book', __name__,
                  # template_folder='/opt/auras/templates/',   #指定模板路径
                  # static_folder='/opt/auras/flask_bootstrap/static/',#指定静态文件路径
                  )
 
-from service.application.controllers.ranklist import views
+from service.application.controllers.book import views

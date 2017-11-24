@@ -15,7 +15,7 @@ from library.config.development import config
 from service.application.controllers.main import main
 from service.application.controllers.data import data
 from service.application.controllers.spider import spider
-from service.application.controllers.ranklist import ranklist
+from service.application.controllers.book import book
 
 # 加载library包
 LIBRARY_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -39,7 +39,7 @@ def create_app():
     app.register_blueprint(main, url_prefix='/service')  # 注册main蓝图，并指定前缀
     app.register_blueprint(spider, url_prefix='/spider')  # 注册spider蓝图，并指定前缀
     app.register_blueprint(data, url_prefix='/data')  # 注册data蓝图，并指定前缀
-    app.register_blueprint(ranklist, url_prefix='/ranklist')  # 注册data蓝图，并指定前缀
+    app.register_blueprint(book, url_prefix='/book')  # 注册book蓝图，并指定前缀
 
     lOG_PATH = 'logs/%s' % 'service_'
     filehandler = TimedRotatingFileHandler(
