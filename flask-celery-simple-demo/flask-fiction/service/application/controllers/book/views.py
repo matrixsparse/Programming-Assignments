@@ -34,5 +34,7 @@ def demo():
 def handle(book_style='玄幻奇幻', skip_num=0, limit_num=10):
     args = dict(request.args.items())
     skip_num = int(args.get('skip_num', 0))
+    book_style = args.get('book_style', '玄幻奇幻')
     result = get_novel_category_info(book_style, skip_num, limit_num).get('result', '')
-    return json.dumps({'code': 0, 'result': result})
+    count = get_novel_category_info(book_style, skip_num, limit_num).get('count', 0)
+    return json.dumps({'code': 0, 'result': result, 'count': count})
