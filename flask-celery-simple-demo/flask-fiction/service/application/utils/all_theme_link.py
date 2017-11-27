@@ -125,8 +125,8 @@ def get_novel_category_info(book_style, skip_num, limit_num):
 if __name__ == "__main__":
     # get_subject_link_from()
     # get_page_link_from()
-    # get_chapter_info_from()
+    get_chapter_info_from()
     # for i in chapter_queue.find():
     #     print(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
     #     get_content_info_from(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
-    get_novel_category_info('都市言情', 0, 10)
+    # get_novel_category_info('都市言情', 0, 10)
