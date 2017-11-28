@@ -205,18 +205,21 @@
                     </table>
                 </div>
                 <div id="page">
+                    <ul style="display: none" v-for="n in page">
+                        <li id="cur_page" style="display: none" v-text="n.cur_page"></li>
+                    </ul>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" href='javascript:paging(1);'
-                            >首页</a></li>
-                            <li class="page-item"><a class="page-link" href='javascript:paging(-1);'>上一页</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="javascript:paging(1);"
-                            >1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:paging(2);">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:paging(3);">3</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:paging(1);">下一页</a></li>
-                            <li class="page-item"><a class="page-link" href="#">尾页</a></li>
+                            <!--<li class="page-item"><a class="page-link" href='javascript:paging(1);'-->
+                            <!--&gt;首页</a></li>-->
+                            <!--<li class="page-item"><a class="page-link" href='javascript:paging(-1);'>上一页</a>-->
+                            <!--</li>-->
+                            <!--<li class="page-item"><a class="page-link" href="javascript:paging(1);"-->
+                            <!--&gt;1</a></li>-->
+                            <!--<li class="page-item"><a class="page-link" href="javascript:paging(2);">2</a></li>-->
+                            <!--<li class="page-item"><a class="page-link" href="javascript:paging(3);">3</a></li>-->
+                            <!--<li class="page-item"><a class="page-link" href="javascript:paging(1);">下一页</a></li>-->
+                            <!--<li class="page-item"><a class="page-link" href="#">尾页</a></li>-->
                         </ul>
                     </nav>
                 </div>
@@ -233,7 +236,12 @@
     var vue = new Vue({
         el: '#layout-wrapper',
         data: {
-            nav_data: [
+            page: [
+                {
+                    cur_page: 1
+                }
+            ]
+            , nav_data: [
                 {
                     nav_tag: '首页',
                     nav_title: '首页'
@@ -293,7 +301,7 @@
             ],
             show_data: [],
             msg: [{
-                title: "玄幻小说"
+                title: "玄幻奇幻"
             }
             ]
         },
@@ -320,12 +328,21 @@
 
     function paging(page) {
         style = $('#layout-wrapper > div.layout-content > div > div.t_nav > nav > ol > li').html()
+
+        // 设置当前页
+        cur_list = {
+            cur_page: parseInt(page)
+        }
+        Vue.set(vue.page, 0, cur_list)
+
         indexpage(page, style)
     }
 
     function indexpage(page, book_style) {
 
         var novel_list = []
+
+        console.log(page)
 
         var request_url = window.document.location.href + 'handle?skip_num=' + (parseInt(page) - 1) * 10 + '&book_style=' + book_style
 
@@ -336,6 +353,38 @@
                 var json_data = $.parseJSON(data)
                 count = json_data['count']
                 console.log('count：' + count)
+
+
+                cur_page = $('#cur_page').text()
+                console.log('cur_page', cur_page)
+
+                // 分页初步设置，后续要优化
+                $('.pagination').empty().html()
+
+                $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(1);'>首页</a></li>")
+
+                if (parseInt(cur_page) === 1) {
+                    $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(1);'>上一页</a></li>")
+                } else {
+                    curpage = parseInt(cur_page) - 1
+                    $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(" + curpage + ");'>上一页</a></li>")
+                }
+
+                for (var i = 1; i < count; i++) {
+                    $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(" + i + ");'>" + i + "</a></li>")
+                }
+
+                if (parseInt(cur_page) === count) {
+                    $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(" + count + ");'>下一页</a></li>")
+                } else {
+                    curpage = parseInt(cur_page) + 1
+                    $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(" + curpage + ");'>下一页</a></li>")
+                }
+
+                $('.pagination').append("<li class='page-item'><a class='page-link' href='javascript:paging(" + count + ");'>尾页</a></li>")
+
+//                console.log('查看分页html：', $('.pagination').html())
+
                 for (i = 0; i < json_data['result'].length; i++) {
                     show_data = {
                         "number": parseInt(i) + 1,
@@ -347,6 +396,7 @@
                     novel_list.push(show_data)
                     console.log(show_data)
                 }
+
                 for (i = 0; i < novel_list.length; i++) {
                     Vue.set(vue.show_data, i, novel_list[i])
                 }

@@ -130,6 +130,13 @@ class MongoQueue():
         """
         return self.db.find()
 
+    def find_by_parameters(self, k, v):
+        """
+        返回查询结果
+        :return: 
+        """
+        return self.db.find({k: v})
+
     def find_book_style(self, book_style):
         """
         返回查询结果

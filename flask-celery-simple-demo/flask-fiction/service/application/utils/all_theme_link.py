@@ -78,11 +78,13 @@ def get_chapter_info_from():
         title = s.get('title', '')
         if title:
             url = s.get('_id', '')
+            print('url：', url)
             # url = 'http://www.qu.la/book/49807/'
             wb_data = requests.get(url)
             wb_data.encoding = wb_data.apparent_encoding
             soup = BeautifulSoup(wb_data.text, 'lxml')
-            img_url = '{}{}'.format(source_addr, soup.select('#fmimg > img'))
+            img_url = '{}{}'.format(url.rstrip('/'), soup.select('#fmimg > img')[0]['src'])
+            print('img_url：', img_url)
             chapter_list = soup.select('#list > dl > dd > a')
             for c in chapter_list:
                 print(c)
@@ -122,11 +124,27 @@ def get_novel_category_info(book_style, skip_num, limit_num):
     return {'code': 0, 'result': novel_list, 'count': count}
 
 
+def get_chapter_name_info(chapter_name):
+    """
+    获取小说章节列表
+    :return: 
+    """
+    chapter_list = []
+    for chapter in chapter_queue.find_by_parameters('title', '旧日篇章'):
+        print(chapter)
+        # chapter_list.append(novel)
+    print(chapter_queue.find_by_parameters('title', '旧日篇章').count())
+
+    # return {'code': 0, 'result': novel_list, 'count': count}
+
+
 if __name__ == "__main__":
     # get_subject_link_from()
     # get_page_link_from()
-    get_chapter_info_from()
+    # get_chapter_info_from()
     # for i in chapter_queue.find():
     #     print(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
     #     get_content_info_from(i.get('chapter_url'), i.get('title'), i.get('chapter_name'))
     # get_novel_category_info('都市言情', 0, 10)
+    get_chapter_name_info('旧日篇章')
+    # get_chapter_info_from()
