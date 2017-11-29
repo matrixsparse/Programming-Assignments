@@ -134,9 +134,9 @@ if __name__ == "__main__":
 | ------------- |:-------------:|:-------------:| 
 | Add：+        | And：&        | Greater：>        | 
 | Subtract ：-        | Or：\|        |  Greater or equal：>=        | 
-| Multiply：*        | Not：~        |  Less：<>        | 
+| Multiply：*        | Not：~        |  Less：<        | 
 | Divide：/        | 如果要进行这些运算，需数组中有布尔值     |  Less or equal：<=        | 
-| Exponentiate：**        | 如果你的数组时整数，这些符号的运算就会变成按位与、按位或和按位取反运算      | Equal：==        | 
+| Exponentiate：**        | 如果你的数组是整数，这些符号的运算就会变成按位与、按位或和按位取反运算      | Equal：==        | 
 |         |       | Not equal：!=        | 
 
 ```bash
@@ -716,4 +716,198 @@ if False:
     s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
     s2 = pd.Series([10, 20, 30, 40], index=['e', 'f', 'g', 'h'])
     print(s1 + s2)
+```
+
+### 填充缺失值
+
+```bash
+如果把两个索引值不同的Series相加，其结果就是NaN
+
+但在大多数情况下，可能不希望输出的Series中出现NaN或非数字
+
+怎么样才能使结果中不出现NaN？
+
+使用Series的dropna函数，消除部分或全部缺失数据标签
+```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+import pandas as pd
+
+s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+s2 = pd.Series([10, 20, 30, 40], index=['c', 'd', 'e', 'f'])
+
+
+# Try to write code that will add the 2 previous series together,
+# but treating missing values from either series as 0. The result
+# when printed out should be similar to the following line:
+# print pd.Series([1, 2, 13, 24, 30, 40], index=['a', 'b', 'c', 'd', 'e', 'f'])
+
+def method01(s1, s2):
+    sum_result = s1 + s2
+    return sum_result.dropna()
+
+
+def method02(s1, s2):
+    return s1.add(s2, fill_value=0)
+
+
+if __name__ == "__main__":
+    print('--------------------- method01 start ---------------------------------')
+    print(method01(s1, s2))
+    print('--------------------- end method01 ---------------------------------')
+    print('--------------------- method02 start ---------------------------------')
+    print(method02(s1, s2))
+    print('--------------------- end method02 ---------------------------------')
+```
+
+>运行结果
+
+```bash
+--------------------- method01 start ---------------------------------
+c    13.0
+d    24.0
+dtype: float64
+--------------------- end method01 ---------------------------------
+--------------------- method02 start ---------------------------------
+a     1.0
+b     2.0
+c    13.0
+d    24.0
+e    30.0
+f    40.0
+dtype: float64
+--------------------- end method02 ---------------------------------
+```
+
+### Pandas Series Apply()
+
+apply主要应用在没有Series内置函数的时候
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+import pandas as pd
+
+# Change False to True to see what the following block of code does
+
+# Example pandas apply() usage (although this could have been done
+# without apply() using vectorized operations)
+if False:
+    s = pd.Series([1, 2, 3, 4, 5])
+
+
+    def add_one(x):
+        return x + 1
+
+
+    print(s.apply(add_one))
+
+names = pd.Series([
+    'Andre Agassi',
+    'Barry Bonds',
+    'Christopher Columbus',
+    'Daniel Defoe',
+    'Emilio Estevez',
+    'Fred Flintstone',
+    'Greta Garbo',
+    'Humbert Humbert',
+    'Ivan Ilych',
+    'James Joyce',
+    'Keira Knightley',
+    'Lois Lane',
+    'Mike Myers',
+    'Nick Nolte',
+    'Ozzy Osbourne',
+    'Pablo Picasso',
+    'Quirinus Quirrell',
+    'Rachael Ray',
+    'Susan Sarandon',
+    'Tina Turner',
+    'Ugueth Urbina',
+    'Vince Vaughn',
+    'Woodrow Wilson',
+    'Yoji Yamada',
+    'Zinedine Zidane'
+])
+
+
+def reverse_names(name):
+    '''
+    Fill in this function to return a new series where each name
+    in the input series has been transformed from the format
+    "Firstname Lastname" to "Lastname, FirstName".
+
+    Try to use the Pandas apply() function rather than a loop.
+    '''
+    name_split = name.split(' ')
+    Lastname = name_split[1]
+    FirstName = name_split[0]
+    return Lastname + ", " + FirstName
+
+
+if __name__ == "__main__":
+    print(names.apply(reverse_names))
+```
+
+### 在Pandas中绘图
+
+如果变量 data 是一个 NumPy 数组或 Pandas Series，就像它是一个列表一样
+
+```bash
+import matplotlib.pyplot as plt
+plt.hist(data)
+```
+
+```bash
+Pandas 还有在后台使用 matplotlib 的内置绘图函数，因此如果 data 是一个 Series，你可以使用 data.hist() 创建直方图
+
+有时候 Pandas 封装器更加方便
+
+例如，你可以使用 data.plot() 创建 Series 的线条图
+
+Series 索引被用于 x 轴，值被用于 y 轴
+```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+import pandas as pd
+import seaborn as sns
+
+# The following code reads all the Gapminder data into Pandas DataFrames. You'll
+# learn about DataFrames next lesson.
+
+path = '/datasets/ud170/gapminder/'
+employment = pd.read_csv(path + 'employment_above_15.csv', index_col='Country')
+female_completion = pd.read_csv(path + 'female_completion_rate.csv', index_col='Country')
+male_completion = pd.read_csv(path + 'male_completion_rate.csv', index_col='Country')
+life_expectancy = pd.read_csv(path + 'life_expectancy.csv', index_col='Country')
+gdp = pd.read_csv(path + 'gdp_per_capita.csv', index_col='Country')
+
+# The following code creates a Pandas Series for each variable for the United States.
+# You can change the string 'United States' to a country of your choice.
+
+employment_us = employment.loc['United States']
+female_completion_us = female_completion.loc['United States']
+male_completion_us = male_completion.loc['United States']
+life_expectancy_us = life_expectancy.loc['United States']
+gdp_us = gdp.loc['United States']
+
+# Uncomment the following line of code to see the available country names
+# print employment.index.values
+
+# Use the Series defined above to create a plot of each variable over time for
+# the country of your choice. You will only be able to display one plot at a time
+# with each "Test Run".
+
+if __name__ == "__main__":
+    pass
 ```
