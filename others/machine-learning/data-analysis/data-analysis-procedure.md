@@ -392,3 +392,328 @@ if __name__ == "__main__":
         print(x, "：", y)
 ```
 
+### NumPy索引数组
+
+```bash
+当你有两个长度相同的Numpy数组时，还可以进行另一种计算
+
+Numpy数组需含有布尔值，第一个数组可包含任何类型的数据，不仅仅是数字
+
+例如：
+
+假设你的第一个数组 a 包含 1、2、3、4和5 
+
+你的第二个数组b 包含 布尔值 FFTTT
+
+那么a[b]将返回，包含元素3、4、5的较短数组
+
+第二个数组被称为索引数组，它告诉你应保留第一个数组的哪些元素
+
+在这里 我们没有保留1 因为这一项是假值
+
+我们没有保留2 因为它是假值
+
+但我们保留了3、4、5，因为它是真值
+
+当你把它与之前的向量运算相结合后，它的用处是很大的
+
+在这个例子中，保留了大于2的所有值
+
+所以，可以用代码b = a > 2来创建布尔数组b
+```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+import numpy as np
+
+# Change False to True for each block of code to see what it does
+
+# Using index arrays
+if False:
+    a = np.array([1, 2, 3, 4])
+    b = np.array([True, True, False, False])
+
+    print(a[b])
+    print(a[np.array([True, False, True, False])])
+
+# Creating the index array using vectorized operations
+if False:
+    a = np.array([1, 2, 3, 2, 1])
+    b = (a >= 2)
+
+    print(b)
+    print(a[b])
+    print(a[a >= 2])
+
+# Creating the index array using vectorized operations on another array
+if False:
+    a = np.array([1, 2, 3, 4, 5])
+    b = np.array([1, 2, 3, 2, 1])
+
+    print(b == 2)
+    print(a[b == 2])
+
+
+def mean_time_for_paid_students(time_spent, days_to_cancel):
+    '''
+    Fill in this function to calculate the mean time spent in the classroom
+    for students who stayed enrolled at least (greater than or equal to) 7 days.
+    Unlike in Lesson 1, you can assume that days_to_cancel will contain only
+    integers (there are no students who have not canceled yet).
+
+    The arguments are NumPy arrays. time_spent contains the amount of time spent
+    in the classroom for each student, and days_to_cancel contains the number
+    of days until each student cancel. The data is given in the same order
+    in both arrays.
+    
+    注销前至少注册7天的学生上课时间
+    '''
+    # 注销前至少注册7天的学生为True，否则为False
+    return time_spent[days_to_cancel >= 7].mean()
+
+
+# Time spent in the classroom in the first week for 20 students
+time_spent = np.array([
+    12.89697233, 0., 64.55043217, 0.,
+    24.2315615, 39.991625, 0., 0.,
+    147.20683783, 0., 0., 0.,
+    45.18261617, 157.60454283, 133.2434615, 52.85000767,
+    0., 54.9204785, 26.78142417, 0.
+])
+
+# Days to cancel for 20 students
+days_to_cancel = np.array([
+    4, 5, 37, 3, 12, 4, 35, 38, 5, 37, 3, 3, 68,
+    38, 98, 2, 249, 2, 127, 35
+])
+
+if __name__ == "__main__":
+    print(mean_time_for_paid_students(time_spent, days_to_cancel))
+```
+
+### Pandas Series
+
+```bash
+Series 与 Numpy数组类似
+
+比如：如果你有一个名为s的Series
+
+那么s.describe函数可以打出平均值，标准偏差，中位数以及与Series有关的其他统计数据
+
+Numpy数据没有这个函数
+
+Series还有一些其他优于数组的地方
+```
+
+```bash
+def variable_correlation(variable1,variable2):
+    both_above = (variable1 > variable1.mean()) & (variable2 > variable2.mean())
+    both_below = (variable1 < variable1.mean()) & (variable2 < variable2.mean())
+    is_same_direction = ''
+    num_same_direction = ''
+```
+
+```bash
+首先要计算出有多少组数据点，相对其平均值的方向相同
+
+也就是 两者都高于或都低于平均值
+```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+import pandas as pd
+
+countries = ['Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
+             'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan',
+             'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus',
+             'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia']
+
+life_expectancy_values = [74.7, 75., 83.4, 57.6, 74.6, 75.4, 72.3, 81.5, 80.2,
+                          70.3, 72.1, 76.4, 68.1, 75.2, 69.8, 79.4, 70.8, 62.7,
+                          67.3, 70.6]
+
+gdp_values = [1681.61390973, 2155.48523109, 21495.80508273, 562.98768478,
+              13495.1274663, 9388.68852258, 1424.19056199, 24765.54890176,
+              27036.48733192, 1945.63754911, 21721.61840978, 13373.21993972,
+              483.97086804, 9783.98417323, 2253.46411147, 25034.66692293,
+              3680.91642923, 366.04496652, 1175.92638695, 1132.21387981]
+
+# Life expectancy and gdp data in 2007 for 20 countries
+life_expectancy = pd.Series(life_expectancy_values)
+gdp = pd.Series(gdp_values)
+
+# Change False to True for each block of code to see what it does
+
+# Accessing elements and slicing
+if False:
+    print(life_expectancy[0])
+    print(gdp[3:6])
+
+# Looping
+if False:
+    for country_life_expectancy in life_expectancy:
+        print('Examining life expectancy {}'.format(country_life_expectancy))
+
+# Pandas functions
+if False:
+    print(life_expectancy.mean())
+    print(life_expectancy.std())
+    print(gdp.max())
+    print(gdp.sum())
+
+# Vectorized operations and index arrays
+if False:
+    a = pd.Series([1, 2, 3, 4])
+    b = pd.Series([1, 2, 1, 2])
+
+    print(a + b)
+    print(a * 2)
+    print(a >= 3)
+    print(a[a >= 3])
+
+
+def variable_correlation(variable1, variable2):
+    '''
+    Fill in this function to calculate the number of data points for which
+    the directions of variable1 and variable2 relative to the mean are the
+    same, and the number of data points for which they are different.
+    Direction here means whether each value is above or below its mean.
+
+    You can classify cases where the value is equal to the mean for one or
+    both variables however you like.
+
+    Each argument will be a Pandas series.
+
+    For example, if the inputs were pd.Series([1, 2, 3, 4]) and
+    pd.Series([4, 5, 6, 7]), then the output would be (4, 0).
+    This is because 1 and 4 are both below their means, 2 and 5 are both
+    below, 3 and 6 are both above, and 4 and 7 are both above.
+
+    On the other hand, if the inputs were pd.Series([1, 2, 3, 4]) and
+    pd.Series([7, 6, 5, 4]), then the output would be (0, 4).
+    This is because 1 is below its mean but 7 is above its mean, and
+    so on.
+    '''
+    both_above = (variable1 > variable1.mean()) & (variable2 > variable2.mean())
+    both_below = (variable1 < variable1.mean()) & (variable2 < variable2.mean())
+    is_same_direction = both_above | both_below
+    num_same_direction = is_same_direction.sum()
+    num_different_direction = len(variable1) - num_same_direction
+
+    return (num_same_direction, num_different_direction)
+
+
+if __name__ == "__main__":
+    print(variable_correlation(pd.Series([1, 2, 3, 4]), pd.Series([4, 5, 6, 7])))
+```
+
+### Series索引
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+import pandas as pd
+
+countries = [
+    'Afghanistan', 'Albania', 'Algeria', 'Angola',
+    'Argentina', 'Armenia', 'Australia', 'Austria',
+    'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh',
+    'Barbados', 'Belarus', 'Belgium', 'Belize',
+    'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina',
+]
+
+employment_values = [
+    55.70000076, 51.40000153, 50.5, 75.69999695,
+    58.40000153, 40.09999847, 61.5, 57.09999847,
+    60.90000153, 66.59999847, 60.40000153, 68.09999847,
+    66.90000153, 53.40000153, 48.59999847, 56.79999924,
+    71.59999847, 58.40000153, 70.40000153, 41.20000076,
+]
+
+# Employment data in 2007 for 20 countries
+employment = pd.Series(employment_values, index=countries)
+
+
+def max_employment(employment):
+    '''
+    Fill in this function to return the name of the country
+    with the highest employment in the given employment
+    data, and the employment in that country.
+
+    The input will be a Pandas series where the values
+    are employment and the index is country names.
+
+    Try using the Pandas idxmax() function. Documention can
+    be found here:
+    http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.idxmax.html
+    '''
+    # 获取最大值
+    max_country = employment.argmax()
+    # 获取指定索引的值
+    max_value = employment.loc[employment.argmax()]
+
+    return (max_country, max_value)
+
+
+if __name__ == "__main__":
+    print(max_employment(employment))
+```
+
+>运行结果
+
+```bash
+('Angola', 75.699996949999999)
+```
+
+### pandas向量化运算和Series索引
+
+```bash
+当你将两个Numpy数组相加时，由于没有索引，你相加的是同一位置的元素
+
+就目前的这些Series而言，它们的位置和索引值都是一样的，如果情况有变，你认为会发生什么？
+
+如果根据索引，而不是位置来进行加法虞世南，又会怎样？
+
+如果你把两个索引值不同的Series相加呢？
+```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2017, matrix
+
+import pandas as pd
+
+# Change False to True for each block of code to see what it does
+
+# Addition when indexes are the same
+if False:
+    s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+    s2 = pd.Series([10, 20, 30, 40], index=['a', 'b', 'c', 'd'])
+    print(s1 + s2)
+
+# Indexes have same elements in a different order
+if False:
+    s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+    s2 = pd.Series([10, 20, 30, 40], index=['b', 'd', 'a', 'c'])
+    print(s1 + s2)
+
+# Indexes overlap, but do not have exactly the same elements
+if False:
+    s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+    s2 = pd.Series([10, 20, 30, 40], index=['c', 'd', 'e', 'f'])
+    print(s1 + s2)
+
+# Indexes do not overlap
+if False:
+    s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+    s2 = pd.Series([10, 20, 30, 40], index=['e', 'f', 'g', 'h'])
+    print(s1 + s2)
+```
