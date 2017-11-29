@@ -7,8 +7,6 @@
 采集相关数据->研究数据，处理研究过程中遇到的问题->数据探索
 ```
 
-## Numpy和Pandas的一维数据结构
-
 >pandas读取csv
 
 ```bash
@@ -27,12 +25,12 @@ print(employment_data['Country'])
 print(len(employment_data['Country'].unique()))
 ```
 
->pandas和numpy的一维数据结构
+## Numpy和Pandas的一维数据结构
 
 | Pandas        | Numpy           |
 | ------------- |:-------------:| 
 | Series        | Array | 
-| Series是建立在Numpy数组的基础上，在使用Series之前应该先掌握Numpy数组      | Numpy是多维的
+| Series是建立在Numpy数组的基础上，在使用Series之前应该先掌握Numpy数组      | Numpy是多维的，支持向量运算
 
 ```bash
 #!/usr/bin/env python
@@ -112,4 +110,18 @@ def max_employment(countries, employment):
     max_value = None  # Replace this with your code
 
     return (max_country, max_value)
+```
+
+### Numpy向量化运算
+
+| Math Operations        | Logical Operations       |
+| ------------- |:-------------:| 
+| Add：+        | And：&        | 
+| Subtract ：-        | Or：|        | 
+| Multiply：*        | Not：~        | 
+| Divide：/        | 如果要进行这些运算，需数组中有布尔值     | 
+| Exponentiate：**        | 如果你的数组时整数，这些符号的运算就会变成按位与、按位或和按位取反运算      | 
+
+```bash
+
 ```
