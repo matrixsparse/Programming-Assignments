@@ -114,13 +114,14 @@ def max_employment(countries, employment):
 
 ### Numpy向量化运算
 
-| Math Operations        | Logical Operations       |
-| ------------- |:-------------:| 
-| Add：+        | And：&        | 
-| Subtract ：-        | Or：|        | 
-| Multiply：*        | Not：~        | 
-| Divide：/        | 如果要进行这些运算，需数组中有布尔值     | 
-| Exponentiate：**        | 如果你的数组时整数，这些符号的运算就会变成按位与、按位或和按位取反运算      | 
+| Math Operations        | Logical Operations       | Comparison Operations   |
+| ------------- |:-------------:|:-------------:| 
+| Add：+        | And：&        | Greater：>        | 
+| Subtract ：-        | Or：|        |  Greater or equal：>=        | 
+| Multiply：*        | Not：~        |  Less：<>        | 
+| Divide：/        | 如果要进行这些运算，需数组中有布尔值     |  Less or equal：<=        | 
+| Exponentiate：**        | 如果你的数组时整数，这些符号的运算就会变成按位与、按位或和按位取反运算      | Equal：==        | 
+|         |       | Not equal：!=        | 
 
 ```bash
 
