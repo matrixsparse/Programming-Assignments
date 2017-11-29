@@ -93,10 +93,16 @@ if False:
                                                     country_employment))
 
 # Numpy functions
-if True:
+if False:
     print('计算平均值：', employment.mean())
     print('计算全局标准差：', employment.std())
-    print('计算最大值：', employment.max())
+    print('计算方差：', employment.var())
+    print('获取最大值：', employment.max())
+    print('获取最小值：', employment.min())
+    print('获取最大值的索引：', employment.argmax())
+    print('获取最小值的索引：', employment.argmin())
+    print('计算所有元素累积和：', employment.cumsum())
+    print('计算所有元素累积积：', employment.cumprod())
     print('计算总和：', employment.sum())
 
 
@@ -106,10 +112,20 @@ def max_employment(countries, employment):
     with the highest employment in the given employment
     data, and the employment in that country.
     '''
-    max_country = None  # Replace this with your code
-    max_value = None  # Replace this with your code
+    max_country = countries[employment.argmax()]  # Replace this with your code
+    max_value = employment.max()  # Replace this with your code
 
     return (max_country, max_value)
+
+
+if __name__ == "__main__":
+    print(max_employment(countries, employment))
+```
+
+>运行结果
+
+```bash
+('Angola', 75.699996949999999)
 ```
 
 ### Numpy向量化运算
