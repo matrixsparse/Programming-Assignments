@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="python@ssh://matrix@47.52.232.210:22/home/matrix/.virtualenvs/pyenv3.6/bin/python" />
+      </list>
+    </list>
+  </component>
+</project>
