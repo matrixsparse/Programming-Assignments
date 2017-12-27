@@ -4,12 +4,12 @@
 ### 配置本地仓库的账号和邮箱
 
 ```bash
-git config --global user.email "email@example.com"
+git config --global user.email "email@github.com"
 ```
 
 ```bash
 cd C:\Users\Administrator
-ssh-keygen -t rsa -C "youremail@example.com"
+ssh-keygen -t rsa -C "youremail@github.com"
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fjke6fjiylj20tp0f5wg0.jpg)
