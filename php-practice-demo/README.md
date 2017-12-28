@@ -32,6 +32,51 @@ Laravel是一个开源的PHP框架，遵循MVC（Model-View-Controller）设计�
 yum -y install epel-release
 ```
 
+## 安装mysql
+
+```bash
+rpm -ivh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+```
+
+### 更新yum软件包
+
+```bash
+yum check-update  
+```
+
+### 更新系统
+
+```bash
+yum update
+```
+
+### 安装mysql
+
+``` bash
+yum install mysql mysql-server -y
+```
+
+## 启动
+
+```bash
+systemctl start mysqld
+mysql -u root
+```
+
+### 修改密码
+
+```bash
+set password for 'root'@'localhost'=password('123456');
+```
+
+### 授权远程访问
+
+```bash
+use mysql;
+grant all privileges  on *.* to root@'%' identified by "root";
+flush privileges;
+```
+
 ## 安装Nginx
 
 我们将在LEMP下运行一个Laravel。 Nginx是LEMP的Web服务器部分，可以从EPEL仓库安装。
@@ -56,7 +101,13 @@ netstat -plntu
 >重启nginx
 
 ```bash
-systemctl reload nginx
+systemctl restart nginx.service
+```
+
+>查看nginx安装路径
+
+```bash
+rpm -ql nginx
 ```
 
 ## 安装net-tools
@@ -375,6 +426,15 @@ semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/tests(/.*)?'
 restorecon -Rv '/var/www/laravel/'
 ```
 
+### 使用semanage命令查看端口
+
+```bash
+semanage port -l | grep http_port_t                # fine allow port
+semanage port -a -t http_port_t -p tcp 9000        # add
+semanage port -d -t http_port_t -p tcp 9090        # del
+semanage port -m -t http_port_t -p tcp 3306        # add user define port
+```
+
 ### 在window上配置hosts
 
 ```bash
@@ -521,6 +581,18 @@ v6.12.0
 [root@sparsematrix ~]# npm install --global gulp-cl
 ```
 
+### 安装node相关模块
+
+```bash
+npm install
+```
+
+### 运行gulp
+
+```bash
+gulp
+```
+
 ## 运行Laravel项目
 
 ```bash
@@ -544,6 +616,12 @@ vendor是使用composer安装后才会出现的目录
 ```bash
 [root@sparsematrix dms]# php /var/www/laravel5.2/dms/artisan --version
 Laravel Framework version 5.2.45
+```
+
+### 安装gulp
+
+```bash
+[root@sparsematrix dms]# npm install gulp
 ```
 
 ### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
