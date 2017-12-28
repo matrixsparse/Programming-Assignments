@@ -36,7 +36,7 @@ prepending /Users/matrix/anaconda/envs/style-transfer/bin to PATH
 (style-transfer)sparsematrix:Desktop matrix$ git clone https://github.com/lengstrom/fast-style-transfer.git
 ```
 
->查看python版本
+>查看python版本
 
 ```bash
 (style-transfer)sparsematrix:Desktop matrix$ python -V
