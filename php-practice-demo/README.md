@@ -170,3 +170,197 @@ systemctl status php-fpm
 [root@sparsematrix ~]# netstat -pl | grep php-fpm.sock
 unix  2      [ ACC ]     STREAM     LISTENING     2116253  17221/php-fpm: mast  /run/php-fpm/php-fpm.sock
 ```
+
+## 更换阿里源
+
+### 备份
+
+```bash
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+```
+
+### 下载新的CentOS-Base.repo到/etc/yum.repos.d/
+
+```bash
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+```
+
+### 生成缓存
+
+```bash
+yum makecache
+```
+
+## 安装PHP Composer
+
+```bash
+PHP composer是PHP编程语言的包管理器
+
+它已经在2011年创建，它的灵感来自于Node.js的"npm"和Ruby的"bundler"安装程序
+```
+
+### 使用curl命令安装Composer
+
+```bash
+[root@sparsematrix ~]# curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwbsxpgkyj20xa047aa4.jpg)
+
+### 查看Composer是否安装成功
+
+```bash
+[root@sparsematrix ~]# composer
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwbsxq3emj20oz0bgaab.jpg)
+
+## 配置Nginx虚拟主机进行Laravel
+
+为这个Laravel安装定义web根目录，将使用'/var/www/laravel'目录作为Web根目录。
+
+>创建目录
+
+```bash
+[root@sparsematrix ~]# mkdir -p /var/www/laravel
+```
+
+>编辑虚拟主机配置文件
+
+```bash
+vim /etc/nginx/conf.d/laravel.conf
+```
+
+```bash
+server {
+        listen 8089;
+        server_name  localhost;
+
+        # Log files for Debugging
+        access_log /var/log/nginx/laravel-access.log;
+        error_log /var/log/nginx/laravel-error.log;
+
+        # Webroot Directory for Laravel project
+        root /var/www/laravel/public;
+        index index.php index.html index.htm;
+
+        # Your Domain Name
+        # server_name laravel.hakase-labs.co;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        # PHP-FPM Configuration Nginx
+        location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+```
+
+### 检查nginx配置文件的语法是否正确
+
+```bash
+[root@sparsematrix conf.d]# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+## 安装Laravel
+
+### 安装解压缩
+
+```bash
+[root@sparsematrix ~]# yum -y install unzip
+```
+
+### 去laravel web根目录'/var/www/laravel'
+
+```bash
+cd /var/www/laravel
+```
+
+```bash
+laravel为服务器上的框架安装提供了两种方式：
+  1、可以用Laravel安装程序安装Laravel
+  2、可以用PHPComposer安装它
+```
+
+### 使用composer命令创建一个新项目来安装Laravel
+
+```bash
+[root@sparsematrix ~]# cd /var/www/laravel
+[root@sparsematrix laravel]# composer create-project laravel/laravel
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwc6qi3xkj20pr0jy76l.jpg)
+
+### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
+
+```bash
+chown -R nginx:root /var/www/laravel
+chmod 755 /var/www/laravel/storage
+```
+
+## 配置SELinux
+
+Laravel将运行在SELinux的Enforcing模式下
+
+```bash
+[root@sparsematrix ~]# vim /etc/selinux/config
+```
+
+```bash
+SELINUX=enforcing
+```
+
+or
+
+```bash
+setenforce 1 设置SELinux 成为enforcing模式
+setenforce 0 设置SELinux 成为permissive模式
+```
+
+### 重启网卡
+
+```bash
+[root@sparsematrix laravel]# /etc/init.d/network restart
+```
+
+### 检查SELinux状态
+
+```bash
+[root@sparsematrix laravel]# sestatus
+```
+
+### CentOS 7安装SELinux管理工具
+
+```bash
+[root@sparsematrix laravel]# yum -y install policycoreutils-python
+```
+
+### 改变Laravel目录的上下文
+
+```bash
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/public(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/storage(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/app(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/bootstrap(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/config(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/database(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/resources(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/routes(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/vendor(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/tests(/.*)?'
+restorecon -Rv '/var/www/laravel/'
+```
+
+### 测试Laravel
+
+在浏览器地址栏中输入：
