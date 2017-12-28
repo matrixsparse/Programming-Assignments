@@ -6,11 +6,11 @@ Anaconda是一个包含数据科学常用包的Python发行版本
 
 它基于conda一个包和环境管理器——衍生而来
 
-你可以使用 conda 创建环境，以便分隔使用不同Python版本和不同程序包的项目
+你可以使用conda创建环境，以便分隔使用不同Python版本和不同程序包的项目
 
 你还将使用它在环境中安装、卸载和更新包
 
-通过使用 Anaconda，处理数据的过程将更加愉快
+通过使用Anaconda，处理数据的过程将更加愉快
 
 Anaconda能让你在数据科学的工作中轻松安装经常使用的程序包
 
@@ -23,7 +23,7 @@ Anaconda简化了工作流程，并且解决了多个包和Python版本之间遇
 
 你可能已经熟悉 pip，它是 Python 库的默认包管理器
 
-conda 与 pip 相似，不同之处是
+conda与pip 相似，不同之处是
 
 conda：可用的包以数据科学包为主
 pip ：适合一般用途
@@ -64,7 +64,7 @@ Conda 安装了预编译的包。例如，Anaconda 发行版附带了使用 MKL 
 >将环境中的包列表导出为文件，然后将该文件与代码包括在一起，让其他人轻松加载代码的所有依赖项
 
 ```
-pip提供了类似的功能，即 pip freeze > requirements.txt。
+pip提供了类似的功能，即pip freeze > requirements.txt。
 ```
 
 ### 安装 Anaconda
@@ -76,9 +76,9 @@ Anaconda可用于Windows、Mac OS X 和 Linux
 ```
 
 ```bash
-如果计算机上已经安装了 Python，这不会有任何影响。实际上，脚本和程序使用的默认 Python 是 Anaconda 附带的 Python。
+如果计算机上已经安装了 Python，这不会有任何影响。实际上，脚本和程序使用的默认Python是Anaconda附带的 Python。
 
-选择 Python 3.6 版本（你也可以根据具体的需要选择 Python 2 的版本）
+选择Python 3.6版本（你也可以根据具体的需要选择Python 2的版本）
 
 此外，如果是 64 位操作系统，则选择 64 位安装程序，否则选择 32 位安装程序。继续并选择合适的版本，然后安装它。之后，继续进行！
 ```

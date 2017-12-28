@@ -234,18 +234,19 @@ vim /etc/nginx/conf.d/laravel.conf
 ```bash
 server {
         listen 8089;
-        server_name  localhost;
+        # listen [::]:80 ipv6only=on;
 
         # Log files for Debugging
         access_log /var/log/nginx/laravel-access.log;
         error_log /var/log/nginx/laravel-error.log;
 
         # Webroot Directory for Laravel project
-        root /var/www/laravel/public;
+        root /var/www/laravel/laravel/public;
         index index.php index.html index.htm;
 
         # Your Domain Name
         # server_name laravel.hakase-labs.co;
+        server_name  www.sparsematrix.com;
 
         location / {
                 try_files $uri $uri/ /index.php?$query_string;
@@ -361,6 +362,31 @@ semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/tests(/.*)?'
 restorecon -Rv '/var/www/laravel/'
 ```
 
+### 在window上配置hosts
+
+```bash
+C:\Windows\System32\drivers\etc
+```
+
+```bash
+先复制hosts文件到别的地方，修改完了再覆盖回来就搞定了。中间会提示目标文件夹拒绝访问，需要提供管理员权限，点击继续即可
+```
+
+### 重启nginx
+
+```bash
+[root@sparsematrix ~]# nginx -s reload
+```
+
 ### 测试Laravel
 
-在浏览器地址栏中输入：
+在浏览器地址栏中输入：http://www.sparsematrix.com
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwhxdbextj20wm0fp0t3.jpg)
+
+### 查看Laravel版本
+
+```bash
+[root@sparsematrix laravel]# php artisan --version
+Laravel Framework 5.5.28
+```
