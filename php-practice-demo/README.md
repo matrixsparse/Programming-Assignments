@@ -272,7 +272,7 @@ nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-## 安装Laravel
+## 安装Laravel5.5
 
 ### 安装解压缩
 
@@ -380,7 +380,7 @@ C:\Windows\System32\drivers\etc
 
 ### 测试Laravel
 
-在浏览器地址栏中输入：http://www.sparsematrix.com
+>在浏览器地址栏中输入：http://www.sparsematrix.com:8089
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwhxdbextj20wm0fp0t3.jpg)
 
@@ -390,3 +390,99 @@ C:\Windows\System32\drivers\etc
 [root@sparsematrix laravel]# php artisan --version
 Laravel Framework 5.5.28
 ```
+
+## 安装Laravel5.2
+
+### 指定安装Laravel5.2
+
+```bash
+[root@sparsematrix laravel5.2]# composer create-project --prefer-dist laravel/laravel laravel "5.2.*"
+```
+
+### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
+
+```bash
+[root@sparsematrix laravel]# chown -R nginx:root /var/www/laravel5.2/
+[root@sparsematrix laravel]# chmod 755 /var/www/laravel5.2/laravel/storage
+```
+
+### 改变Laravel目录的上下文
+
+```bash
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/public(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/storage(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/app(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/bootstrap(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/config(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/database(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/resources(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/routes(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/vendor(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/tests(/.*)?'
+restorecon -Rv '/var/www/laravel5.2/'
+```
+
+### 编辑虚拟主机配置文件
+
+```bash
+vim /etc/nginx/conf.d/laravel.conf
+```
+
+```bash
+server {
+        listen 8089;
+        # listen [::]:80 ipv6only=on;
+
+        # Log files for Debugging
+        access_log /var/log/nginx/laravel5.2-access.log;
+        error_log /var/log/nginx/laravel5.2-error.log;
+
+        # Webroot Directory for Laravel project
+        root /var/www/laravel5.2/laravel/public;
+        index index.php index.html index.htm;
+
+        # Your Domain Name
+        # server_name laravel.hakase-labs.co;
+        server_name  www.sparsematrix.com;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        # PHP-FPM Configuration Nginx
+        location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+```
+
+### 检查nginx配置文件的语法是否正确
+
+```bash
+[root@sparsematrix conf.d]# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+### 重启nginx
+
+```bash
+nginx -s reload
+```
+
+### 查看Laravel版本
+
+```bash
+[root@sparsematrix laravel]# php /var/www/laravel5.2/laravel/artisan --version
+Laravel Framework version 5.2.45
+```
+
+### 在浏览器地址栏访问：http://www.sparsematrix.com:8089/
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwj89wfwsj20wn0ffdfz.jpg)
