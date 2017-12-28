@@ -63,13 +63,17 @@
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmvdn77aenj20lv0ccwjd.jpg)
 
+词嵌入和实施 Word2Vec 模型，一个可以学习不同词汇间语义关系的神经网络。这将会提高神经网络处理文本的效率
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmvs75qqs4j20ge0fg0vp.jpg)
+
 ## 第 13 周：用 RNN 进行情绪预测
 
 本周中，你将学习如何使用循环神经网络预测文本情感。
 
-## 第 14 周：
+## 第 14 周：使用循环神经网络从中生成辛普森情节的电视剧台词
 
-你也将开始着手完成 第三个项目， 使用循环神经网络生成电视剧台词。
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmvs8sbji1j215a0kq76z.jpg)
 
 ## 第 15 周：序列到序列
 
@@ -79,6 +83,9 @@
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmvdnr0eauj20mq0kmdos.jpg)
 
+让你使用序列到序列的模型去训练一个可以从英语翻译为法语的神经网络。
+这是循环神经网络的一个特别类型，它能读取一序列的数据，然后生成另一序列。
+
 ## 第 16 周：语言翻译
 
 本周中你会在 第四个项目 中构建一个可以翻译文本的网络。
@@ -86,6 +93,10 @@
 ## 第 17 周：生成对抗网络（GAN）
 
 生成对抗网络 (GANs) 是深入学习领域的一颗新星, 它是最前沿的图像生成模型。GAN 的发明者 Ian Goodfellow 将教你如何自己搭建生成对抗网络。
+
+你将会学到半监督学习，一个用于训练分类缺失标签数据的技术
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmvslogaaaj219y0j0b29.jpg)
 
 ## 第 18 周： 图像生成
 
@@ -95,7 +106,7 @@
 
 ## 第 19 周：生成人脸
 
-在第五个项目中，你将使用生成对抗网络来生成人脸图像。
+将使用生成对抗网络来生成人脸图像
 
 ## 第 20 周：使用 TensorBoard与强化学习
 
