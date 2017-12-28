@@ -53,9 +53,22 @@ Nginx在端口80上运行，请使用下面的netstat命令检查。
 netstat -plntu
 ```
 
+>重启nginx
+
+```bash
+systemctl reload nginx
+```
+
 ## 安装net-tools
+
 ```bash
 yum -y install net-tools
+```
+
+## 安装bit
+
+``bash
+yum install -y git
 ```
 
 ## 安装和配置PHP-FPM 7.1
@@ -78,7 +91,7 @@ Updating / installing...
 ### 使用yum命令来安装PHP-FPM，其中包含Laravel所需的所有扩展
 
 ```bash
-[root@sparsematrix ~]# yum install -y php71w php71w-curl php71w-common php71w-cli php71w-mysql php71w-mbstring php71w-fpm php71w-xml php71w-pdo php71w-zip
+[root@sparsematrix ~]# yum install -y php71w php71w-curl php71w-common php71w-cli php71w-mysql php71w-mbstring php71w-fpm php71w-xml php71w-pdo php71w-zip php71w-gd php71w-intl php71w-xsl
 ```
 
 ### 查看是否安装成功
@@ -486,3 +499,118 @@ Laravel Framework version 5.2.45
 ### 在浏览器地址栏访问：http://www.sparsematrix.com:8089/
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwj89wfwsj20wn0ffdfz.jpg)
+
+## Centos7安装node
+
+### 使用yum源安装nodejs
+
+```bash
+yum install nodejs -y
+```
+
+### 查看node版本
+
+```bash
+[root@sparsematrix ~]# node -v
+v6.12.0
+```
+
+## 安装gulp
+
+```bash
+[root@sparsematrix ~]# npm install --global gulp-cl
+```
+
+## 运行Laravel项目
+
+```bash
+将代码上传到远程服务器
+```
+
+vendor是使用composer安装后才会出现的目录
+
+### 安装Laravel
+
+```bash
+[root@sparsematrix dms]# cp .env.example .env
+```
+
+```bash
+[root@sparsematrix dms]# composer install
+```
+
+### 查看Laravel版本
+
+```bash
+[root@sparsematrix dms]# php /var/www/laravel5.2/dms/artisan --version
+Laravel Framework version 5.2.45
+```
+
+### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
+
+```bash
+[root@sparsematrix laravel]# chown -R nginx:root /var/www/laravel5.2/
+[root@sparsematrix laravel]# chmod 755 /var/www/laravel5.2/dms/storage
+```
+
+### 改变Laravel目录的上下文
+
+```bash
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/public(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/storage(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/app(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/bootstrap(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/config(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/database(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/resources(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/routes(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/vendor(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/tests(/.*)?'
+restorecon -Rv '/var/www/laravel5.2/'
+```
+
+### 编辑虚拟主机配置文件
+
+```bash
+vim /etc/nginx/conf.d/laravel.conf
+```
+
+```bash
+server {
+        listen 8089;
+        # listen [::]:80 ipv6only=on;
+
+        # Log files for Debugging
+        access_log /var/log/nginx/laravel5.2-dms-access.log;
+        error_log /var/log/nginx/laravel5.2-dms-error.log;
+
+        # Webroot Directory for Laravel project
+        root /var/www/laravel5.2/dms/public;
+        index index.php index.html index.htm;
+
+        # Your Domain Name
+        # server_name laravel.hakase-labs.co;
+        server_name  www.sparsematrix.com;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        # PHP-FPM Configuration Nginx
+        location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+```
+
+### 重启nginx
+
+```bash
+[root@sparsematrix dms]# nginx -s reload
+```
