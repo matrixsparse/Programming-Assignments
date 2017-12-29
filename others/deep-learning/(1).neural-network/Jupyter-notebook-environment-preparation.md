@@ -39,11 +39,18 @@ IPython notebook 已被改名，因为 notebook 变得与编程语言无关。�
 
 ```bash
 核心是 notebook 的服务器。在Web应用中编写的代码通过该服务器发送给内核，内核运行代码，并将结果发送回该服务器
-之后，任何输出都会返回到浏览器中
 
-保存 notebook 时，它将作为 JSON 文件（文件扩展名为 .ipynb）写入到该服务器中。
+保存 notebook 时，它将作为 JSON 文件（文件扩展名为 .ipynb）写入到该服务器中
 
-此架构的一个优点是，内核无需运行 Python。由于 notebook 和内核分开，因此可以在两者之间发送任何语言的代码。例如，早期的两个非 Python 内核分别是 R 语言和 Julia 语言。使用 R 内核时，用 R 编写的代码将发送给执行该代码的 R 内核，这与在 Python 内核上运行 Python 代码完全一样。IPython notebook 已被改名，因为 notebook 变得与编程语言无关。新的名称 Jupyter 由 Julia、Python 和 R 组合而成。如果有兴趣，不妨看看可用内核的列表。
+此架构的一个优点是，内核无需运行Python
+
+由于notebook和内核分开，因此可以在两者之间发送任何语言的代码
+
+例如，早期的两个非Python内核分别是R语言和Julia语言
+
+使用R内核时，用R编写的代码将发送给执行该代码的R内核，这与在Python内核上运行Python代码完全一样
+
+IPython notebook 已被改名，因为 notebook 变得与编程语言无关。新的名称 Jupyter 由 Julia、Python 和 R 组合而成。如果有兴趣，不妨看看可用内核的列表。
 
 另一个优点是，你可以在任何地方运行 notebook 服务器，并且可通过互联网访问服务器。通常，你会在存储所有数据和 notebook 文件的自有计算机上运行服务器。但是，你也可以在远程计算机或云实例（如 Amazon 的 EC2）上设置服务器。之后，你就可以在世界上任何地方通过浏览器访问 notebook
 ```
