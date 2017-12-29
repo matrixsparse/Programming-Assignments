@@ -701,7 +701,7 @@ server {
 
 改域名，改redis的地址为192.168.11.119
 
->.env
+### 编辑.env文件，配置SESSION_DOMAIN为本机IP，这个配置错误的话，就会无法访问
 
 ```bash
 APP_ENV=local
