@@ -692,3 +692,5 @@ server {
 ```bash
 [root@sparsematrix dms]# nginx -s reload
 ```
+
+改域名，改redis的地址为192.168.11.119

@@ -76,4 +76,4 @@ IPython notebook 已被改名，因为 notebook 变得与编程语言无关。�
 在浏览器地址栏中访问：http://localhost:8888
 ```
 
-
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmxan23r24j21vo0i8ap6.jpg)
