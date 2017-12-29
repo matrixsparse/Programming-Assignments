@@ -621,7 +621,16 @@ Laravel Framework version 5.2.45
 ### 安装gulp
 
 ```bash
-[root@sparsematrix dms]# npm install gulp
+[root@sparsematrix dms]# npm install -g gulp
+[root@sparsematrix dms]# npm install -g gulp-notify
+```
+
+```bash
+[root@sparsematrix dms]# npm install
+```
+
+```bash
+yum install libnotify
 ```
 
 ### 运行gulp进行压缩
@@ -662,7 +671,7 @@ vim /etc/nginx/conf.d/laravel.conf
 
 ```bash
 server {
-        listen 8089;
+        listen 80;
         # listen [::]:80 ipv6only=on;
 
         # Log files for Debugging
@@ -675,7 +684,7 @@ server {
 
         # Your Domain Name
         # server_name laravel.hakase-labs.co;
-        server_name  www.sparsematrix.com;
+        server_name localhost;
 
         location / {
                 try_files $uri $uri/ /index.php?$query_string;
@@ -738,4 +747,143 @@ API_SIGNCODE=2CE868847F16BB105B41E2B92AAC7A5B
 ;STA API SIGNCODE
 STA_API_URL=http://oms.patpat.com/api/sta/
 STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
+```
+
+## 运行dms-etc项目
+
+>在window上配置hosts
+
+```bash
+192.168.153.121 dms-etl.if.cc
+```
+
+>vim .env
+
+```bash
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=8abBPNT9NleoYksUadTeP07niOpPiITa
+APP_URL=http://dms-etl.if.cc
+
+ ;dms db
+ DB_HOST=192.168.11.119
+ DB_PORT=3306
+ DB_DATABASE=dms
+ DB_USERNAME=root
+ DB_PASSWORD=patpat
+
+ ;patpat slave
+ DB_HOST1=192.168.11.119
+ DB_PORT1=3306
+ DB_DATABASE1=patpat
+ DB_USERNAME1=root
+ DB_PASSWORD1=patpat
+
+ ;rds log master
+ DB_HOST2=192.168.11.119
+ DB_PORT2=3306
+ DB_DATABASE2=log
+ DB_USERNAME2=root
+ DB_PASSWORD2=patpat
+
+ ;rds log slave
+ DB_HOST3=192.168.11.119
+ DB_PORT3=3306
+ DB_DATABASE3=log
+ DB_USERNAME3=root
+ DB_PASSWORD3=patpat
+
+ ;dw db
+ DB_HOST4=192.168.11.119
+ DB_PORT4=3306
+ DB_DATABASE4=patpat
+ DB_USERNAME4=root
+ DB_PASSWORD4=patpat
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+;Amazon Cloudfront CDN
+SOURCE_CND_URL=img.patpat.com
+ASSET_CND_URL=img.patpat.com
+
+;log info, default LOG_PATH/LOG_NAME.log
+LOG_PATH=/var/log/laravel/dms-etl
+LOG_NAME=laravel
+```
+
+### 进入项目目录
+
+```bash
+cd /var/www/laravel5.2/dms-etl
+```
+
+```bash
+vim /etc/nginx/conf.d/dms-ctl.conf
+```
+
+```bash
+server {
+        listen 80;
+        # listen [::]:80 ipv6only=on;
+
+        # Log files for Debugging
+        access_log /var/log/nginx/laravel5.2-dms-etl-access.log;
+        error_log /var/log/nginx/laravel5.2-dms-etl-error.log;
+
+        # Webroot Directory for Laravel project
+        root /var/www/laravel5.2/dms-etl/public;
+        index index.php index.html index.htm;
+
+        # Your Domain Name
+        # server_name laravel.hakase-labs.co;
+        server_name dms-etl.if.cc;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        # PHP-FPM Configuration Nginx
+        location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+```
+
+
+执行 composer install 后， 出现 Please provide a valid cache path. 问题。
+
+于是手动创建了缓存目录， 执行 php artisan optimize 还是报这个错误。
+
+storage 下的 app, framework, logs 都存在，且都是 777
+bootstrap/cache 存在。
+
+但 Please provide a valid cache path. 还在。
+
+继续在 storage/framework 下面创建 sessions， views, cache 文件夹
+
+```bash
+chmod 777 ../storage
+mkdir -p storage/app
+mkdir -p storage/logs
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/views
+mkdir -p storage/framework/cache
 ```

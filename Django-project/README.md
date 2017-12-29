@@ -1,5 +1,11 @@
 # Djanago项目
 
+## 上传代码
+
+```bash
+将window本地的代码上传到虚拟机上
+```
+
 ## 准备Django环境
 
 ### 安装Anaconda
@@ -35,7 +41,11 @@ conda info --envs
 ### 安装djanago
 
 ```bash
-[root@sparsematrix ~]# conda install django
+[root@sparsematrix ~]# conda install django MySQL-python
+```
+
+```bash
+/data/server/anaconda2/envs/dms-py/bin/pip install django-crontab django-tasks
 ```
 
 ## 启动Django项目
