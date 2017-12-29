@@ -765,6 +765,10 @@ User.query.first()
 
 ## 在Linux上单击部署Redis
 
+```bash
+yum install -y gcc
+```
+
 ### 解压redis压缩文件
 
 ```bash

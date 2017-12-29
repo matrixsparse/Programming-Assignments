@@ -624,6 +624,12 @@ Laravel Framework version 5.2.45
 [root@sparsematrix dms]# npm install gulp
 ```
 
+### 运行gulp进行压缩
+
+```bash
+[root@sparsematrix dms]# gulp
+```
+
 ### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
 
 ```bash
