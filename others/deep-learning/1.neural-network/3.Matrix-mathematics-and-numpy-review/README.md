@@ -1,1 +1,0 @@
-# Matrix mathematics and numpy review

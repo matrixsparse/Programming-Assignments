@@ -1,1 +1,0 @@
-# Convolutional neural network
