@@ -81,15 +81,34 @@ flush privileges;
 
 ```bash
 wget http://nginx.org/download/nginx-1.11.2.tar.gz
-tar -xzvf nginx-1.11.2.tar.gz -C /usr/src
+tar -xzvf nginx-1.11.2.tar.gz -C /data/server
 # 安装依赖
-sudo apt-get install gcc libpcre3 libpcre3-dev openssl libssl-dev libssl0.9.8 perl libperl-dev
-cd /usr/src/nginx-1.11.2
+yum install gcc libpcre3 libpcre3-dev openssl libssl-dev libssl0.9.8 perl libperl-dev -y
+mv /data/server/nginx-1.11.2 /data/server/nginx
+cd /data/server/nginx
 # 以下是一行。。用于生成makefile。如果需要添加第三方模块，使用--add-module=/path/module1的方法编译
-./configure --prefix=/usr/local/nginx --with-ipv6 --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gzip_static_module --with-http_perl_module --with-mail --with-mail_ssl_module
+./configure --prefix=/etc/nginx --with-ipv6 --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gzip_static_module --with-http_perl_module --with-mail --with-mail_ssl_module
 # make是生成在objs目录中，make install则安装到prefix所示的目录中
 make && make install
 # 没有错误出现的话，就可以进入nginx安装目录(/usr/local/nginx)配置。
+```
+
+>创建软连接
+
+```bash
+[root@sparsematrix ~]# ln -fs /etc/nginx/sbin/nginx /usr/sbin/nginx
+```
+
+### 安装Nginx时报错
+
+```bash
+./configure: error: the HTTP rewrite module requires the PCRE library.
+```
+
+>安装pcre-devel解决问题
+
+```bash
+yum -y install pcre-devel openssl openssl-devel perl-ExtUtils-Embed
 ```
 
 ## 安装Nginx
@@ -125,15 +144,24 @@ systemctl restart nginx.service
 rpm -ql nginx
 ```
 
+>查看nginx进程
+
+```bash
+[root@sparsematrix ~]# ps -aux | grep nginx
+root      38359  0.0  0.4  60320  4704 ?        Ss   16:22   0:00 nginx: master process nginx
+nobody    38902  0.0  0.3  60728  3784 ?        S    16:49   0:00 nginx: worker process
+root      39393  0.0  0.0 112664   968 pts/4    R+   17:09   0:00 grep --color=auto nginx
+```
+
 ## 安装net-tools
 
 ```bash
 yum -y install net-tools
 ```
 
-## 安装bit
+## 安装git
 
-``bash
+```bash
 yum install -y git
 ```
 
@@ -146,6 +174,7 @@ Laravel可以安装在PHP版本> = 5.6.4的服务器上
 ```
 
 ```bash
+[root@sparsematrix ~]# pm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 [root@sparsematrix ~]# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 Retrieving https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 warning: /var/tmp/rpm-tmp.RIZbLT: Header V4 RSA/SHA1 Signature, key ID 62e74ca5: NOKEY
@@ -188,11 +217,11 @@ cgi.fix_pathinfo=0
 vim /etc/php-fpm.d/www.conf
 ```
 
->PHP-FPM将在用户和组'nginx'下运行
+>PHP-FPM将在用户和组'nobody'下运行
 
 ```bash
-user = nginx
-group = nginx
+user = nobody
+group = nobody
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmvmif5ieaj20py06qq32.jpg)
@@ -205,11 +234,11 @@ group = nginx
 listen = /run/php-fpm/php-fpm.sock
 ```
 
->套接字文件所有者将是"nginx"用户，权限模式为660.取消注释并更改所有值
+>套接字文件所有者将是"nobody"用户，权限模式为660.取消注释并更改所有值
 
 ```bash
-listen.owner = nginx
-listen.group = nginx
+listen.owner = nobody
+listen.group = nobody
 listen.mode  = 0660
 ```
 
@@ -312,7 +341,7 @@ vim /etc/nginx/conf.d/laravel.conf
 
 ```bash
 server {
-        listen 8089;
+        listen 80;
         # listen [::]:80 ipv6only=on;
 
         # Log files for Debugging
@@ -383,20 +412,20 @@ laravel为服务器上的框架安装提供了两种方式：
 ### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
 
 ```bash
-chown -R nginx:root /var/www/laravel
+chown -R nobody:root /var/www/laravel
 chmod 755 /var/www/laravel/storage
 ```
 
 ## 配置SELinux
 
-Laravel将运行在SELinux的Enforcing模式下
+Laravel将运行在SELinux的permissive模式下[这样就不会限制端口访问] -> 如果这边不进行设置，后面运行Laravel项目的时候就会出现，无法访问MySQL数据库的情况
 
 ```bash
 [root@sparsematrix ~]# vim /etc/selinux/config
 ```
 
 ```bash
-SELINUX=enforcing
+SELINUX=permissive
 ```
 
 or
@@ -490,25 +519,25 @@ Laravel Framework 5.5.28
 ### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
 
 ```bash
-[root@sparsematrix laravel]# chown -R nginx:root /var/www/laravel5.2/
-[root@sparsematrix laravel]# chmod 755 /var/www/laravel5.2/laravel/storage
+[root@sparsematrix laravel]# chown -R nginx:root /var/www/laravel/
+[root@sparsematrix laravel]# chmod 755 /var/www/laravel/laravel/storage
 ```
 
 ### 改变Laravel目录的上下文
 
 ```bash
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/public(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/storage(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/app(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/bootstrap(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/config(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/database(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/resources(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/routes(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/vendor(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/laravel/tests(/.*)?'
-restorecon -Rv '/var/www/laravel5.2/'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/public(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/storage(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/app(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/bootstrap(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/config(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/database(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/resources(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/routes(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/vendor(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/laravel/tests(/.*)?'
+restorecon -Rv '/var/www/laravel/'
 ```
 
 ### 编辑虚拟主机配置文件
@@ -629,7 +658,7 @@ vendor是使用composer安装后才会出现的目录
 ### 查看Laravel版本
 
 ```bash
-[root@sparsematrix dms]# php /var/www/laravel5.2/dms/artisan --version
+[root@sparsematrix dms]# php /var/www/laravel/dms/artisan --version
 Laravel Framework version 5.2.45
 ```
 
@@ -657,31 +686,31 @@ yum install libnotify
 ### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
 
 ```bash
-[root@sparsematrix laravel]# chown -R nginx:root /var/www/laravel5.2/
-[root@sparsematrix laravel]# chmod 755 /var/www/laravel5.2/dms/storage
+[root@sparsematrix laravel]# chown -R nobody:root /var/www/laravel/
+[root@sparsematrix laravel]# chmod 755 /var/www/laravel/dms/storage
 ```
 
 ### 改变Laravel目录的上下文
 
 ```bash
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/public(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/storage(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/app(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/bootstrap(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/config(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/database(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/resources(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/routes(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/vendor(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel5.2/dms/tests(/.*)?'
-restorecon -Rv '/var/www/laravel5.2/'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/public(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/storage(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/app(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/bootstrap(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/config(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/database(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/resources(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/routes(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/vendor(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/tests(/.*)?'
+restorecon -Rv '/var/www/laravel/'
 ```
 
 ### 编辑虚拟主机配置文件
 
 ```bash
-vim /etc/nginx/conf.d/laravel.conf
+vim /etc/nginx/conf.d/dms.conf
 ```
 
 ```bash
@@ -690,16 +719,16 @@ server {
         # listen [::]:80 ipv6only=on;
 
         # Log files for Debugging
-        access_log /var/log/nginx/laravel5.2-dms-access.log;
-        error_log /var/log/nginx/laravel5.2-dms-error.log;
+        access_log /var/log/nginx/laravel-dms-access.log;
+        error_log /var/log/nginx/laravel-dms-error.log;
 
         # Webroot Directory for Laravel project
-        root /var/www/laravel5.2/dms/public;
+        root /var/www/laravel/dms/public;
         index index.php index.html index.htm;
 
         # Your Domain Name
         # server_name laravel.hakase-labs.co;
-        server_name localhost;
+        server_name dms.if.cc;
 
         location / {
                 try_files $uri $uri/ /index.php?$query_string;
@@ -731,10 +760,10 @@ server {
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=8abBPNT9NleoYksUadTeP07niOpPiITa
-;SESSION_DOMAIN=matrix.dms.patpat.dev
+SESSION_DOMAIN=dms.if.cc
 
 SESSION_DRIVER=redis
-SESSION_DOMAIN=192.168.153.121
+;SESSION_DOMAIN=192.168.153.121
 
 DB_CONNECTION=mysql
 DB_HOST=192.168.11.119
@@ -764,12 +793,22 @@ STA_API_URL=http://oms.patpat.com/api/sta/
 STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
 ```
 
+>在window上配置hosts
+
+```bash
+192.168.5.180 dms.if.cc
+```
+
+>在地址栏访问：dms.if.cc
+
+
+
 ## 运行dms-etc项目
 
 >在window上配置hosts
 
 ```bash
-192.168.153.121 dms-etl.if.cc
+192.168.5.180 dms-etl.if.cc
 ```
 
 >vim .env
@@ -842,7 +881,7 @@ LOG_NAME=laravel
 ### 进入项目目录
 
 ```bash
-cd /var/www/laravel5.2/dms-etl
+cd /var/www/laravel/dms-etl
 ```
 
 ```bash
@@ -855,11 +894,11 @@ server {
         # listen [::]:80 ipv6only=on;
 
         # Log files for Debugging
-        access_log /var/log/nginx/laravel5.2-dms-etl-access.log;
-        error_log /var/log/nginx/laravel5.2-dms-etl-error.log;
+        access_log /var/log/nginx/laravel-dms-etl-access.log;
+        error_log /var/log/nginx/laravel-dms-etl-error.log;
 
         # Webroot Directory for Laravel project
-        root /var/www/laravel5.2/dms-etl/public;
+        root /var/www/laravel/dms-etl/public;
         index index.php index.html index.htm;
 
         # Your Domain Name
