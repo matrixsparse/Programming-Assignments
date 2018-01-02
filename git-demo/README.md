@@ -5,6 +5,11 @@
 ssh-keygen -t rsa -C "sparsemtarix@163.com"
 ```
 
+```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
 ## Test everything out 测试
 
 打开 Git Bash 输入:
