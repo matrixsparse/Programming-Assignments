@@ -25,7 +25,7 @@ Laravel是一个开源的PHP框架，遵循MVC（Model-View-Controller）设计�
 ```bash
 用于企业Linux的EPEL或额外软件包是一个额外的软件包存储库，可提供未包含在CentOS官方存储库中的有用的软件包
 
-它可以安装在基于RPM的Linux发行版，如CentOS和Fedora。
+它可以安装在基于RPM的Linux发行版，如CentOS和Fedora
 ```
 
 ```bash
@@ -75,6 +75,21 @@ set password for 'root'@'localhost'=password('123456');
 use mysql;
 grant all privileges  on *.* to root@'%' identified by "root";
 flush privileges;
+```
+
+## 源码安装nginx
+
+```bash
+wget http://nginx.org/download/nginx-1.11.2.tar.gz
+tar -xzvf nginx-1.11.2.tar.gz -C /usr/src
+# 安装依赖
+sudo apt-get install gcc libpcre3 libpcre3-dev openssl libssl-dev libssl0.9.8 perl libperl-dev
+cd /usr/src/nginx-1.11.2
+# 以下是一行。。用于生成makefile。如果需要添加第三方模块，使用--add-module=/path/module1的方法编译
+./configure --prefix=/usr/local/nginx --with-ipv6 --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gzip_static_module --with-http_perl_module --with-mail --with-mail_ssl_module
+# make是生成在objs目录中，make install则安装到prefix所示的目录中
+make && make install
+# 没有错误出现的话，就可以进入nginx安装目录(/usr/local/nginx)配置。
 ```
 
 ## 安装Nginx
