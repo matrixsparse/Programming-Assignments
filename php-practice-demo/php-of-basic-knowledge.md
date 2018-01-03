@@ -326,3 +326,420 @@ Learn PHP
 Study PHP at sparsematrix.ccL
 My car is a
 ```
+
+## PHP数据类型
+
+* String (字符串)
+* Integer (整型)
+* Float (浮点型)
+* Boolean (布尔型)
+* Array (数组)
+* Object (对象)
+* NULL (空值)
+
+### 整型
+
+var_dump()函数返回变量的数据类型和值
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:27
+ */
+
+$x = 5985;
+var_dump($x);
+echo "<br>";
+
+$x = -345;// 负数
+var_dump($x);
+echo "<br>";
+
+$x = 0x8C;// 十六进制数
+var_dump($x);
+echo "<br>";
+
+$x = 047;// 八进制数
+var_dump($x);
+```
+
+>运行结果
+
+```bash
+int(5985)
+int(-345)
+int(140)
+int(39)
+```
+
+### 浮点型
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:24
+ */
+
+$x = 10.365;
+var_dump($x);
+echo "<br>";
+
+$x = 2.4e3;
+var_dump($x);
+echo "<br>";
+
+$x = 8E-5;
+var_dump($x);
+
+?>
+```
+
+>运行结果
+
+```bash
+float(10.365)
+float(2400)
+float(8.0E-5)
+```
+
+### 布尔型
+
+```bash
+布尔型可以是TRUE或FALSE
+```
+
+### 数组
+
+数组可以在一个变量中存储多个值
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:22
+ */
+
+$cars = array("Volvo", "BMW", "Toyota");
+var_dump($cars);
+
+?>
+```
+
+>运行结果
+
+```bash
+array(3) { [0]=> string(5) "Volvo" [1]=> string(3) "BMW" [2]=> string(6) "Toyota" }
+```
+
+### 对象
+
+在PHP中，对象必须声明
+
+必须使用class关键字关键字声明类对象
+
+类是可以包含属性和方法的结构
+
+在类中定义数据类型，然后在实例化的类中使用数据类型
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:34
+ */
+
+class Car
+{
+    var $color;
+
+    function Car($color = "green")
+    {
+        $this->color = $color;
+    }
+
+    function what_color()
+    {
+        return $this->color;
+    }
+}
+
+function print_vars($obj)
+{
+    foreach (get_object_vars($obj) as $prop => $val) {
+        echo "\t$prop = $val\n";
+    }
+}
+
+// instantiate one object
+$herbie = new Car("white");
+
+// show herbie properties
+echo "\herbie：Properties\n";
+print_vars($herbie);
+?>
+```
+
+>运行结果
+
+```bash
+\herbie：Properties color = white
+```
+
+### NULL值
+
+NULL值表示变量没有值，NULL是数据类型为NULL的值
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:40
+ */
+
+$x = "Hello Wolrd!";
+$x = null;
+
+var_dump($x);
+
+?>
+```
+
+>运行结果
+
+```bash
+NULL
+```
+
+### 常量
+
+```bash
+常量是一个简单值的标识符，该值在脚本中不能改变(常量名不需要加 $ 修饰符)
+
+注意： 常量在整个脚本中都可以使用
+
+设置常量，使用 define() 函数，函数语法如下：
+
+define(string constant_name, mixed value, case_sensitive = true)
+```
+
+>该函数有三个参数:
+
+* constant_name：必选参数，常量名称，即标志符
+* value：必选参数，常量的值
+* case_sensitive：可选参数，指定是否大小写敏感，设定为 true 表示不敏感
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:55
+ */
+
+define("GREETING", "Welcome to sparsematrix.cc!");
+echo GREETING;
+?>
+```
+
+>运行结果
+
+```bash
+Welcome to sparsematrix.cc!
+```
+
+### 字符串函数和字符串连接
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 16:58
+ */
+
+$str1 = "Hello World!";
+$str2 = "What a nice day!";
+echo $str1 . " " . $str2;// 字符串连接运算符
+
+echo "<br>";
+echo strlen("Hello World!"); // 获取字符串长度
+echo "<br>";
+echo strpos("Hello World！","World！");// 获取子串位置
+// 字符串中第一个字符的位置是 0
+?>
+```
+
+>运行结果
+
+```bash
+Hello World! What a nice day!
+12
+6
+```
+
+### 运算符
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 17:15
+ */
+
+// 其他运算符
+// 逻辑运算符！ && || and or xor
+// 数组运算符 合并：+ 比较：== != === !==
+// 在php中 != 与 <> 作用一样
+
+
+$x = array("a" => "red", "b" => "green");
+$y = array("c" => "blue", "d" => "yellow");
+$z = $x + $y; // $x 和 $y 数组合并
+var_dump($z);
+echo "<br>";
+var_dump($x == $y);
+echo "<br>";
+var_dump($x != $y);
+echo "<br>";
+var_dump($x <> $y);
+echo "<br>";
+var_dump($x != $y);
+?>
+```
+
+>运行结果
+
+```bash
+array(4) { ["a"]=> string(3) "red" ["b"]=> string(5) "green" ["c"]=> string(4) "blue" ["d"]=> string(6) "yellow" }
+bool(false)
+bool(true)
+bool(true)
+bool(true)
+```
+
+### 数组
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 17:33
+ */
+
+$cars = array("Volvo", "BMW", "Toyota");
+echo "I like " . $cars[0] . " , " . $cars[1] . " and " . $cars[2] . ".";//访问数组元素
+
+// 数组长度count()
+$cars = array("Volvo", "BMW", "Toyota");
+$arrlength = count($cars);
+
+
+// 遍历数值数组
+$cars = array("Volvo", "BMW", "Toyota");
+$arrlength = count($cars);
+
+for ($x = 0; $x < $arrlength; $x++) {
+    echo $cars[$x];
+    echo "<br>";
+}
+
+$age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");// 定义关联数组
+echo "Peter is " . $age['Peter'] . " years old.";
+echo "<br>";
+
+foreach ($age as $x => $x_value) {
+    echo "Key=" . $x . " , Value=" . $x_value;
+    echo "<br>";
+}
+?>
+```
+
+>运行结果
+
+```bash
+I like Volvo , BMW and Toyota.Volvo
+BMW
+Toyota
+Peter is 35 years old.
+Key=Peter , Value=35
+Key=Ben , Value=37
+Key=Joe , Value=43
+```
+
+### 数组排序
+
+* sort() - 对数组进行升序排列
+* rsort() - 对数组进行降序排列
+* asort() - 根据关联数组的值，对数组进行升序排列
+* ksort() - 根据关联数组的键，对数组进行升序排列
+* arsort() - 根据关联数组的值，对数组进行降序排列
+* krsort() - 根据关联数组的键，对数组进行降序排列
+
+```bash
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/1/3
+ * Time: 17:56
+ */
+
+// sort() - 对数组进行升序排列
+// rsort() - 对数组进行降序排列
+// asort() - 根据关联数组的值，对数组进行升序排列
+// ksort() - 根据关联数组的键，对数组进行升序排列
+// arsort() - 根据关联数组的值，对数组进行降序排列
+// krsort() - 根据关联数组的键，对数组进行降序排列
+
+$cars = array("Volvo", "BMW", "Toyota");
+sort($cars);
+
+$clength = count($cars);
+
+for ($x = 0; $x < $clength; $x++) {
+    echo $cars[$x];
+    echo "<br>";
+}
+
+// rsort()
+$cars = array("Volvo", "BMW", "Toyota");
+rsort($cars);
+
+// asort() 关联数组排序 value
+$age = array("Peter" => "35", "Ben" => "37", "Joe" => 43);
+asort($age);
+arsort($age);
+
+
+// ksort() 关联数组排序 key
+$age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
+ksort($age);
+krsort($age);
+?>
+```
+
+>运行结果
+
+```bash
+BMW
+Toyota
+Volvo
+```
