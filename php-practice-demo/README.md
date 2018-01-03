@@ -752,9 +752,7 @@ server {
 [root@sparsematrix dms]# nginx -s reload
 ```
 
-改域名，改redis的地址为192.168.11.119
-
-### 编辑.env文件，配置SESSION_DOMAIN为本机IP，这个配置错误的话，就会无法访问
+### 编辑.env文件，配置SESSION_DOMAIN【域名】，这个配置错误的话，就会无法访问
 
 ```bash
 APP_ENV=local
@@ -762,20 +760,15 @@ APP_DEBUG=true
 APP_KEY=8abBPNT9NleoYksUadTeP07niOpPiITa
 SESSION_DOMAIN=dms.if.cc
 
-SESSION_DRIVER=redis
-;SESSION_DOMAIN=192.168.153.121
-
 DB_CONNECTION=mysql
 DB_HOST=192.168.11.119
 DB_DATABASE=dms
 DB_USERNAME=root
 DB_PASSWORD=patpat
 
-CACHE_DRIVER=redis
+CACHE_DRIVER=file
+SESSION_DRIVER=file
 QUEUE_DRIVER=sync
-REDIS_HOST=192.168.11.119
-CACHE_HOST=192.168.11.119
-CACHE_TIMEOUTMINUTES=10
 
 ;Mail
 MAIL_HOST=smtp.mailgun.org
@@ -801,7 +794,7 @@ STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
 
 >在地址栏访问：dms.if.cc
 
-
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fn2iylf9zoj214j0j7aoo.jpg)
 
 ## 运行dms-etc项目
 
@@ -811,7 +804,46 @@ STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
 192.168.5.180 dms-etl.if.cc
 ```
 
->vim .env
+```bash
+[root@sparsematrix dms]# composer install
+```
+
+### 查看Laravel版本
+
+```bash
+[root@sparsematrix dms]# php /var/www/laravel/dms/artisan --version
+Laravel Framework version 5.2.45
+```
+
+### 安装gulp
+
+```bash
+[root@sparsematrix dms]# npm install -g gulp
+[root@sparsematrix dms]# npm install -g gulp-notify
+```
+
+```bash
+[root@sparsematrix dms]# npm install
+```
+
+### 运行gulp进行压缩
+
+```bash
+[root@sparsematrix dms]# gulp
+```
+
+### 将Laravel Web根目录的所有者更改为"nobody"用户，并使用以下命令将存储目录的权限更改为755
+
+```bash
+[root@sparsematrix laravel]# chown -R nobody:root /var/www/laravel/
+[root@sparsematrix laravel]# chmod 755 /var/www/laravel/dms/storage
+```
+
+### 编辑.env配置文件
+
+```bash
+vim .env
+```
 
 ```bash
 APP_ENV=local
@@ -884,6 +916,25 @@ LOG_NAME=laravel
 cd /var/www/laravel/dms-etl
 ```
 
+### 创建目录并给与777权限
+
+```bash
+chmod 777 /var/www/laravel/dms-etl/storage
+mkdir -p /var/www/laravel/dms-etl/storage/app
+mkdir -p /var/www/laravel/dms-etl/storage/logs
+mkdir -p /var/www/laravel/dms-etl/storage/framework/sessions
+mkdir -p /var/www/laravel/dms-etl/storage/framework/views
+mkdir -p /var/www/laravel/dms-etl/storage/framework/cache
+```
+
+### 查看Laravel版本
+
+```bash
+php /var/www/laravel/dms-etl --version
+```
+
+### 编辑nginx的dms-ctl.conf配置文件
+
 ```bash
 vim /etc/nginx/conf.d/dms-ctl.conf
 ```
@@ -932,12 +983,3 @@ bootstrap/cache 存在。
 但 Please provide a valid cache path. 还在。
 
 继续在 storage/framework 下面创建 sessions， views, cache 文件夹
-
-```bash
-chmod 777 ../storage
-mkdir -p storage/app
-mkdir -p storage/logs
-mkdir -p storage/framework/sessions
-mkdir -p storage/framework/views
-mkdir -p storage/framework/cache
-```
