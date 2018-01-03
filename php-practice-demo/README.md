@@ -409,7 +409,7 @@ laravel为服务器上的框架安装提供了两种方式：
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwc6qi3xkj20pr0jy76l.jpg)
 
-### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
+### 将Laravel Web根目录的所有者更改为"nobody"用户，并使用以下命令将存储目录的权限更改为755
 
 ```bash
 chown -R nobody:root /var/www/laravel
@@ -453,7 +453,7 @@ setenforce 0 设置SELinux 成为permissive模式
 [root@sparsematrix laravel]# yum -y install policycoreutils-python
 ```
 
-### 改变Laravel目录的上下文
+### 改变Laravel目录的上下文【这步作废】
 
 ```bash
 semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel(/.*)?'
@@ -523,7 +523,7 @@ Laravel Framework 5.5.28
 [root@sparsematrix laravel]# chmod 755 /var/www/laravel/laravel/storage
 ```
 
-### 改变Laravel目录的上下文
+### 改变Laravel目录的上下文【这步作废】
 
 ```bash
 semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/(/.*)?'
@@ -548,7 +548,7 @@ vim /etc/nginx/conf.d/laravel.conf
 
 ```bash
 server {
-        listen 8089;
+        listen 80;
         # listen [::]:80 ipv6only=on;
 
         # Log files for Debugging
@@ -600,7 +600,7 @@ nginx -s reload
 Laravel Framework version 5.2.45
 ```
 
-### 在浏览器地址栏访问：http://www.sparsematrix.com:8089/
+### 在浏览器地址栏访问：http://www.sparsematrix.com
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fmwj89wfwsj20wn0ffdfz.jpg)
 
