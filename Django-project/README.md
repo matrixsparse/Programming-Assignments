@@ -38,6 +38,12 @@ conda list
 conda info --envs
 ```
 
+or
+
+```bash
+conda env list
+```
+
 ### 安装djanago
 
 ```bash
@@ -45,7 +51,7 @@ conda info --envs
 ```
 
 ```bash
-/data/server/anaconda2/envs/dms-py/bin/pip install django-crontab django-tasks
+/usr/local/anaconda2/envs/dms-py/bin/pip install django-crontab django-tasks
 ```
 
 ## 启动Django项目
