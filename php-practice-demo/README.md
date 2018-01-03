@@ -619,31 +619,17 @@ yum install nodejs -y
 v6.12.0
 ```
 
-## 安装gulp
-
-```bash
-[root@sparsematrix ~]# npm install --global gulp-cl
-```
-
-### 安装node相关模块
-
-```bash
-npm install
-```
-
-### 运行gulp
-
-```bash
-gulp
-```
-
-## 运行Laravel项目
+## 运行dms项目【基于Laravel开发】
 
 ```bash
 将代码上传到远程服务器
 ```
 
+>注意
+
+```bash
 vendor是使用composer安装后才会出现的目录
+```
 
 ### 安装Laravel
 
@@ -669,6 +655,8 @@ Laravel Framework version 5.2.45
 [root@sparsematrix dms]# npm install -g gulp-notify
 ```
 
+>安装node相关模块
+
 ```bash
 [root@sparsematrix dms]# npm install
 ```
@@ -683,28 +671,11 @@ yum install libnotify
 [root@sparsematrix dms]# gulp
 ```
 
-### 将Laravel Web根目录的所有者更改为"nginx"用户，并使用以下命令将存储目录的权限更改为755
+### 将Laravel Web根目录的所有者更改为"nobody"用户，并使用以下命令将存储目录的权限更改为755
 
 ```bash
 [root@sparsematrix laravel]# chown -R nobody:root /var/www/laravel/
 [root@sparsematrix laravel]# chmod 755 /var/www/laravel/dms/storage
-```
-
-### 改变Laravel目录的上下文
-
-```bash
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/public(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/storage(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/app(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/bootstrap(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/config(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/database(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/resources(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/routes(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/vendor(/.*)?'
-semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/dms/tests(/.*)?'
-restorecon -Rv '/var/www/laravel/'
 ```
 
 ### 编辑虚拟主机配置文件
@@ -796,7 +767,7 @@ STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fn2iylf9zoj214j0j7aoo.jpg)
 
-## 运行dms-etc项目
+## 运行dms-etc项目【基于Laravel项目】
 
 >在window上配置hosts
 
@@ -811,7 +782,7 @@ STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
 ### 查看Laravel版本
 
 ```bash
-[root@sparsematrix dms]# php /var/www/laravel/dms/artisan --version
+[root@sparsematrix ~]# php /var/www/laravel/dms-etl/artisan --version
 Laravel Framework version 5.2.45
 ```
 
@@ -839,10 +810,10 @@ Laravel Framework version 5.2.45
 [root@sparsematrix laravel]# chmod 755 /var/www/laravel/dms/storage
 ```
 
-### 编辑.env配置文件
+### 编辑/var/www/laravel/dms-etl/.env配置文件
 
 ```bash
-vim .env
+vim /var/www/laravel/dms-etl/.env
 ```
 
 ```bash
@@ -910,7 +881,7 @@ LOG_PATH=/var/log/laravel/dms-etl
 LOG_NAME=laravel
 ```
 
-### 进入项目目录
+### 进入dms-etl项目目录
 
 ```bash
 cd /var/www/laravel/dms-etl
@@ -925,12 +896,6 @@ mkdir -p /var/www/laravel/dms-etl/storage/logs
 mkdir -p /var/www/laravel/dms-etl/storage/framework/sessions
 mkdir -p /var/www/laravel/dms-etl/storage/framework/views
 mkdir -p /var/www/laravel/dms-etl/storage/framework/cache
-```
-
-### 查看Laravel版本
-
-```bash
-php /var/www/laravel/dms-etl --version
 ```
 
 ### 编辑nginx的dms-ctl.conf配置文件
@@ -972,14 +937,6 @@ server {
 }
 ```
 
+### 在浏览器地址栏中访问：http://dms-etl.if.cc/
 
-执行 composer install 后， 出现 Please provide a valid cache path. 问题。
-
-于是手动创建了缓存目录， 执行 php artisan optimize 还是报这个错误。
-
-storage 下的 app, framework, logs 都存在，且都是 777
-bootstrap/cache 存在。
-
-但 Please provide a valid cache path. 还在。
-
-继续在 storage/framework 下面创建 sessions， views, cache 文件夹
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fn38cn4xg2j21gt0fcdgw.jpg)
