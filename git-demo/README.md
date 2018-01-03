@@ -1,5 +1,6 @@
+## 生成SSH密钥
 
-## Generate a new SSH key 生成新的 SSH 密钥
+### Generate a new SSH key 生成新的 SSH 密钥
 
 ```bash
 ssh-keygen -t rsa -C "sparsemtarix@163.com"
@@ -10,7 +11,7 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-## Test everything out 测试
+### Test everything out 测试
 
 打开 Git Bash 输入:
 
@@ -30,4 +31,12 @@ Are you sure you want to continue connecting (yes/no)? yes
 
 ```bash
 Hi matrixsparse! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+## Git基本命令
+
+>查看different
+
+```bash
+git diff
 ```
