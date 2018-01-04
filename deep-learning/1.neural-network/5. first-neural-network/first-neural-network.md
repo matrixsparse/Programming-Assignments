@@ -90,6 +90,12 @@ hour.csv 和 day.csv 文件都具有以下字段，但是 day.csv 中没有 hr �
 conda create --name dlnd python=3
 ```
 
+### 查看所有环境
+
+```bash
+conda env list
+```
+
 ### 进入新环境
 
 ```bash
@@ -224,9 +230,6 @@ class NeuralNetwork(object):
         final_outputs = self.sigmoid(final_inputs)  # signals from final output layer
 
         return final_outputs
-
-    def MSE(y, Y):
-        return np.mean((y - Y) ** 2)
 ```
 
 训练网络
