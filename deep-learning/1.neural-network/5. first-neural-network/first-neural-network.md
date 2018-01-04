@@ -117,11 +117,128 @@ source deactivate
 ## 构建神经网络，用该网络预测每日自行车租客人数
 
 ```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2018, matrix
 
+import numpy as np
+
+
+# 实现 S 型激活函数。将 __init__ 中的 self.activation_function 设为你的 S 型函数
+# 在 train 方法中实现前向传递
+# 在 train 方法中实现反向传播算法，包括计算输出错误
+# 在 run 方法中实现前向传递
+
+class NeuralNetwork(object):
+    def __init__(self, input_nodes, hidden_nodes, output_nodes, learning_rate):
+        # Set number of nodes in input, hidden and output layers.
+        self.input_nodes = input_nodes
+        self.hidden_nodes = hidden_nodes
+        self.output_nodes = output_nodes
+
+        # Initialize weights
+        self.weights_input_to_hidden = np.random.normal(0.0, self.input_nodes ** -0.5,
+                                                        (self.input_nodes, self.hidden_nodes))
+
+        self.weights_hidden_to_output = np.random.normal(0.0, self.hidden_nodes ** -0.5,
+                                                         (self.hidden_nodes, self.output_nodes))
+        self.lr = learning_rate
+
+        #### TODO: Set self.activation_function to your implemented sigmoid function ####
+        #
+        # Note: in Python, you can define a function with a lambda expression,
+        # as shown below.
+        self.activation_function = self.sigmoid(0)  # Replace 0 with your sigmoid calculation.
+
+        ### If the lambda code above is not something you're familiar with,
+        # You can uncomment out the following three lines and put your
+        # implementation there instead.
+        #
+
+    def sigmoid(x):
+        return 1 / (1 + np.exp(-x))
+        #    return 0  # Replace 0 with your sigmoid calculation here
+        # self.activation_function = sigmoid
+
+    def train(self, features, targets):
+        ''' Train the network on batch of features and targets.
+
+            Arguments
+            ---------
+
+            features: 2D array, each row is one data record, each column is a feature
+            targets: 1D array of target values
+
+        '''
+        n_records = features.shape[0]
+        delta_weights_i_h = np.zeros(self.weights_input_to_hidden.shape)
+        delta_weights_h_o = np.zeros(self.weights_hidden_to_output.shape)
+        for X, y in zip(features, targets):
+            #### Implement the forward pass here ####
+            ### Forward pass ###
+            # TODO: Hidden layer - Replace these values with your calculations.
+            hidden_inputs = np.dot(X, self.weights_input_to_hidden)  # signals into hidden layer
+            hidden_outputs = self.sigmoid(hidden_inputs)  # signals from hidden layer
+
+            # TODO: Output layer - Replace these values with your calculations.
+            final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output)  # signals into final output layer
+            final_outputs = self.sigmoid(final_inputs)  # signals from final output layer
+
+            #### Implement the backward pass here ####
+            ### Backward pass ###
+
+            # TODO: Output error - Replace this value with your calculations.
+            error = y - final_outputs  # Output layer error is the difference between desired target and actual output.
+
+            # TODO: Calculate the hidden layer's contribution to the error
+            hidden_error = np.dot(output_error_term, self.weights_hidden_to_output)
+
+            # TODO: Backpropagated error terms - Replace these values with your calculations.
+            output_error_term = error * final_outputs * (1 - final_outputs)
+            hidden_error_term = hidden_error * hidden_outputs * (1 - hidden_outputs)
+
+            # Weight step (input to hidden)
+            delta_weights_i_h += hidden_error_term * X[:, None]
+            # Weight step (hidden to output)
+            delta_weights_h_o += output_error_term * hidden_outputs
+
+        # TODO: Update the weights - Replace these values with your calculations.
+        self.weights_hidden_to_output += self.lr * delta_weights_h_o / n_records  # update hidden-to-output weights with gradient descent step
+        self.weights_input_to_hidden += self.lr * delta_weights_i_h / n_records  # update input-to-hidden weights with gradient descent step
+
+    def run(self, features):
+        ''' Run a forward pass through the network with input features
+
+            Arguments
+            ---------
+            features: 1D array of feature values
+        '''
+
+        #### Implement the forward pass here ####
+        # TODO: Hidden layer - replace these values with the appropriate calculations.
+        hidden_inputs = np.dot(features, self.weights_input_to_hidden)  # signals into hidden layer
+        hidden_outputs = self.sigmoid(hidden_inputs)  # signals from hidden layer
+
+        # TODO: Output layer - Replace these values with the appropriate calculations.
+        final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output)  # signals into final output layer
+        final_outputs = self.sigmoid(final_inputs)  # signals from final output layer
+
+        return final_outputs
+
+    def MSE(y, Y):
+        return np.mean((y - Y) ** 2)
 ```
 
->运行结果
+训练网络
+现在你将设置网络的超参数。策略是设置的超参数使训练集上的错误很小但是数据不会过拟合。如果网络训练时间太长，或者有太多的隐藏节点，可能就会过于针对特定训练集，无法泛化到验证数据集。即当训练集的损失降低时，验证集的损失将开始增大。
 
-```bash
+你还将采用随机梯度下降 (SGD) 方法训练网络。对于每次训练，都获取随机样本数据，而不是整个数据集。与普通梯度下降相比，训练次数要更多，但是每次时间更短。这样的话，网络训练效率更高。稍后你将详细了解 SGD。
 
-```
+选择迭代次数
+也就是训练网络时从训练数据中抽样的批次数量。迭代次数越多，模型就与数据越拟合。但是，如果迭代次数太多，模型就无法很好地泛化到其他数据，这叫做过拟合。你需要选择一个使训练损失很低并且验证损失保持中等水平的数字。当你开始过拟合时，你会发现训练损失继续下降，但是验证损失开始上升。
+
+选择学习速率
+速率可以调整权重更新幅度。如果速率太大，权重就会太大，导致网络无法与数据相拟合。建议从 0.1 开始。如果网络在与数据拟合时遇到问题，尝试降低学习速率。注意，学习速率越低，权重更新的步长就越小，神经网络收敛的时间就越长。
+
+选择隐藏节点数量
+隐藏节点越多，模型的预测结果就越准确。尝试不同的隐藏节点的数量，看看对性能有何影响。你可以查看损失字典，寻找网络性能指标。如果隐藏单元的数量太少，那么模型就没有足够的空间进行学习，如果太多，则学习方向就有太多的选择。选择隐藏单元数量的技巧在于找到合适的平衡点。
