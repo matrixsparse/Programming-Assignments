@@ -108,10 +108,28 @@ source activate dlnd
 conda install numpy matplotlib pandas jupyter notebook
 ```
 
+### 下载项目
+
+```bash
+git clone https://github.com/udacity/cn-deep-learning.git
+```
+
 ### 打开notebook
 
 ```bash
 jupyter notebook matrix_first_neural_network.ipynb --ip=0.0.0.0
+```
+
+### 后台启动notebook
+
+```bash
+nohup jupyter notebook matrix_first_neural_network.ipynb --ip=0.0.0.0 >/dev/null 2>&1 &
+```
+
+### 在浏览器地址栏访问
+
+```bash
+http://服务器ip:8888/notebooks/matrix_first_neural_network.ipynb
 ```
 
 ### 注销环境
