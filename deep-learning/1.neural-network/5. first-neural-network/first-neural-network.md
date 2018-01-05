@@ -147,7 +147,6 @@ source deactivate
 
 import numpy as np
 
-
 # 实现 S 型激活函数。将 __init__ 中的 self.activation_function 设为你的 S 型函数
 # 在 train 方法中实现前向传递
 # 在 train 方法中实现反向传播算法，包括计算输出错误
@@ -178,9 +177,7 @@ class NeuralNetwork(object):
         # You can uncomment out the following three lines and put your
         # implementation there instead.
         #
-
-    def sigmoid(self, x):
-        return 1 / (1 + np.exp(-x))
+        # def sigmoid(x):
         #    return 0  # Replace 0 with your sigmoid calculation here
         # self.activation_function = sigmoid
 
@@ -202,7 +199,7 @@ class NeuralNetwork(object):
             ### Forward pass ###
             # TODO: Hidden layer - Replace these values with your calculations.
             hidden_inputs = np.dot(X, self.weights_input_to_hidden)  # signals into hidden layer
-            hidden_outputs = self.sigmoid(hidden_inputs)  # signals from hidden layer
+            hidden_outputs = self.activation_function(hidden_inputs)  # signals from hidden layer
 
             # TODO: Output layer - Replace these values with your calculations.
             final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output)  # signals into final output layer
@@ -213,13 +210,13 @@ class NeuralNetwork(object):
 
             # TODO: Output error - Replace this value with your calculations.
             error = y - final_outputs  # Output layer error is the difference between desired target and actual output.
-            output_error_term = error * 1
 
             # TODO: Calculate the hidden layer's contribution to the error
-            hidden_error = np.dot(output_error_term, self.weights_hidden_to_output.T)
+            hidden_error = np.dot(self.weights_hidden_to_output, error)
 
             # TODO: Backpropagated error terms - Replace these values with your calculations.
-            hidden_error_term = hidden_error * hidden_inputs * (1 - hidden_inputs)
+            output_error_term = error
+            hidden_error_term = hidden_error * hidden_outputs * (1 - hidden_outputs)
 
             # Weight step (input to hidden)
             delta_weights_i_h += hidden_error_term * X[:, None]
@@ -241,7 +238,7 @@ class NeuralNetwork(object):
         #### Implement the forward pass here ####
         # TODO: Hidden layer - replace these values with the appropriate calculations.
         hidden_inputs = np.dot(features, self.weights_input_to_hidden)  # signals into hidden layer
-        hidden_outputs = self.sigmoid(hidden_inputs)  # signals from hidden layer
+        hidden_outputs = self.activation_function(hidden_inputs)  # signals from hidden layer
 
         # TODO: Output layer - Replace these values with the appropriate calculations.
         final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output)  # signals into final output layer
