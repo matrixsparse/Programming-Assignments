@@ -7,30 +7,38 @@ ssh-keygen -t rsa -C "sparsemtarix@163.com"
 ```
 
 ```bash
-git config --global user.email "you@example.com"
+git config --global user.email 'sparsemtarix@163.com'
+or
 git config --global user.name "Your Name"
 ```
 
-### Test everything out 测试
+### 测试ssh是否配置成功
 
-打开 Git Bash 输入:
+>测试github ssh是否配置成功
 
 ```bash
-$ ssh -T git@github.com
-# Attempts to ssh to github
+sparsematrix:~ matrix$ ssh -T git@github.com
 ```
-
-看到如下警告
 
 ```bash
 The authenticity of host 'github.com (192.30.255.112)' can't be established.
 RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 Are you sure you want to continue connecting (yes/no)? yes
-输入"yes"
+Hi matrixsparse! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+>测试gitlab ssh是否配置成功
+
+```bash
+sparsematrix:~ matrix$ ssh -T git@gitlab.com
 ```
 
 ```bash
-Hi matrixsparse! You've successfully authenticated, but GitHub does not provide shell access.
+The authenticity of host 'gitlab.com (52.167.219.168)' can't be established.
+ECDSA key fingerprint is SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'gitlab.com,52.167.219.168' (ECDSA) to the list of known hosts.
+Welcome to GitLab, sparsematrix!
 ```
 
 ## Git基本命令
