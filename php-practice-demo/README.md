@@ -83,7 +83,7 @@ flush privileges;
 wget http://nginx.org/download/nginx-1.11.2.tar.gz
 tar -xzvf nginx-1.11.2.tar.gz -C /data/server
 # 安装依赖
-yum install gcc libpcre3 libpcre3-dev openssl libssl-dev libssl0.9.8 perl libperl-dev -y
+yum install gcc libpcre3 libpcre3-dev openssl libssl-dev libssl0.9.8 perl libperl-dev pcre-devel openssl openssl-devel perl-ExtUtils-Embed -y
 mv /data/server/nginx-1.11.2 /data/server/nginx
 cd /data/server/nginx
 # 以下是一行。。用于生成makefile。如果需要添加第三方模块，使用--add-module=/path/module1的方法编译
@@ -109,14 +109,6 @@ make && make install
 
 ```bash
 yum -y install pcre-devel openssl openssl-devel perl-ExtUtils-Embed
-```
-
-## 安装Nginx
-
-我们将在LEMP下运行一个Laravel。 Nginx是LEMP的Web服务器部分，可以从EPEL仓库安装。
-
-```bash
-yum -y install nginx
 ```
 
 >设置开启自动启动
