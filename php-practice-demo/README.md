@@ -936,11 +936,87 @@ server {
 ### 在Laravel项目中启动定时任务
 
 ```bash
+cd /var/www/laravel/dms-etl
+```
+
+```bash
 vim .env
 ```
 
 ```bash
 vim ./config/database.php
+```
+
+```bash
+vim ./Console/Commands/TestDemo.php
+```
+
+>TestDemo.php
+
+```bash
+<?php
+
+/*
+ * Auth: Matrix
+ * Date: 2018-01-11
+ * Description: PHP timed test
+ *
+ * */
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use DB;
+use Log;
+
+class TestDemo extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'test_demo {--y} {start_datetime?}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'The dms-etl crontab testdemo ';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        if ($this->option('y')) {
+            $this->handleProgress();
+        } else {
+            if ($this->confirm('Do you want to continue?')) {
+                $this->handleProgress();
+            }
+        }
+    }
+
+    private function handleProgress()
+    {
+        //获取上次已经统计到的时间
+        $sql = <<<EOT
+select *
+from d_color
+EOT;
+        $result = DB::connection('dw')->select($sql);
+        foreach ($result as $res) {
+            var_dump($res->value);
+            var_dump($res);
+        }
+
+    }
+
+}
 ```
 
 ```bash
