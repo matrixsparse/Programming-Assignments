@@ -948,10 +948,10 @@ vim ./config/database.php
 ```
 
 ```bash
-vim ./Console/Commands/TestDemo.php
+vim ./Console/Commands/DataWarehouse.php
 ```
 
->TestDemo.php
+>DataWarehouse.php
 
 ```bash
 <?php
@@ -969,21 +969,21 @@ use Illuminate\Console\Command;
 use DB;
 use Log;
 
-class TestDemo extends Command
+class DataWarehouse extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'test_demo {--y} {start_datetime?}';
+    protected $signature = 'data:data_warehouse {--y} {start_datetime?}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'The dms-etl crontab testdemo ';
+    protected $description = 'The dms-etl crontab data_warehouse ';
 
     /**
      * Execute the console command.
@@ -1010,8 +1010,8 @@ from d_color
 EOT;
         $result = DB::connection('dw')->select($sql);
         foreach ($result as $res) {
-            var_dump($res->value);
-            var_dump($res);
+            var_dump($res->id,$res->value);
+//            var_dump($res);
         }
 
     }
@@ -1028,5 +1028,5 @@ php artisan list
 ```
 
 ```bash
-php artisan test_demo
+php artisan data:data_warehouse
 ```
