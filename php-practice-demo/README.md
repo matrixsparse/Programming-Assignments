@@ -932,3 +932,25 @@ server {
 ### 在浏览器地址栏中访问：http://dms-etl.if.cc/
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fn38cn4xg2j21gt0fcdgw.jpg)
+
+### 在Laravel项目中启动定时任务
+
+```bash
+vim .env
+```
+
+```bash
+vim ./config/database.php
+```
+
+```bash
+gulp
+```
+
+```bash
+php artisan list
+```
+
+```bash
+php artisan test_demo
+```
