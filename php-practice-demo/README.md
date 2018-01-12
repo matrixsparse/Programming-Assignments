@@ -175,10 +175,16 @@ Updating / installing...
    1:webtatic-release-7-3             ################################# [100%]
 ```
 
+### 查看yum源是否能搜索到PHP7
+
+```bash
+yum list | php7
+```
+
 ### 使用yum命令来安装PHP-FPM，其中包含Laravel所需的所有扩展
 
 ```bash
-[root@sparsematrix ~]# yum install -y php71w php71w-curl php71w-common php71w-cli php71w-mysql php71w-mbstring php71w-fpm php71w-xml php71w-pdo php71w-zip php71w-gd php71w-intl php71w-xsl
+[root@sparsematrix ~]# yum install -y php71w php71w-curl php71w-common php71w-cli php71w-mysql php71w-mbstring php71w-fpm php71w-xml php71w-pdo php71w-zip php71w-gd php71w-intl php71w-xsl php71w-pgsql
 ```
 
 ### 查看是否安装成功
@@ -188,6 +194,12 @@ Updating / installing...
 PHP 7.1.11 (cli) (built: Oct 29 2017 17:26:51) ( NTS )
 Copyright (c) 1997-2017 The PHP Group
 Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
+```
+
+### 查看PHP安装的插件
+
+```bash
+php -m
 ```
 
 ### 编辑php.ini配置文件
@@ -317,7 +329,7 @@ PHP composer是PHP编程语言的包管理器
 
 ## 配置Nginx虚拟主机进行Laravel
 
-为这个Laravel安装定义web根目录，将使用'/var/www/laravel'目录作为Web根目录。
+为这个Laravel安装定义web根目录，将使用'/var/www/laravel'目录作为Web根目录
 
 >创建目录
 
