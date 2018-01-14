@@ -114,8 +114,8 @@ yum -y install pcre-devel openssl openssl-devel perl-ExtUtils-Embed
 >设置开启自动启动
 
 ```bash
-systemctl start nginx
-systemctl enable nginx
+vim /etc/rc.local
+/usr/sbin/nginx
 ```
 
 Nginx在端口80上运行，请使用下面的netstat命令检查。
