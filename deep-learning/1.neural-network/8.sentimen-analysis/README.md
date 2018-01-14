@@ -17,12 +17,25 @@
 
 第一个数据集必须代表我们已知的信息
 第二个数据集必须代表我们想要知道的信息
+
+随着网络不断训练，它将不断寻找两组数据集之间的相关性
+最终能够根据一组的输入，预测另一组的数值
 ```
 
 * Sentiment_Classification_Projects.ipynb - 这个迷你项目的 notebook，你会用它来练习和完成迷你项目。
 * Sentiment_Classification_Solutionss.ipynb - 含有 Andrew 对课程迷你项目解决方案的 notebook，可供你参考
 * reviews.txt - 含有 25000 条影评
 * labels.txt - 针对 reviews.txt 中的影评的 positive/negative 情感标签
+
+```bash
+将加载入一组IMDB的电影评论
+
+这些标签与评论一一对应
+
+人们给电影从一星到五星打分
+
+我们简化成了正面评价：高于三星，负面评价：低于三星
+```
 
 ## 激活 python3 conda 环境
 

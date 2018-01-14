@@ -771,7 +771,7 @@ STA_API_SIGNCODE=2CE868847F16BB105B41E2B92EWC7AFF
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fn2iylf9zoj214j0j7aoo.jpg)
 
-## 运行dms-etc项目【基于Laravel项目】
+## 运行dms-etl项目【基于Laravel项目】
 
 >在window上配置hosts
 
@@ -1030,6 +1030,8 @@ EOT;
 
 }
 ```
+
+>使用gulp进行构建
 
 ```bash
 gulp
