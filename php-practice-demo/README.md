@@ -1028,7 +1028,10 @@ EOT;
         $result = DB::connection('dw')->select($sql);
         foreach ($result as $res) {
             var_dump($res->id,$res->value);
+            // var_dump()函数返回变量的数据类型和值
 //            var_dump($res);
+//            echo($res);
+//            print($res);
         }
 
     }
