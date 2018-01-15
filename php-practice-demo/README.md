@@ -902,7 +902,7 @@ mkdir -p /var/www/laravel/dms-etl/storage/framework/views
 mkdir -p /var/www/laravel/dms-etl/storage/framework/cache
 ```
 
-### 编辑nginx的dms-ctl.conf配置文件
+### 编辑nginx的dms-etl.conf配置文件
 
 ```bash
 vim /etc/nginx/conf.d/dms-ctl.conf
@@ -1020,6 +1020,11 @@ class DataWarehouse extends Command
 select *
 from d_color
 EOT;
+//        $sql = <<<EOT
+//insert into test_color values
+//('211420', 'ts1234133'),
+//('211421', 'ts1234132')
+//EOT;
         $result = DB::connection('dw')->select($sql);
         foreach ($result as $res) {
             var_dump($res->id,$res->value);
