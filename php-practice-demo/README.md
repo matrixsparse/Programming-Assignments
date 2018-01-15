@@ -474,7 +474,7 @@ semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/laravel/tests(/.*)?'
 restorecon -Rv '/var/www/laravel/'
 ```
 
-### 使用semanage命令查看端口
+### 使用semanage命令查看端口【这步作废】
 
 ```bash
 semanage port -l | grep http_port_t                # fine allow port
