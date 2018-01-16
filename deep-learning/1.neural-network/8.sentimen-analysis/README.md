@@ -84,3 +84,85 @@ http://服务器ip:8888/notebooks/Sentiment_Classification_Projects.ipynb
 ```bash
 source deactivate
 ```
+
+```bash
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Copyright (C), 2018, matrix
+
+from collections import Counter
+import numpy as np
+
+
+# 加载数据集
+def pretty_print_review_and_label(i):
+    print(labels[i] + "\t:\t" + reviews[i][:80] + "...")
+
+
+# 加载 25000 条影评
+g = open('/data/server/cn-deep-learning/tutorials/sentiment-network/reviews.txt', 'r')  # What we know!
+reviews = list(map(lambda x: x[:-1], g.readlines()))
+print("--------------- 影评 start -----------------")
+# print(reviews)
+# 查看影评数据条数
+print('查看影评数据条数：', len(reviews))
+print("--------------- end 影评 -----------------")
+g.close()
+
+# 加载针对 reviews.txt 中的影评的 positive/negative 情感标签
+g = open('/data/server/cn-deep-learning/tutorials/sentiment-network/labels.txt', 'r')  # What we WANT to know!
+labels = list(map(lambda x: x[:-1].upper(), g.readlines()))
+print("--------------- 情感标签 start -----------------")
+print('查看情感标签：', labels[0])
+print("--------------- end 情感标签 -----------------")
+g.close()
+
+# 查看影评数据及情感标签
+print("--------------- 查看影评数据及情感标签 start -----------------")
+print("labels.txt \t : \t reviews.txt\n")
+pretty_print_review_and_label(2137)
+pretty_print_review_and_label(12816)
+pretty_print_review_and_label(6267)
+pretty_print_review_and_label(21934)
+pretty_print_review_and_label(5297)
+pretty_print_review_and_label(4998)
+print("--------------- end 查看影评数据及情感标签 -----------------")
+
+# 统计positive影评条数、negative影评条数、所有打标签的影评数据
+# Create three Counter objects to store positive, negative and total counts
+positive_counts = Counter()
+negative_counts = Counter()
+total_counts = Counter()
+
+# 开始计算
+for i in range(len(reviews)):
+    if (labels[i] == 'POSITIVE'):
+        # print(labels[i])
+        # print(reviews[i])
+        for word in reviews[i].split(" "):
+            positive_counts[word] += 1
+            total_counts[word] += 1
+    else:
+        for word in reviews[i].split(" "):
+            negative_counts[word] += 1
+            total_counts[word] += 1
+
+# print(total_counts)
+
+# Examine the counts of the most common words in positive reviews
+print('----------------------- 打印 positive 词词频 start -----------------------------')
+print(positive_counts.most_common())
+print('----------------------- end 打印 positive 词词频 -----------------------------')
+
+# Examine the counts of the most common words in negative reviews
+print('----------------------- 打印 negative 词词频 start -----------------------------')
+print(negative_counts.most_common())
+print('----------------------- end 打印 negative 词词频 -----------------------------')
+
+# Create Counter object to store positive/negative ratios
+pos_neg_ratios = Counter()
+
+# TODO: Calculate the ratios of positive and negative uses of the most common words
+#       Consider words to be "common" if they've been used at least 100 times
+# pos_neg_ratios[word] = positive_counts[word] / float(negative_counts[word]+1)
+```
