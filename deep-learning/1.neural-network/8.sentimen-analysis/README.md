@@ -166,3 +166,7 @@ pos_neg_ratios = Counter()
 #       Consider words to be "common" if they've been used at least 100 times
 # pos_neg_ratios[word] = positive_counts[word] / float(negative_counts[word]+1)
 ```
+
+单个单词比整个评论更能对正负标签作出预测
+现在，要将数据集转换成数字，运用刚刚的理论和思想
+让神经网络以这种特定的方式来寻找相关性，传入神经网络，使其能够寻找相关性并做出正确的正负预测
