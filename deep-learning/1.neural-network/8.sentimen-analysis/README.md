@@ -62,7 +62,7 @@ git clone https://github.com/udacity/cn-deep-learning.git
 ```
 
 ```bash
-cd cn-deep-learning/tutorials／sentiment-network
+cd cn-deep-learning/tutorials/sentiment-network
 ```
 
 ## 启动 Jupyter notebook 服务器
