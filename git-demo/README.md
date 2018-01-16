@@ -1,5 +1,53 @@
 ## 生成SSH密钥
 
+### 查看远程仓库版本
+
+```bash
+[root@sparsematrix dms-etl]# git remote -v
+origin	git@52.221.152.145:server/dms-etl.git (fetch)
+origin	git@52.221.152.145:server/dms-etl.git (push)
+```
+
+### 查看所有分支
+
+```bash
+[root@sparsematrix dms-etl]# git branch -a
+* develop
+  master
+  tmp
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/develop
+  remotes/origin/master
+```
+
+### 查看本地分支
+
+```bash
+[root@sparsematrix dms-etl]# git branch
+```
+
+### 切换分支到develop
+
+```bash
+[root@sparsematrix dms-etl]# git checkout --track remotes/origin/develop
+```
+
+>提交文件
+
+```bash
+[root@sparsematrix dms-etl]# git add app/Console/Commands/DataWarehouse.php
+```
+
+```bash
+[root@sparsematrix dms-etl]# git commit -m "数据仓库处理增量数据脚本"
+```
+
+>分支推到远程分支
+
+```bash
+[root@sparsematrix dms-etl]# git push origin develop
+```
+
 ### Generate a new SSH key 生成新的 SSH 密钥
 
 ```bash
