@@ -73,7 +73,7 @@ TensorFlow 支持 C, C++, Python 编程语言. 目前, TensorFlow 的 Python 库
 
 Python 库中, op 构造器的返回值代表被构造出的 op 的输出, 这些返回值可以传递给其它 op 构造器作为输入.
 
-TensorFlow Python 库有一个默认图 (default graph), op 构造器可以为其增加节点. 这个默认图对 许多程序来说已经足够用了. 阅读 Graph 类 文档 来了解如何管理多个图.
+TensorFlow Python 库有一个默认图 (default graph), op 构造器可以为其增加节点. 这个默认图对 许多程序来说已经足够用了
 
 ```bash
 import tensorflow as tf
@@ -141,12 +141,14 @@ with tf.Session() as sess:
 
 设备用字符串进行标识. 目前支持的设备包括:
 
+```bash
 "/cpu:0": 机器的 CPU.
 "/gpu:0": 机器的第一个 GPU, 如果有的话.
 "/gpu:1": 机器的第二个 GPU, 以此类推.
-阅读使用GPU章节, 了解 TensorFlow GPU 使用的更多信息.
+```
 
-交互式使用
+### 交互式使用
+
 文档中的 Python 示例使用一个会话 Session 来 启动图, 并调用 Session.run() 方法执行操作.
 
 为了便于使用诸如 IPython 之类的 Python 交互环境, 可以使用 InteractiveSession 代替 Session 类, 使用 Tensor.eval() 和 Operation.run() 方法代替 Session.run(). 这样可以避免使用一个变量来持有会话.
@@ -169,11 +171,10 @@ print sub.eval()
 ```
 
 ## Tensor
-å
-TensorFlow 程序使用 tensor 数据结构来代表所有的数据, 计算图中, 操作间传递的数据都是 tensor. 你可以把 TensorFlow tensor 看作是一个 n 维的数组或列表. 一个 tensor 包含一个静态类型 rank, 和 一个 shape. 想了解 TensorFlow 是如何处理这些概念的, 参见 Rank, Shape, 和 Type.
 
-变量
-Variables for more details. 变量维护图执行过程中的状态信息
+TensorFlow 程序使用 tensor 数据结构来代表所有的数据, 计算图中, 操作间传递的数据都是 tensor. 你可以把 TensorFlow tensor 看作是一个 n 维的数组或列表. 一个 tensor 包含一个静态类型 rank, 和 一个 shape.
+
+### 变量
 
 >如何使用变量实现一个简单的计数器
 
@@ -182,7 +183,6 @@ Variables for more details. 变量维护图执行过程中的状态信息
 state = tf.Variable(0, name="counter")
 
 # 创建一个 op, 其作用是使 state 增加 1
-
 one = tf.constant(1)
 new_value = tf.add(state, one)
 update = tf.assign(state, new_value)
