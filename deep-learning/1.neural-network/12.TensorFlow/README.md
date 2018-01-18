@@ -57,7 +57,8 @@ TensorFlow 是一个编程系统, 使用图来表示计算任务. 图中的节�
 
 一个 TensorFlow 图描述了计算的过程. 为了进行计算, 图必须在 会话 里被启动. 会话 将图的 op 分发到诸如 CPU 或 GPU 之类的 设备 上, 同时提供执行 op 的方法. 这些方法执行后, 将产生的 tensor 返回. 在 Python 语言中, 返回的 tensor 是 numpy ndarray 对象; 在 C 和 C++ 语言中, 返回的 tensor 是 tensorflow::Tensor 实例.
 
-计算图
+## 计算图
+
 TensorFlow 程序通常被组织成一个构建阶段和一个执行阶段. 在构建阶段, op 的执行步骤 被描述成一个图. 在执行阶段, 使用会话执行执行图中的 op.
 
 例如, 通常在构建阶段创建一个图来表示和训练神经网络, 然后在执行阶段反复执行图中的训练 op.
@@ -66,7 +67,8 @@ TensorFlow 支持 C, C++, Python 编程语言. 目前, TensorFlow 的 Python 库
 
 三种语言的会话库 (session libraries) 是一致的.
 
-构建图
+## 构建图
+
 构建图的第一步, 是创建源 op (source op). 源 op 不需要任何输入, 例如 常量 (Constant). 源 op 的输出被传递给其它 op 做运算.
 
 Python 库中, op 构造器的返回值代表被构造出的 op 的输出, 这些返回值可以传递给其它 op 构造器作为输入.
@@ -94,8 +96,6 @@ product = tf.matmul(matrix1, matrix2)
 
 在一个会话中启动图
 构造阶段完成后, 才能启动图. 启动图的第一步是创建一个 Session 对象, 如果无任何创建参数, 会话构造器将启动默认图.
-
-欲了解完整的会话 API, 请阅读Session 类.
 
 ```bash
 # 启动默认图.
