@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PatPat数据仓库数据校验</title>
+    <link rel="shortcut icon" href="https://file.iviewui.com/file/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        .app {
+            width: 75%;
+            margin: 50px auto;
+        }
+
+        .breadcrumb {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: .75rem 1rem;
+            list-style: none;
+            background-color: #333;
+            color: #e9bd6c;
+            margin-bottom: 0px;
+            border-radius: .25rem .25rem 0 0;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        .ivu-table th {
+            height: 40px;
+            white-space: nowrap;
+            overflow: hidden;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="table-one" class='app'>
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">流量数据校验</li>
+            </ol>
+        </nav>
+        <i-table border :columns="columns" :data="data"></i-table>
+    </div>
+</div>
+<div id="table-two" class='app'>
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">产品销量Top100的产品转换率</li>
+            </ol>
+        </nav>
+        <i-table border :columns="columns" :data="data"></i-table>
+    </div>
+</div>
+<div id="table-three" class='app'>
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">坑位流量校验</li>
+            </ol>
+        </nav>
+        <i-table border :columns="columns" :data="data"></i-table>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#table-one',
+        data: {
+            visible: false,
+            columns: [
+                {
+                    title: '流量渠道',
+                    key: 'channel',
+                    sortable: true
+                },
+                {
+                    title: '美国时间',
+                    key: 'time',
+                    sortable: true
+                },
+                {
+                    title: 'f_traffic',
+                    key: 'f_traffic',
+                    sortable: true
+                },
+                {
+                    title: 'dw.track_record',
+                    key: 'dw',
+                    sortable: true
+                },
+                {
+                    title: 'log.track_record',
+                    key: 'log'
+                },
+                {
+                    title: '第三方平台流量数据',
+                    key: 'platform',
+                    sortable: true
+                }
+            ],
+            data: [
+                {
+                    channel: '非自然流量',
+                    time: '2018-01-26',
+                    f_traffic: '4981384',
+                    dw: '695866',
+                    log: '696431',
+                    platform: '0'
+                },
+                {
+                    channel: 'Google',
+                    time: '2018-01-26',
+                    f_traffic: '126425',
+                    dw: '19230',
+                    log: '19150',
+                    platform: '0'
+                },
+                {
+                    channel: 'Facbook',
+                    time: '2018-01-26',
+                    f_traffic: '3376946',
+                    dw: '394943',
+                    log: '394849',
+                    platform: '37000'
+                },
+                {
+                    channel: '非自然流量',
+                    time: '2018-01-22 ~ 2018-01-26',
+                    f_traffic: '23968042',
+                    dw: '3435837',
+                    log: '3438004',
+                    platform: '0'
+                },
+                {
+                    channel: 'Google',
+                    time: '2018-01-22 ~ 2018-01-26',
+                    f_traffic: '614515',
+                    dw: '97475',
+                    log: '96986',
+                    platform: '0'
+                },
+                {
+                    channel: 'Facbook',
+                    time: '2018-01-22 ~ 2018-01-26',
+                    f_traffic: '16688155',
+                    dw: '1937592',
+                    log: '1937239',
+                    platform: '0'
+                },
+            ]
+        }
+    })
+
+    new Vue({
+        el: '#table-two',
+        data: {
+            visible: false,
+            columns: [
+                {
+                    title: '美国时间',
+                    key: 'time',
+                    sortable: true
+                },
+                {
+                    title: '数据类型',
+                    key: 'redshift',
+                    sortable: true
+                },
+                {
+                    title: 'Redshift流量数据',
+                    key: 'redshift',
+                    sortable: true
+                },
+                {
+                    title: 'Mysql流量数据',
+                    key: 'mysql'
+                },
+                {
+                    title: '第三方平台流量数据',
+                    key: 'platform',
+                    sortable: true
+                }
+            ],
+            data: [
+                {
+                    time: '2018-01-26',
+                    redshift: '产品点击',
+                    mysql: '1651616',
+                    platform: '1616515616'
+                },
+                {
+                    time: '2018-01-26',
+                    redshift: '订单付款',
+                    mysql: '1651616',
+                    platform: '1616515616'
+                }
+            ]
+        }
+    })
+
+    new Vue({
+        el: '#table-three',
+        data: {
+            visible: false,
+            columns: [
+                {
+                    title: '美国时间',
+                    key: 'time',
+                    sortable: true
+                },
+                {
+                    title: 'Redshift流量数据',
+                    key: 'redshift',
+                    sortable: true
+                },
+                {
+                    title: 'Mysql流量数据',
+                    key: 'mysql'
+                },
+                {
+                    title: '第三方平台流量数据',
+                    key: 'platform',
+                    sortable: true
+                }
+            ],
+            data: [
+                {
+                    time: '2018-01-29',
+                    redshift: '21321351',
+                    mysql: '1651616',
+                    platform: '1616515616'
+                }
+            ]
+        }
+    })
+</script>
+</body>
+</html>
