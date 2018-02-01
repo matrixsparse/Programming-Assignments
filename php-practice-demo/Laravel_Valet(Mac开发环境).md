@@ -192,6 +192,8 @@ composer create-project laravel/laravel --prefer-dist laravel
 
 >在浏览器中访问 http://laravel.dev
 
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo1i43bus2j22kc11e77i.jpg)
+
 >停止某个 laravel.dev 的域名
 
 ```bash
