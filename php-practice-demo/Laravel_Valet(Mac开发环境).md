@@ -115,8 +115,72 @@ sparsematrix:~ matrix$ composer global require laravel/valet
 (确保 ~/.composer/vendor/bin在系统路径中)
 ```
 
+```bash
+export PATH="~/.composer/vendor/bin:$PATH"
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo1gej8xbrj21rm0zq1kx.jpg)
+
 >配置并安装Valet和DnsMasq，然后注册Valet后台随机启动
 
 ```bash
 sparsematrix:~ matrix$ valet install
+Stopping nginx...
+Installing nginx...
+[nginx] is not installed, installing it now via Brew... 🍻
+Installing nginx configuration...
+Installing nginx directory...
+Updating PHP configuration...
+Restarting php70...
+Installing dnsmasq...
+[dnsmasq] is not installed, installing it now via Brew... 🍻
+Restarting dnsmasq...
+Restarting nginx...
+
+Valet installed successfully!
 ```
+
+安装完Valet后，尝试使用命令如 ping foobar.dev在终端ping一下任意*.dev域名，如果Valet安装正确就会看到来自 127.0.0.1的响应
+
+```bash
+ping foobar.dev
+```
+
+```bash
+sparsematrix:~ matrix$ ping foobar.dev
+PING foobar.dev (127.0.53.53): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+Request timeout for icmp_seq 2
+Request timeout for icmp_seq 3
+Request timeout for icmp_seq 4
+Request timeout for icmp_seq 5
+Request timeout for icmp_seq 6
+Request timeout for icmp_seq 7
+Request timeout for icmp_seq 8
+Request timeout for icmp_seq 9
+```
+
+每次系统启动的时候Valet后台会自动启动，而不需要再次手动运行valet start或valet install
+
+## 服务站点
+
+Valet安装完成后，就可以启动服务站点，Valet为此提供了两个命令：park和link
+
+### park命令
+
+在Mac中创建一个新目录，例如 mkdir ~/Sites，然后进入这个目录并运行
+
+```bash
+valet park
+```
+
+这个命令会将当前所在目录作为web根目录
+
+接下来，在新建的目录中创建一个新的Laravel站点
+
+```bash
+laravel new blog
+```
+
+在浏览器中访问 http://blog.dev。
