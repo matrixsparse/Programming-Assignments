@@ -21,43 +21,43 @@ Valet为我们提供了以下软件和工具
 >安装ruby
 
 ```bash
-brew install ruby@2.3
+sparsematrix:~ matrix$ brew install ruby@2.3
 ```
 
 >安装或更新Homebrew到最新版本
 
 ```bash
-brew update
+sparsematrix:~ matrix$ brew update
 ```
 
 >确保 brew services有效并且能获取到正确的输出，如果无效，则需要添加
 
 ```bash
-brew services list
+sparsematrix:~ matrix$ brew services list
 ```
 
 >通过Homebrew安装PHP 7.0
 
 ```bash
-brew install homebrew/php/php70
+sparsematrix:~ matrix$ brew install homebrew/php/php70
 ```
 
 ```bash
-vim ~/.bash_profile
+sparsematrix:~ matrix$ vim ~/.bash_profile
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-source ~/.bash_profile
+sparsematrix:~ matrix$ source ~/.bash_profile
 ```
 
 >安装php－version(php版本切换工具)
 
 ```bash
-brew install homebrew/php/php-version
+sparsematrix:~ matrix$ brew install homebrew/php/php-version
 ```
 
 ```bash
-vim ~/.bash_profile
+sparsematrix:~ matrix$ vim ~/.bash_profile
 source $(brew --prefix php-version)/php-version.sh && php-version 7
-source ~/.bash_profile
+sparsematrix:~ matrix$ source ~/.bash_profile
 ```
 
 >查看已存在的php版本,前面带＊的是当前环境正在使用的php版本,使用php－versiom＋版本号的方式切换php版本
@@ -74,14 +74,49 @@ Copyright (c) 1997-2017 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 ```
 
+>安装composer
+
+```bash
+sparsematrix:~ matrix$ brew install composer
+```
+
+升级composer到最新版本
+
+```bash
+sparsematrix:~ matrix$ composer self-update
+```
+
+```bash
+sparsematrix:~ matrix$ composer self-update --update-keys
+```
+
+```bash
+sparsematrix:~ matrix$ composer diag
+Checking platform settings: OK
+Checking git settings: OK
+Checking http connectivity to packagist: OK
+Checking https connectivity to packagist: OK
+Checking github.com rate limit: OK
+Checking disk free space: OK
+Checking pubkeys:
+Tags Public Key Fingerprint: 4AC45767 E5EC2265 2F0C1167 CBBB8A2B  0C708369 153E328C AD90147D AFE50952
+Dev Public Key Fingerprint: 4AC45767 E5EC2265 2F0C1167 CBBB8A2B  0C708369 153E328C AD90147D AFE50952
+OK
+Checking composer version: OK
+Composer version: 1.6.3
+PHP version: 7.0.27
+PHP binary path: /usr/local/Cellar/php70/7.0.27_19/bin/php
+```
+
 >通过Composer安装Valet
 
 ```bash
-composer global require laravel/valet（确保 ~/.composer/vendor/bin在系统路径中）
+sparsematrix:~ matrix$ composer global require laravel/valet
+(确保 ~/.composer/vendor/bin在系统路径中)
 ```
 
 >配置并安装Valet和DnsMasq，然后注册Valet后台随机启动
 
 ```bash
-valet install
+sparsematrix:~ matrix$ valet install
 ```
