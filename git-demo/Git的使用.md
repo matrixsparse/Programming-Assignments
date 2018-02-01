@@ -48,6 +48,12 @@ git checkout -- [file name]
 git branch
 ```
 
+### 查看服务器远程分支情况
+
+```bash
+git branch -a  
+```
+
 ### 若分支为本地分支，则需切换到服务器的远程分支
 
 ```bash
