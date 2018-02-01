@@ -112,11 +112,12 @@ PHP binary path: /usr/local/Cellar/php70/7.0.27_19/bin/php
 
 ```bash
 sparsematrix:~ matrix$ composer global require laravel/valet
-(确保 ~/.composer/vendor/bin在系统路径中)
 ```
 
+>确保 ~/.composer/vendor/bin在系统路径中
+
 ```bash
-export PATH="~/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo1gej8xbrj21rm0zq1kx.jpg)
@@ -140,7 +141,11 @@ Restarting nginx...
 Valet installed successfully!
 ```
 
-安装完Valet后，尝试使用命令如 ping foobar.dev在终端ping一下任意*.dev域名，如果Valet安装正确就会看到来自 127.0.0.1的响应
+安装完Valet后，尝试使用命令如 ping foobar.dev在终端ping一下任意*.dev域名，如果Valet安装正确就会看到来自127.0.0.1的响应
+
+```bash
+valet domain dev
+```
 
 ```bash
 ping foobar.dev
@@ -148,17 +153,11 @@ ping foobar.dev
 
 ```bash
 sparsematrix:~ matrix$ ping foobar.dev
-PING foobar.dev (127.0.53.53): 56 data bytes
-Request timeout for icmp_seq 0
-Request timeout for icmp_seq 1
-Request timeout for icmp_seq 2
-Request timeout for icmp_seq 3
-Request timeout for icmp_seq 4
-Request timeout for icmp_seq 5
-Request timeout for icmp_seq 6
-Request timeout for icmp_seq 7
-Request timeout for icmp_seq 8
-Request timeout for icmp_seq 9
+PING foobar.dev (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.045 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.055 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.058 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.055 ms
 ```
 
 每次系统启动的时候Valet后台会自动启动，而不需要再次手动运行valet start或valet install
@@ -169,18 +168,51 @@ Valet安装完成后，就可以启动服务站点，Valet为此提供了两个�
 
 ### park命令
 
-在Mac中创建一个新目录，例如 mkdir ~/Sites，然后进入这个目录并运行
+在Mac中创建一个新目录
 
 ```bash
-valet park
+sparsematrix:~ matrix$ mkdir ~/Sites
+sparsematrix:~ matrix$ cd Sites
+```
+
+进入这个目录并运行
+
+```bash
+sparsematrix:Sites matrix$ valet park
+This directory has been added to Valet's paths.
 ```
 
 这个命令会将当前所在目录作为web根目录
 
-接下来，在新建的目录中创建一个新的Laravel站点
+>在此目录下创建Laravel项目
 
 ```bash
-laravel new blog
+composer create-project laravel/laravel --prefer-dist laravel
 ```
 
-在浏览器中访问 http://blog.dev。
+>在浏览器中访问 http://laravel.dev
+
+>停止某个 laravel.dev 的域名
+
+```bash
+cd ~/Sites/laravel
+Valet stop
+```
+
+### link命令
+
+link命令也可以用于本地Laravel站点，这个命令在你想要在目录中提供单个站点时很有用。
+
+要使用这个命令，先切换到你的某个项目并运行 valet link app-name，这样Valet会在 ~/.valet/Sites中创建一个符号链接指向当前工作目录。
+运行完link命令后，可以在浏览器中通过 http://app-name.dev访问。
+要查看所有的链接目录，可以运行 valet links命令。你也可以通过 valet unlink app-name来删除符号链接
+
+### 使用其它域名
+
+默认情况下，Valet 使用 .test 顶级域名为你的项目提供服务。如果你想使用其他域名，可以使用 valet domain tld-name 命令
+
+例如，如果你要使用 .app 而不是 .test，就运行 valet domain app，Valet 会自动将站点域名改为 *.app
+
+```bash
+valet domain dev
+```
