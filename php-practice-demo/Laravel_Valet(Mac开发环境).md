@@ -16,6 +16,8 @@ Valet为我们提供了以下软件和工具
 * 静态HTML
 你还可以通过自定义的驱动扩展Valet
 
+## 安装
+
 >安装ruby
 
 ```bash
@@ -37,7 +39,39 @@ brew services list
 >通过Homebrew安装PHP 7.0
 
 ```bash
-brew install php70
+brew install homebrew/php/php70
+```
+
+```bash
+vim ~/.bash_profile
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+source ~/.bash_profile
+```
+
+>安装php－version(php版本切换工具)
+
+```bash
+brew install homebrew/php/php-version
+```
+
+```bash
+vim ~/.bash_profile
+source $(brew --prefix php-version)/php-version.sh && php-version 7
+source ~/.bash_profile
+```
+
+>查看已存在的php版本,前面带＊的是当前环境正在使用的php版本,使用php－versiom＋版本号的方式切换php版本
+
+```bash
+sparsematrix:~ matrix$ php-version
+* 7.0.27
+```
+
+```bash
+sparsematrix:~ matrix$ php --version
+PHP 7.0.27 (cli) (built: Jan  5 2018 12:24:33) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 ```
 
 >通过Composer安装Valet
