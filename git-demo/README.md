@@ -89,6 +89,14 @@ Warning: Permanently added 'gitlab.com,52.167.219.168' (ECDSA) to the list of kn
 Welcome to GitLab, sparsematrix!
 ```
 
+## 管理多个SSH秘钥
+
+### 生成一个公司用的SSH-Key
+
+```bash
+ssh-keygen -t rsa -C "youremail@your.com" -f ~/.ssh/company-rsa
+```
+
 ## Git基本命令
 
 >查看different
