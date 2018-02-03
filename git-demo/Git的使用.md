@@ -1,4 +1,3 @@
-
 ## git拉取github上的项目
 
 ### 配置本地仓库的账号和邮箱
@@ -54,7 +53,7 @@ git branch
 git branch -a  
 ```
 
-### 若分支为本地分支，则需切换到服务器的远程分支
+### checkout命令可用于从历史提交（或者暂存区域）中拷贝文件到工作目录，也可用于切换分支
 
 ```bash
 git checkout [remote branch]
