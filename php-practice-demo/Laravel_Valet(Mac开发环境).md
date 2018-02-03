@@ -209,11 +209,15 @@ link命令也可以用于本地Laravel站点，这个命令在你想要在目录
 
 运行完link命令后，可以在浏览器中通过 http://app-name.dev访问
 
-要查看所有的链接目录，可以运行 valet links命令。你也可以通过 valet unlink app-name来删除符号链接
+要查看所有的链接目录，可以运行 valet links命令
+
+你也可以通过 valet unlink app-name来删除符号链接
 
 ### 使用其它域名
 
-默认情况下，Valet 使用 .test 顶级域名为你的项目提供服务。如果你想使用其他域名，可以使用 valet domain tld-name 命令
+默认情况下，Valet 使用 .test 顶级域名为你的项目提供服务
+
+如果你想使用其他域名，可以使用 valet domain tld-name 命令
 
 例如，如果你要使用 .app 而不是 .test，就运行 valet domain app，Valet 会自动将站点域名改为 *.app
 
@@ -225,7 +229,7 @@ valet domain dev
 
 ```bash
 valet forget	从"parked"目录运行该命令以便从parked目录列表中移除该目录
-valet paths	查看你的”parked”路径
+valet paths	查看你的"parked"路径
 valet restart	重启Valet
 valet start	启动Valet
 valet stop	关闭Valet
