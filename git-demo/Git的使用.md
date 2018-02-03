@@ -60,10 +60,28 @@ git branch -a
 git checkout [remote branch]
 ```
 
+### 把当前文件放入暂存区域
+
+```bash
+git add files
+```
+
 ### 将远程仓库代码同步到本地/取回远程主机某个分支的更新
 
 ```bash
 git pull origin master
+```
+
+### git用暂存区域的文件创建一个新的提交
+
+```bash
+git commit -m "update demo code"
+```
+
+### git更改一次提交
+
+```bash
+git commit --amend -m "use git demo code"
 ```
 
 ### 将本地代码同步到远程仓库
