@@ -91,7 +91,7 @@ Welcome to GitLab, sparsematrix!
 
 ## 管理多个SSH秘钥
 
-### 生成一个公司用的SSH-Key
+### 生成一个公司用的SSH-Key，指定生成文件
 
 ```bash
 ssh-keygen -t rsa -C "youremail@your.com" -f ~/.ssh/company-rsa
@@ -107,13 +107,13 @@ ssh-add -K ~/.ssh/company-rsa
 ssh-add -l
 ```
 
-这里为什么加上了一个-K参数呢？因为在Mac上，当系统重启后会“忘记”这个密钥，所以通过指定-K把SSH key导入到密钥链中
+这里为什么加上了一个-K参数呢？因为在Mac上，当系统重启后会"忘记"这个密钥，所以通过指定-K把SSH key导入到密钥链中
+
+>在 ~/.ssh 目录下创建 config 文件
 
 ```bash
-sparsematrix:~ matrix$ ssh -T gitlab.com
-```
-
 vim ~/.ssh/config
+```
 
 ```bash
 Host github.com
@@ -122,14 +122,33 @@ Host github.com
     PreferredAuthentications publickey
     IdentityFile /Users/matrix/.ssh/id_rsa
 
-Host 52.221.152.145:88
-    HostName 52.221.152.145:88
-    User matrix.wang
+Host 52.221.152.145
+    HostName 52.221.152.145
+    User git
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/company-rsa
 ```
 
+>配置项目用户和邮箱
+
+```bash
+git config --local user.name "matrix.wang"
 git config --local user.email "matrix.wang@patpat.com"
+```
+
+### 测试SSH-KEY配置是否成功
+
+```bash
+sparsematrix:~ matrix$ ssh -T github.com
+```
+
+```bash
+sparsematrix:~ matrix$ ssh -T gitlab.com
+```
+
+```bash
+sparsematrix:patpat matrix$ ssh -T git@52.221.152.145
+```
 
 ## Git基本命令
 
