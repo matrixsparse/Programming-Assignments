@@ -218,3 +218,14 @@ link命令也可以用于本地Laravel站点，这个命令在你想要在目录
 ```bash
 valet domain dev
 ```
+
+## 其他Valet命令
+
+```bash
+valet forget	从"parked"目录运行该命令以便从parked目录列表中移除该目录
+valet paths	查看你的”parked”路径
+valet restart	重启Valet
+valet start	启动Valet
+valet stop	关闭Valet
+valet uninstall	卸载Valet
+```
