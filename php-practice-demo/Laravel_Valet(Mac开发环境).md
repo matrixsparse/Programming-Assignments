@@ -286,3 +286,31 @@ sparsematrix:dms-etl matrix$ npm install -g gulp-notify
 ```bash
 sparsematrix:dms-etl matrix$ gulp
 ```
+
+>将当前目录加入"parked"路径
+
+```bash
+sparsematrix:patpat matrix$ valet park
+This directory has been added to Valet's paths.
+```
+
+>查看你的"parked"路径
+
+```bash
+sparsematrix:~ matrix$ valet paths
+[
+    "/Users/matrix/.valet/Sites",
+    "/Users/matrix/Desktop",
+    "/Users/matrix/Desktop/patpat/dms-etl"
+]
+```
+
+>启动Valet
+
+```bash
+sparsematrix:dms-etl matrix$ Valet start
+```
+
+>在浏览器地址栏访问 http://dms-etl.dev/dashboard
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo39vzdh11j22ki0mawix.jpg)
