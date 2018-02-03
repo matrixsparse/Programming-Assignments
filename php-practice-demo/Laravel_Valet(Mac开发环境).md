@@ -203,10 +203,12 @@ Valet stop
 
 ### link命令
 
-link命令也可以用于本地Laravel站点，这个命令在你想要在目录中提供单个站点时很有用。
+link命令也可以用于本地Laravel站点，这个命令在你想要在目录中提供单个站点时很有用
 
-要使用这个命令，先切换到你的某个项目并运行 valet link app-name，这样Valet会在 ~/.valet/Sites中创建一个符号链接指向当前工作目录。
-运行完link命令后，可以在浏览器中通过 http://app-name.dev访问。
+要使用这个命令，先切换到你的某个项目并运行 valet link app-name，这样Valet会在 ~/.valet/Sites中创建一个符号链接指向当前工作目录
+
+运行完link命令后，可以在浏览器中通过 http://app-name.dev访问
+
 要查看所有的链接目录，可以运行 valet links命令。你也可以通过 valet unlink app-name来删除符号链接
 
 ### 使用其它域名
@@ -228,4 +230,55 @@ valet restart	重启Valet
 valet start	启动Valet
 valet stop	关闭Valet
 valet uninstall	卸载Valet
+```
+
+## Mac下运行PHP Laravel项目
+
+>进入目录
+
+```bash
+cd dms-etl
+```
+
+>创建目录，并赋予777权限
+
+```bash
+sparsematrix:dms-etl matrix$ mkdir -p storage/framework/sessions
+sparsematrix:dms-etl matrix$ mkdir -p storage/framework/views
+sparsematrix:dms-etl matrix$ mkdir -p storage/framework/cache
+sparsematrix:dms-etl matrix$ sudo chmod 777 storage/*
+```
+
+>查看Laravel版本
+
+```bash
+sparsematrix:dms-etl matrix$ php artisan -V
+Laravel Framework version 5.2.45
+```
+
+```bash
+[root@sparsematrix dms]# cp .env.example .env
+```
+
+```bash
+[root@sparsematrix dms]# composer install
+```
+
+>安装node相关模块
+
+```bash
+sparsematrix:dms-etl matrix$ npm install
+```
+
+>安装gulp
+
+```bash
+sparsematrix:dms-etl matrix$ npm install -g gulp
+sparsematrix:dms-etl matrix$ npm install -g gulp-notify
+```
+
+>运行gulp进行压缩
+
+```bash
+sparsematrix:dms-etl matrix$ gulp
 ```
