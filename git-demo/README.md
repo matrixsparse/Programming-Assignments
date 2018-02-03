@@ -110,14 +110,24 @@ ssh-add -l
 这里为什么加上了一个-K参数呢？因为在Mac上，当系统重启后会“忘记”这个密钥，所以通过指定-K把SSH key导入到密钥链中
 
 ```bash
-sparsematrix:~ matrix$ ssh -T matrix.gitlab.com
+sparsematrix:~ matrix$ ssh -T gitlab.com
 ```
-~/.ssh/config
+
+vim ~/.ssh/config
+
+```bash
+Host github.com
+    HostName github.com
+    User git
+    PreferredAuthentications publickey
+    IdentityFile /Users/matrix/.ssh/id_rsa
+
 Host 52.221.152.145:88
     HostName 52.221.152.145:88
-    User matrix.wang@patpat.com
+    User matrix.wang
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/company-rsa
+```
 
 git config --local user.email "matrix.wang@patpat.com"
 
