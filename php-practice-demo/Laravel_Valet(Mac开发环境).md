@@ -36,6 +36,26 @@ sparsematrix:~ matrix$ brew update
 sparsematrix:~ matrix$ brew services list
 ```
 
+>安装mysql
+
+```bash
+brew install mysql
+```
+
+>启动mysql
+
+```bash
+sparsematrix:~ matrix$ mysql.server start
+Starting MySQL
+. SUCCESS!
+```
+
+>进入mysql
+
+```bash
+sparsematrix:~ matrix$ mysql -uroot
+```
+
 >通过Homebrew安装PHP 7.0
 
 ```bash
