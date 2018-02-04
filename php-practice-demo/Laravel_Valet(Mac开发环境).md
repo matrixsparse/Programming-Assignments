@@ -56,6 +56,9 @@ Starting MySQL
 sparsematrix:~ matrix$ mysql -uroot
 ```
 
+grant all privileges on *.* to matrix@'localhost' identified by "123456" with grant option;
+flush privileges;
+
 >通过Homebrew安装PHP 7.0
 
 ```bash
@@ -334,3 +337,7 @@ sparsematrix:dms-etl matrix$ Valet start
 >在浏览器地址栏访问 http://dms-etl.dev/dashboard
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo39vzdh11j22ki0mawix.jpg)
+
+
+sparsematrix:dms-etl matrix$ brew install php70-pdo-pgsql
+sparsematrix:dms-etl matrix$  brew services start postgresql
