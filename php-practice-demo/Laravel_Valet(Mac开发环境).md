@@ -342,7 +342,7 @@ sparsematrix:dms-etl matrix$ Valet start
 
 ```bash
 sparsematrix:dms-etl matrix$ brew install php70-pdo-pgsql
-sparsematrix:dms-etl matrix$  brew services start postgresql
+sparsematrix:dms-etl matrix$ brew services start postgresql
 ```
 
 >在.env文件中添加pgsql配置
