@@ -115,3 +115,59 @@ mysql> SELECT *
 ```
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo619f8wyzj20la0aemyu.jpg)
+
+## LEFT JOIN EXCLUDING INNER JOIN
+
+返回左表有但右表没有关联数据的记录集
+
+>示例查询
+
+```bash
+SELECT A.PK AS A_PK, B.PK AS B_PK,
+       A.Value AS A_Value, B.Value AS B_Value
+FROM Table_A A
+LEFT JOIN Table_B B
+ON A.PK = B.PK
+WHERE B.PK IS NULL;
+```
+
+>查询结果
+
+```bash
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+|    2 | NULL | only a  | NULL    |
++------+------+---------+---------+
+1 row in set (0.01 sec)
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo61bqwdw1j20ge09mmyj.jpg)
+
+## RIGHT JOIN EXCLUDING INNER JOIN
+
+返回右表有但左表没有关联数据的记录集
+
+>示例查询
+
+```bash
+SELECT A.PK AS A_PK, B.PK AS B_PK,
+       A.Value AS A_Value, B.Value AS B_Value
+FROM Table_A A
+RIGHT JOIN Table_B B
+ON A.PK = B.PK
+WHERE A.PK IS NULL;
+```
+
+>查询结果
+
+```bash
++------+------+---------+---------+
+| A_PK | B_PK | A_Value | B_Value |
++------+------+---------+---------+
+| NULL |    3 | NULL    | only b  |
++------+------+---------+---------+
+1 row in set (0.00 sec)
+```
+
+![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo61c98xb9j20h209gdh7.jpg)
