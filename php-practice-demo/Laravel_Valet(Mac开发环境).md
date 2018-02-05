@@ -338,6 +338,11 @@ sparsematrix:dms-etl matrix$ Valet start
 
 ![All text](http://ww1.sinaimg.cn/large/dc05ba18gy1fo39vzdh11j22ki0mawix.jpg)
 
+>安装pgsql驱动
 
+```bash
 sparsematrix:dms-etl matrix$ brew install php70-pdo-pgsql
 sparsematrix:dms-etl matrix$  brew services start postgresql
+```
+
+>在.env文件中添加pgsql配置
