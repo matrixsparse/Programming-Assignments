@@ -12,10 +12,18 @@
 [matrix@sparsematrix dog-project]$ wget https://s3.cn-north-1.amazonaws.com.cn/static-documents/nd101/v4-dataset/dogImages.zip
 ```
 
+```bash
+[matrix@sparsematrix dog-project]$ unzip dogImages.zip
+```
+
 >下载人类数据集。并将数据集解压大存储库中，位置为项目路径/lfw
 
 ```bash
 [matrix@sparsematrix dog-project]$ wget https://s3.cn-north-1.amazonaws.com.cn/static-documents/nd101/v4-dataset/lfw.zip
+```
+
+```bash
+[matrix@sparsematrix dog-project]$ unzip lfw.zip
 ```
 
 >为狗狗数据集下载 VGG-16关键特征 并将其放置于存储库中，位置为项目路径/bottleneck_features
