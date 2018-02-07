@@ -35,3 +35,7 @@ And then kill it using
 ```bash
 SELECT pg_terminate_backend(pid)
 ```
+
+>删除表都用truncate table_name
+
+不要用delete from table_name删除
