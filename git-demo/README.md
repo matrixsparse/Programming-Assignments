@@ -31,6 +31,20 @@ origin	git@52.221.152.145:server/dms-etl.git (push)
 ```bash
 [root@sparsematrix dms-etl]# git checkout --track remotes/origin/develop
 ```
+or
+
+```bash
+git checkout -b remotes/origin/develop
+```
+
+git checkout命令加上-b参数表示创建并切换
+
+相当于以下两条命令：
+
+```bash
+git branch dev
+git checkout dev
+```
 
 >提交文件
 
@@ -75,20 +89,6 @@ Are you sure you want to continue connecting (yes/no)? yes
 Hi matrixsparse! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
->测试gitlab ssh是否配置成功
-
-```bash
-sparsematrix:~ matrix$ ssh -T git@gitlab.com
-```
-
-```bash
-The authenticity of host 'gitlab.com (52.167.219.168)' can't be established.
-ECDSA key fingerprint is SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'gitlab.com,52.167.219.168' (ECDSA) to the list of known hosts.
-Welcome to GitLab, sparsematrix!
-```
-
 ## 管理多个SSH秘钥
 
 ### 生成一个公司用的SSH-Key，指定生成文件
@@ -127,6 +127,12 @@ Host 52.221.152.145
     User git
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/company-rsa
+
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    PreferredAuthentications publickey
+    IdentityFile /Users/matrix/.ssh/id_rsa
 ```
 
 >配置项目用户和邮箱
