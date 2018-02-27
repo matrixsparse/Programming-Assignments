@@ -1,1 +1,0 @@
-# Cyclic neural network
