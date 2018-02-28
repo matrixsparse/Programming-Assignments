@@ -97,6 +97,8 @@ Hi matrixsparse! You've successfully authenticated, but GitHub does not provide 
 ssh-keygen -t rsa -C "youremail@your.com" -f ~/.ssh/company-rsa
 ```
 
+### 添加私钥文件
+
 ```bash
 ssh-add -K ~/.ssh/company-rsa
 ```
