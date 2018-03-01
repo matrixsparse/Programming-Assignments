@@ -1,5 +1,19 @@
 # Redshift命令操作
 
+>CONVERT_TIMEZONE 将时间戳从一个时区转换为另一个时区
+
+```bash
+SELECT GETDATE();
+SELECT convert_timezone('Asia/Shanghai',getdate());
+```
+
+>时间
+
+```bash
+SELECT to_char(getdate(), 'YYYYMMDD HH24:MI:SS')；
+SELECT to_char(getdate(), 'YYYY-MM-DD HH24')；
+```
+
 >查询所有表详细信息
 
 ```bash
