@@ -23,9 +23,17 @@ apachectl -v
 ```bash
 yum install httpd
 ```
+or
+```bash
+yum install httpd.x86_64
+```
 >启动Apache
 ```bash
 /etc/init.d/httpd start
+```
+or
+```bash
+apachectl start
 ```
 >Apache的默认网站根目录
 ```bash
@@ -34,6 +42,20 @@ yum install httpd
 >配置文件路径
 ```bash
 /etc/httpd/conf/httpd.conf
+```
+>更改apache默认网站目录
+```bash
+vim /etc/httpd/conf/httpd.conf
+```
+找到 DocumentRoot “/data/website/html” 这一段 #apache的根目录
+把/var/www/html 这个目录改为/data/website/html
+>查看apache服务状态
+```bash
+systemctl status httpd.service
+```
+>SSH异常“Failed to start OpenSSH Server daemon”问题排查
+```bash
+sshd -t
 ```
 ## 安装MySql
 ```bash
