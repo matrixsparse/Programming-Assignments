@@ -158,10 +158,16 @@ sparsematrix:~ matrix$ ssh -T gitlab.com
 sparsematrix:patpat matrix$ ssh -T git@52.221.152.145
 ```
 
-## Git基本命令
-
->查看different
+## 查看different
 
 ```bash
 git diff
 ```
+
+## 查看程序员提交次数
+
+```bash
+git shortlog -s -n
+```
+
+-s 是显示次数 -n 是排序. –all 把其它分支的也统计进来
