@@ -276,6 +276,10 @@ sparsematrix:dms-etl matrix$ mkdir -p storage/framework/cache
 sparsematrix:dms-etl matrix$ sudo chmod 777 storage/*
 ```
 
+```bash
+composer update --no-scripts
+```
+
 >查看Laravel版本
 
 ```bash
