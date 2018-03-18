@@ -295,6 +295,12 @@ Laravel Framework version 5.2.45
 [root@sparsematrix dms]# composer install
 ```
 
+>升级composer到最新版本
+
+```bash
+sparsematrix:~ matrix$ composer self-update
+```
+
 >安装node相关模块
 
 ```bash
