@@ -30,6 +30,7 @@ origin	git@52.221.152.145:server/dms-etl.git (push)
 
 ```bash
 [root@sparsematrix dms-etl]# git checkout --track remotes/origin/develop
+[root@sparsematrix dms]# git checkout --track remotes/origin/sales_diagnosis
 ```
 or
 
