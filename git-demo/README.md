@@ -4,8 +4,8 @@
 
 ```bash
 [root@sparsematrix dms-etl]# git remote -v
-origin	git@52.221.152.145:server/dms-etl.git (fetch)
-origin	git@52.221.152.145:server/dms-etl.git (push)
+origin	git@xx.xx.xx.xx:server/dms-etl.git (fetch)
+origin	git@xx.xx.xx.xx:server/dms-etl.git (push)
 ```
 
 ### 查看所有分支
@@ -125,8 +125,8 @@ Host github.com
     PreferredAuthentications publickey
     IdentityFile /Users/matrix/.ssh/id_rsa
 
-Host 52.221.152.145
-    HostName 52.221.152.145
+Host xx.xx.xx.xx
+    HostName xx.xx.xx.xx
     User git
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/company-rsa
