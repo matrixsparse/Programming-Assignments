@@ -84,6 +84,10 @@ sparsematrix:~ matrix$ ssh -T git@github.com
 ```
 
 ```bash
+sparsematrix:~ matrix$ ssh -T git@xxx.xxx.xx.xx
+```
+
+```bash
 The authenticity of host 'github.com (192.30.255.112)' can't be established.
 RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 Are you sure you want to continue connecting (yes/no)? yes

@@ -8,12 +8,10 @@ python get-pip.py
 pip -V　　#查看pip版本
 ```
 
-```bash
 Supervisor是基于Python的进程管理工具，可以更简单的监听、启停、重启服务器上的一个或多个后台进程，是Linux服务器管理的高效工具
 
-Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程挂掉后，会自动将它重新拉起
-其进程自动恢复的功能，不再需要自己写shell脚本来控制
-```
+* Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程挂掉后，会自动将它重新拉起
+* 其进程自动恢复的功能，不再需要自己写shell脚本来控制
 
 >Supervisor 有两个主要的组成部分：
 
