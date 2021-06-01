@@ -88,7 +88,7 @@ tornado==4.5.1
 traitlets==4.3.2
 unicodecsv==0.14.1
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 uWSGI==2.0.15
 vine==1.1.4
 virtualenv==15.1.0
